@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply bg-[#020814] text-white;
+    font-family: 'Open Sans', sans-serif;
+}
+@layer utilities {
+    .font-astro {
+        font-family: 'Cinzel', serif;
+    }
+}
+
+/* Glow-Pulse Animation */
+@keyframes premiumGlow {
+    0% { filter: drop-shadow(0 0 3px rgba(255,220,120,0.25)); }
+    30% { filter: drop-shadow(0 0 8px rgba(255,220,120,0.45)); }
+    60% { filter: drop-shadow(0 0 14px rgba(255,220,120,0.65)); }
+    100% { filter: drop-shadow(0 0 3px rgba(255,220,120,0.25)); }
+}
+
+.logo-glow {
+    animation: premiumGlow 4s ease-in-out infinite;
+}
+
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
