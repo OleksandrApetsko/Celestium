@@ -1,45 +1,52 @@
 // src/pages/BirthChart.jsx
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BirthChartForm from "../components/BirthChart/BirthChartForm.jsx";
 import BirthChartReport from "../components/BirthChart/BirthChartReport.jsx";
 
 export default function BirthChart() {
-  const [data, setData] = useState(null);
+  const [chart, setChart] = useState(null);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const onGenerate = (payload) => {
+    setChart(payload);
+  };
 
   return (
-    <section className="min-h-screen pt-40 pb-32 px-6 text-white">
-
-      {/* TOP HEADER */}
-      <div className="max-w-4xl mx-auto text-center mb-20">
-        <h1 className="
-          text-5xl md:text-6xl font-light tracking-[0.22em]
-          text-yellow-300 drop-shadow-[0_0_28px_rgba(255,215,0,0.45)]
-        ">
+    <section className="min-h-screen pt-40 pb-32 px-6 text-white relative">
+      {/* HEADER */}
+      <div className="max-w-5xl mx-auto text-center mb-14">
+        <h1
+          className="
+            text-5xl md:text-6xl font-light tracking-[0.22em]
+            text-yellow-300 drop-shadow-[0_0_28px_rgba(255,215,0,0.45)]
+          "
+        >
           BIRTH CHART
         </h1>
 
-        <p className="text-white/70 text-lg max-w-3xl mx-auto mt-6 leading-relaxed">
-          Your birth chart reveals the energetic architecture you were born with —
-          identity, emotional patterns, intuition, timing cycles and relationship dynamics.
-          Enter your details to unlock your cosmic blueprint.
+        <p className="mt-6 text-white/70 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+          Enter your birth details to generate an identity preview and chart structure.
+          Extended interpretation is available through Premium access.
+        </p>
+
+        <p className="mt-3 text-yellow-300/90 text-xs tracking-[0.35em] uppercase">
+          Data-enhanced astrological insights • Crafted for clarity
         </p>
       </div>
 
       {/* FORM */}
-      {!data && (
-        <div className="max-w-xl mx-auto">
-          <BirthChartForm onGenerate={setData} />
+      <BirthChartForm onGenerate={onGenerate} />
+
+      {/* REPORT PREVIEW */}
+      {chart && (
+        <div className="mt-20">
+          <BirthChartReport data={chart} />
         </div>
       )}
-
-      {/* REPORT */}
-      {data && (
-        <div className="max-w-5xl mx-auto mt-24">
-          <BirthChartReport data={data} />
-        </div>
-      )}
-
     </section>
   );
 }

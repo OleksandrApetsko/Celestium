@@ -2,87 +2,182 @@
 
 export const sunSignMeta = {
   Aries: {
+    tagline: "Bold, driven, instinctive.",
+    preview:
+      "You act first and learn through direct experience. Initiative, courage and momentum define your path.",
     element: "Fire",
     modality: "Cardinal",
-    tagline: "Initiating, bold, direct life-force.",
-    preview:
-      "You move through life with courage, heat and a pioneering spirit. Action teaches you more than theory.",
+    keywords: [
+      "Initiative",
+      "Courage",
+      "Leadership",
+      "Action",
+      "Independence",
+    ],
   },
+
   Taurus: {
+    tagline: "Grounded, patient, resilient.",
+    preview:
+      "You build stability through consistency. Security, pleasure and reliability shape your world.",
     element: "Earth",
     modality: "Fixed",
-    tagline: "Steady, sensual, grounded presence.",
-    preview:
-      "Stability, comfort and tangible results matter. You build slowly, but what you build tends to last.",
+    keywords: [
+      "Stability",
+      "Patience",
+      "Loyalty",
+      "Sensuality",
+      "Endurance",
+    ],
   },
+
   Gemini: {
+    tagline: "Curious, adaptable, communicative.",
+    preview:
+      "You explore life through ideas, language and connection. Mental agility is your strength.",
     element: "Air",
     modality: "Mutable",
-    tagline: "Curious, adaptive, multi-channeled mind.",
-    preview:
-      "Exchange, learning and variety fuel you. You process life through questions, stories and conversation.",
+    keywords: [
+      "Communication",
+      "Curiosity",
+      "Adaptability",
+      "Learning",
+      "Versatility",
+    ],
   },
+
   Cancer: {
+    tagline: "Sensitive, protective, intuitive.",
+    preview:
+      "You experience life emotionally and deeply. Security, belonging and care guide your decisions.",
     element: "Water",
     modality: "Cardinal",
-    tagline: "Protective, intuitive emotional radar.",
-    preview:
-      "You navigate through feeling. Safety, belonging and emotional honesty are central themes.",
+    keywords: [
+      "Emotional depth",
+      "Protection",
+      "Intuition",
+      "Nurturing",
+      "Memory",
+    ],
   },
+
   Leo: {
+    tagline: "Expressive, confident, radiant.",
+    preview:
+      "You lead through presence and creativity. Recognition and authentic self-expression matter deeply.",
     element: "Fire",
     modality: "Fixed",
-    tagline: "Radiant, expressive, heart-led energy.",
-    preview:
-      "You are wired for creativity, visibility and warmth. When your heart is engaged, you become unstoppable.",
+    keywords: [
+      "Creativity",
+      "Confidence",
+      "Charisma",
+      "Leadership",
+      "Self-expression",
+    ],
   },
+
   Virgo: {
+    tagline: "Analytical, precise, service-oriented.",
+    preview:
+      "You improve systems and people through detail, discipline and practical intelligence.",
     element: "Earth",
     modality: "Mutable",
-    tagline: "Refined, analytical, service-driven.",
-    preview:
-      "Your mind scans details and systems. Improvement, precision and integrity shape how you act.",
+    keywords: [
+      "Analysis",
+      "Precision",
+      "Service",
+      "Order",
+      "Improvement",
+    ],
   },
+
   Libra: {
+    tagline: "Balanced, diplomatic, relational.",
+    preview:
+      "You seek harmony through fairness, aesthetics and meaningful partnership.",
     element: "Air",
     modality: "Cardinal",
-    tagline: "Relational, harmonizing, aesthetic focus.",
-    preview:
-      "You define yourself through connection. Balance, fairness and beauty guide your decisions.",
+    keywords: [
+      "Harmony",
+      "Diplomacy",
+      "Relationships",
+      "Aesthetics",
+      "Justice",
+    ],
   },
+
   Scorpio: {
+    tagline: "Intense, perceptive, transformative.",
+    preview:
+      "You move through depth and truth. Emotional power and transformation shape your evolution.",
     element: "Water",
     modality: "Fixed",
-    tagline: "Intense, transformative, depth-oriented.",
-    preview:
-      "You sense what lies beneath the surface. Trust, loyalty and emotional truth are core values.",
+    keywords: [
+      "Intensity",
+      "Transformation",
+      "Depth",
+      "Power",
+      "Psychological insight",
+    ],
   },
+
   Sagittarius: {
+    tagline: "Adventurous, visionary, expansive.",
+    preview:
+      "You grow through exploration, belief systems and the pursuit of meaning.",
     element: "Fire",
     modality: "Mutable",
-    tagline: "Expansive, visionary, freedom-loving.",
-    preview:
-      "You seek meaning more than comfort. Growth, honesty and exploration define your path.",
+    keywords: [
+      "Exploration",
+      "Freedom",
+      "Philosophy",
+      "Optimism",
+      "Expansion",
+    ],
   },
+
   Capricorn: {
-    element: "Earth",
-    modality: "Cardinal",
     tagline: "Strategic, disciplined, future-focused.",
     preview:
-      "You are structured, responsible and long-term–oriented. Mastery comes through persistence.",
+      "You build long-term success through responsibility, structure and sustained effort.",
+    element: "Earth",
+    modality: "Cardinal",
+    keywords: [
+      "Discipline",
+      "Strategy",
+      "Responsibility",
+      "Endurance",
+      "Long-term vision",
+    ],
   },
+
   Aquarius: {
+    tagline: "Innovative, independent, visionary.",
+    preview:
+      "You challenge norms and design the future through originality and collective awareness.",
     element: "Air",
     modality: "Fixed",
-    tagline: "Independent, innovative, future-minded.",
-    preview:
-      "You see patterns differently. Authenticity and freedom are essential for your growth.",
+    keywords: [
+      "Innovation",
+      "Independence",
+      "Originality",
+      "Vision",
+      "Humanitarianism",
+    ],
   },
+
   Pisces: {
+    tagline: "Intuitive, compassionate, imaginative.",
+    preview:
+      "You perceive subtle layers of reality. Empathy, creativity and spiritual sensitivity guide you.",
     element: "Water",
     modality: "Mutable",
-    tagline: "Sensitive, imaginative, porous to energies.",
-    preview:
-      "Compassion, intuition and creativity shape your path. You read emotions more than facts.",
+    keywords: [
+      "Empathy",
+      "Imagination",
+      "Intuition",
+      "Compassion",
+      "Spirituality",
+    ],
   },
 };

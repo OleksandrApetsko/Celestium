@@ -1,23 +1,22 @@
 // src/components/BirthChart/BirthChartReport.jsx
 
 import { sunSignMeta } from "../../data/sunSigns.js";
-import { getSunSign } from "../../utils/getSunSign.js";
+import { getSunSignFromDateString } from "../../utils/getSunSignFromDateString.js";
 
 import SunSummary from "./SunSummary.jsx";
-import CorePattern from "./CorePattern.jsx";
 import NatalWheel from "./NatalWheel.jsx";
+import CorePatternTease from "./CorePatternTease.jsx";
 import BlurPaywall from "./BlurPaywall.jsx";
 
 export default function BirthChartReport({ data }) {
   const { date, time, location } = data;
 
-  const sunSign = getSunSign(date);
+  const sunSign = getSunSignFromDateString(date);
   const meta = sunSignMeta[sunSign];
 
   return (
     <div className="max-w-5xl mx-auto">
-
-      {/* TOP INFO */}
+      {/* TOP LINE */}
       <div className="text-center">
         <p className="text-white/60 text-sm">
           {date} • {time} • {location}
@@ -28,32 +27,61 @@ export default function BirthChartReport({ data }) {
         </h2>
 
         <p className="mt-4 text-white/70 text-sm md:text-base max-w-2xl mx-auto">
-          A high-level look at your core identity. Full interpretation available in Premium.
+          A focused identity snapshot and chart structure preview. Full interpretation is available in the extended report.
         </p>
       </div>
 
-      {/* SUN + WHEEL */}
-      <div className="mt-14 grid md:grid-cols-2 gap-10 items-start">
-        <SunSummary sunSign={sunSign} meta={meta} />
+      {/* SUN + WHEEL — PERFECTLY EQUAL */}
+      <div className="mt-14 grid md:grid-cols-2 gap-10 items-stretch">
 
-        <div className="md:pl-4">
-          <NatalWheel />
-          <p className="mt-5 text-white/60 text-xs text-center max-w-sm mx-auto">
-            In the full Natal Chart, each sector unlocks career paths,
-            emotional patterns, timing cycles and relationship dynamics.
+        {/* CARD 1 */}
+        <div
+          className="
+      p-8 rounded-2xl
+      bg-black/40 border border-white/10
+      backdrop-blur-xl
+      h-full flex
+    "
+        >
+          <SunSummary sunSign={sunSign} meta={meta} />
+        </div>
+
+        {/* CARD 2 */}
+        <div
+          className="
+      p-8 rounded-2xl
+      bg-black/40 border border-white/10
+      backdrop-blur-xl
+      h-full flex flex-col justify-between
+    "
+        >
+          <div>
+            <p className="text-xs uppercase tracking-[0.3em] text-yellow-300 mb-4 text-center">
+              Chart Structure Preview
+            </p>
+
+            <NatalWheel />
+          </div>
+
+          <p className="mt-6 text-white/60 text-xs text-center max-w-sm mx-auto">
+            The extended report unlocks planetary placements, houses, aspects,
+            relationship polarity and timing cycles.
           </p>
         </div>
+
       </div>
 
-      <CorePattern sunSign={sunSign} meta={meta} />
 
+      <CorePatternTease />
+
+      {/* CTA CARD → /birth-chart/full */}
       <BlurPaywall
         title="Deeper Natal Layers — Premium"
-        description="
-          Unlock planets, houses, aspects, emotional blueprint, karmic themes
-          and relationship polarity patterns — all based on your exact birth chart.
-        "
+        description="Unlock planets, houses, aspects, emotional blueprint, karmic themes and long-range cycles — mapped to your birth moment."
         height="340px"
+        to="/birth-chart/full"
+        linkState={{ chart: data }}
+        ctaLabel="See Full Natal Report"
       />
     </div>
   );

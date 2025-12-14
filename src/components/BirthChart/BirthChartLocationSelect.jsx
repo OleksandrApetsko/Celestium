@@ -1,32 +1,64 @@
-import { useState, useEffect } from "react";
+// src/components/BirthChart/BirthChartLocationSelect.jsx
+
+import { useEffect, useMemo, useRef, useState } from "react";
+
+const CACHE_LIMIT = 50;
+
+// Nominatim може інколи блокувати браузерні запити.
+// Ми робимо компонент так, щоб:
+// - не було вічного "Searching..."
+// - був error state + manual fallback
+// - кешували результати
+// - був таймаут запиту
 
 export default function BirthChartLocationSelect({ value, onChange }) {
   const [query, setQuery] = useState(value || "");
   const [results, setResults] = useState([]);
   const [open, setOpen] = useState(false);
-  const [loading, setLoading] = useState(false);
 
-  // синхронізація зовнішнього value
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const abortRef = useRef(null);
+  const cacheRef = useRef(new Map()); // query -> results array
+
+  const normalizedQuery = useMemo(() => query.trim(), [query]);
+
   useEffect(() => {
     setQuery(value || "");
   }, [value]);
 
-  // API-пошук міст
   useEffect(() => {
-    if (!query || query.length < 2) {
+    setError("");
+
+    if (!normalizedQuery || normalizedQuery.length < 2) {
       setResults([]);
+      setLoading(false);
       return;
     }
 
-    setLoading(true);
+    // Cache hit
+    const cacheHit = cacheRef.current.get(normalizedQuery.toLowerCase());
+    if (cacheHit) {
+      setResults(cacheHit);
+      setLoading(false);
+      return;
+    }
 
-    const controller = new AbortController();
+    const debounceId = setTimeout(async () => {
+      if (abortRef.current) abortRef.current.abort();
 
-    const timeoutId = setTimeout(async () => {
+      const controller = new AbortController();
+      abortRef.current = controller;
+
+      setLoading(true);
+
+      const timeoutId = setTimeout(() => controller.abort(), 4500);
+
       try {
-        const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
-          query
-        )}&addressdetails=1&limit=10`;
+        const url = `https://nominatim.openstreetmap.org/search?format=json&limit=8&q=${encodeURIComponent(
+          normalizedQuery
+        )}`;
 
         const res = await fetch(url, {
           signal: controller.signal,
@@ -35,49 +67,57 @@ export default function BirthChartLocationSelect({ value, onChange }) {
           },
         });
 
+        if (!res.ok) throw new Error("Provider unavailable");
+
         const data = await res.json();
 
-        const formatted = data
-          .filter((item) =>
-            Boolean(
-              item.address?.city ||
-              item.address?.town ||
-              item.address?.village
-            )
-          )
+        const parsed = (Array.isArray(data) ? data : [])
           .map((item) => {
-            const city =
-              item.address.city ||
-              item.address.town ||
-              item.address.village ||
-              item.display_name.split(",")[0];
+            const name = String(item?.display_name || "");
+            if (!name) return null;
 
-            const country = item.address.country || "";
+            const parts = name.split(",").map((p) => p.trim()).filter(Boolean);
+            if (parts.length < 2) return null;
+
+            const city = parts[0];
+            const country = parts[parts.length - 1];
 
             return {
-              full: `${city}, ${country}`,
-              lat: item.lat,
-              lon: item.lon,
+              label: `${city}, ${country}`,
             };
-          });
+          })
+          .filter(Boolean);
 
-        setResults(formatted);
+        setResults(parsed);
+
+        // cache store
+        const key = normalizedQuery.toLowerCase();
+        cacheRef.current.set(key, parsed);
+
+        // cache eviction (simple)
+        if (cacheRef.current.size > CACHE_LIMIT) {
+          const firstKey = cacheRef.current.keys().next().value;
+          cacheRef.current.delete(firstKey);
+        }
       } catch (err) {
-        if (err.name !== "AbortError") console.error(err);
+        if (err?.name !== "AbortError") {
+          setResults([]);
+          setError(
+            "Search is temporarily unavailable. You can still enter the city manually."
+          );
+        }
       } finally {
+        clearTimeout(timeoutId);
         setLoading(false);
       }
-    }, 500); // debounce
+    }, 450);
 
-    return () => {
-      clearTimeout(timeoutId);
-      controller.abort();
-    };
-  }, [query]);
+    return () => clearTimeout(debounceId);
+  }, [normalizedQuery]);
 
-  const handleSelect = (item) => {
-    setQuery(item.full);
-    onChange(item.full);
+  const selectCity = (label) => {
+    setQuery(label);
+    onChange(label);
     setOpen(false);
   };
 
@@ -85,58 +125,63 @@ export default function BirthChartLocationSelect({ value, onChange }) {
     <div className="relative">
       <label className="block text-white/80 mb-2">Place of Birth</label>
 
-      {/* INPUT */}
       <input
+        type="text"
         value={query}
         onChange={(e) => {
-          setQuery(e.target.value);
-          onChange(e.target.value);
+          const v = e.target.value;
+          setQuery(v);
+          onChange(v);
           setOpen(true);
         }}
-        onFocus={() => {
-          if (query.length >= 2) setOpen(true);
-        }}
-        placeholder="Start typing a city..."
+        onFocus={() => setOpen(true)}
+        placeholder="Start typing a city (e.g. Paris, Tokyo, New York)"
         className="
-          w-full p-3 rounded-xl
+          w-full px-4 py-3 rounded-xl
           bg-black/40 border border-white/15
           text-white placeholder-white/40
-          focus:border-yellow-300/40
-          focus:outline-none transition
+          focus:border-yellow-300/40 focus:outline-none
+          transition
         "
       />
 
-      {/* DROPDOWN */}
+      {error && (
+        <p className="mt-2 text-white/55 text-xs leading-relaxed">{error}</p>
+      )}
+
       {open && (loading || results.length > 0) && (
         <div
           className="
-            absolute left-0 right-0 mt-2 rounded-xl z-50
-            bg-black/85 backdrop-blur-xl border border-white/10
-            max-h-64 overflow-auto shadow-[0_0_25px_rgba(0,0,0,0.4)]
+            absolute left-0 right-0 mt-2 z-50
+            rounded-xl
+            bg-black/90 backdrop-blur-xl
+            border border-white/10
+            shadow-[0_0_28px_rgba(0,0,0,0.5)]
+            max-h-64 overflow-auto
           "
         >
           {loading && (
-            <div className="px-4 py-3 text-white/60 text-sm">Searching…</div>
+            <div className="px-4 py-3 text-sm text-white/60">Searching…</div>
           )}
 
           {!loading &&
-            results.map((item, idx) => (
+            results.map((item, i) => (
               <div
-                key={idx}
-                onClick={() => handleSelect(item)}
+                key={`${item.label}-${i}`}
+                onClick={() => selectCity(item.label)}
                 className="
-                  px-4 py-3 cursor-pointer text-white text-sm
+                  px-4 py-3 cursor-pointer text-sm text-white
                   hover:bg-yellow-300/20 hover:text-yellow-300
                   transition
                 "
               >
-                {item.full}
+                {item.label}
               </div>
             ))}
 
-          {!loading && results.length === 0 && (
-            <div className="px-4 py-3 text-white/60 text-sm">
-              No matching cities
+          {!loading && results.length === 0 && normalizedQuery.length >= 2 && (
+            <div className="px-4 py-3 text-sm text-white/55">
+              No matches found. You can keep typing and enter manually.
             </div>
           )}
         </div>

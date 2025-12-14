@@ -1,67 +1,91 @@
-import { useState } from "react";
+// src/components/BirthChart/BirthChartSelect.jsx
 
-export default function BirthChartSelect({ label, value, onChange, options, placeholder }) {
+import { useEffect, useRef, useState } from "react";
+
+export default function BirthChartSelect({
+  value,
+  onChange,
+  options = [],
+  placeholder = "Select",
+  disabled = false,
+}) {
   const [open, setOpen] = useState(false);
+  const wrapperRef = useRef(null);
+
+  useEffect(() => {
+    const onOutside = (e) => {
+      if (wrapperRef.current && !wrapperRef.current.contains(e.target)) setOpen(false);
+    };
+    document.addEventListener("mousedown", onOutside);
+    return () => document.removeEventListener("mousedown", onOutside);
+  }, []);
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, []);
 
   return (
-    <div className="relative">
-
-      {/* LABEL */}
-      {label && (
-        <label className="block text-white/80 mb-2 text-sm">{label}</label>
-      )}
-
-      {/* SELECT BOX */}
-      <div
-        className="
-          w-full p-3 rounded-xl bg-black/40 border border-white/15 text-white
-          cursor-pointer select-none flex justify-between items-center
-          hover:border-yellow-300/40 transition
-        "
-        onClick={() => setOpen(!open)}
+    <div ref={wrapperRef} className="relative">
+      <button
+        type="button"
+        disabled={disabled}
+        onClick={() => !disabled && setOpen((v) => !v)}
+        className={`
+          w-full px-4 py-3 rounded-xl
+          bg-black/40 border border-white/15
+          text-left flex justify-between items-center
+          transition select-none
+          ${disabled ? "opacity-50 cursor-not-allowed" : "hover:border-yellow-300/40"}
+        `}
       >
         <span className={value ? "text-white" : "text-white/50"}>
           {value || placeholder}
         </span>
 
-        {/* Arrow */}
         <svg
-          className={`w-4 h-4 transition-transform ${
-            open ? "rotate-180" : "rotate-0"
-          }`}
+          className={`w-4 h-4 text-white/70 transition-transform ${open ? "rotate-180" : ""}`}
+          viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
-          viewBox="0 0 24 24"
         >
           <path d="M6 9l6 6 6-6" />
         </svg>
-      </div>
+      </button>
 
-      {/* DROPDOWN */}
       {open && (
         <div
           className="
-            absolute left-0 right-0 mt-2 max-h-60 overflow-y-auto z-20
-            bg-black/80 backdrop-blur-xl border border-white/10 rounded-xl
-            shadow-[0_0_18px_rgba(250,204,21,0.15)]
+            absolute z-50 left-0 right-0 mt-2
+            max-h-64 overflow-auto rounded-xl
+            bg-black/90 backdrop-blur-xl border border-white/10
+            shadow-[0_0_24px_rgba(0,0,0,0.45)]
           "
         >
           {options.map((opt, i) => (
             <div
               key={i}
-              className="
-                px-4 py-3 text-white/90 hover:bg-white/10 cursor-pointer
-                transition text-sm
-              "
               onClick={() => {
                 onChange(opt);
                 setOpen(false);
               }}
+              className="
+                px-4 py-3 text-sm text-white/90 cursor-pointer
+                hover:bg-yellow-300/20 hover:text-yellow-300
+                transition
+              "
             >
               {opt}
             </div>
           ))}
+
+          {options.length === 0 && (
+            <div className="px-4 py-3 text-sm text-white/55">No options</div>
+          )}
         </div>
       )}
     </div>

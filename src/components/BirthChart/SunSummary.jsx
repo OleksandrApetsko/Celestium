@@ -1,28 +1,65 @@
-// src/components/BirthChart/SunSummary.jsx
-
 export default function SunSummary({ sunSign, meta }) {
+  if (!meta) return null;
+
   return (
-    <div
-      className="
-        p-8 rounded-2xl bg-white/5 border border-white/10
-        backdrop-blur-xl shadow-[0_0_26px_rgba(0,0,0,0.6)]
-      "
-    >
-      <p className="text-xs uppercase tracking-[0.3em] text-yellow-300 mb-2">
-        Core Identity
+    <div className="flex flex-col h-full">
+
+      {/* SECTION LABEL */}
+      <p className="text-xs uppercase tracking-[0.3em] text-yellow-300 mb-4">
+        Identity Snapshot
       </p>
 
-      <h3 className="text-2xl text-white font-semibold mb-1">
+      {/* MAIN TITLE */}
+      <h3 className="text-4xl text-white font-semibold mb-3 leading-tight">
         Sun in {sunSign}
       </h3>
 
-      <p className="text-yellow-300 text-sm mb-3">{meta.tagline}</p>
-
-      <p className="text-white/80 text-sm leading-relaxed">{meta.preview}</p>
-
-      <p className="text-white/50 text-xs mt-4">
-        Element: {meta.element} • Modality: {meta.modality}
+      {/* TAGLINE */}
+      <p className="text-yellow-300 text-base mb-6">
+        {meta.tagline}
       </p>
+
+      {/* MAIN PREVIEW TEXT */}
+      <p className="text-white/85 text-base leading-relaxed mb-4">
+        {meta.preview}
+      </p>
+
+      <p className="text-white/70 text-sm leading-relaxed">
+        This placement describes how you express willpower, direction and
+        personal authority — shaping your choices, confidence and long-term path.
+      </p>
+
+      {/* KEY TRAITS */}
+      <div className="mt-8">
+        <p className="text-xs uppercase tracking-[0.25em] text-yellow-300 mb-3">
+          Core Expression
+        </p>
+
+        <div className="flex flex-wrap gap-3">
+          {(meta.keywords || []).map((k, i) => (
+            <span
+              key={i}
+              className="
+                px-4 py-1.5 rounded-full text-sm
+                bg-white/5 border border-white/10
+                text-white/80
+              "
+            >
+              {k}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* SOFT FILLER (balances height visually) */}
+      <div className="flex-grow" />
+
+      {/* MICRO-HINT */}
+      <p className="mt-6 text-white/50 text-xs">
+        Full natal interpretation reveals how this Sun interacts with your Moon,
+        Rising sign, houses and planetary aspects.
+      </p>
+
     </div>
   );
 }
