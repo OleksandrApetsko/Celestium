@@ -1,6 +1,6 @@
 // src/components/CosmicInsights/CosmicInsightsSection.jsx
 
-import { insightData } from "./insightData.js";
+import { insightData } from "../../data/insightData.js";
 import InsightCard from "./InsightCard.jsx";
 
 export default function CosmicInsightsSection() {

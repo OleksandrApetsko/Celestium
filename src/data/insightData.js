@@ -1,4 +1,4 @@
-// src/components/CosmicInsights/insightData.js
+// src/data/insightData.js
 
 export const insightData = [
   {
