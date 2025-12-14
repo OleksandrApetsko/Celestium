@@ -1,20 +1,25 @@
+// src/components/CosmicInsights/insightData.js
+
 export const insightData = [
   {
     key: "love",
     title: "Love & Relationships",
     description:
-      "Explore how today’s celestial patterns influence emotions, attraction, and meaningful connections.",
+      "Understand how today’s planetary dynamics influence emotions, attraction and relationship flow.",
+    link: "/compatibility",
   },
   {
     key: "career",
-    title: "Career & Success",
+    title: "Career & Direction",
     description:
-      "Understand the energetic trends shaping motivation, productivity, and opportunities.",
+      "Track energetic trends affecting motivation, focus, productivity and long-term direction.",
+    link: "/horoscopes",
   },
   {
     key: "energy",
     title: "Energy & Well-Being",
     description:
-      "Discover the cosmic influences on your focus, balance, and personal alignment.",
+      "Explore how lunar and planetary rhythms shape clarity, intuition and emotional balance.",
+    link: "/birth-chart",
   },
 ];

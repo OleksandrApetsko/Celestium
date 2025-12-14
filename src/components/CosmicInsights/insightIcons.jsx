@@ -1,3 +1,5 @@
+// src/components/CosmicInsights/insightIcons.jsx
+
 export const insightIcons = {
   love: (
     <svg viewBox="0 0 48 48" className="w-10 h-10 text-yellow-300">
@@ -52,7 +54,6 @@ export const insightIcons = {
 
   energy: (
     <svg viewBox="0 0 48 48" className="w-10 h-10 text-yellow-300">
-      {/* Місяць */}
       <path
         d="M30 10a10 10 0 1 0 8 16 11 11 0 1 1-8-16z"
         fill="none"
@@ -60,7 +61,6 @@ export const insightIcons = {
         strokeWidth="2.5"
         strokeLinecap="round"
       />
-      {/* Маленькі "іскри" */}
       <path
         d="M12 14l2 2M14 10v3M18 12l-2 2"
         stroke="currentColor"
