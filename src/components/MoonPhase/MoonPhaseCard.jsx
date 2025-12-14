@@ -1,31 +1,26 @@
 import { moonIcons } from "./moonIcons.jsx";
 
-export default function MoonPhaseCard({ phase, illumination, energy }) {
+export default function MoonPhaseCard({ phase, illumination, summary, keywords }) {
   const Icon = moonIcons[phase] || moonIcons["Waxing Crescent"];
 
   return (
-    <div
-      className="
-        p-8 rounded-3xl bg-black/30 backdrop-blur-xl border border-white/10
-        max-w-xl mx-auto text-center
-        shadow-[0_0_20px_rgba(250,204,21,0.15)]
-      "
-    >
-      {/* ICON */}
-      <div className="flex justify-center mb-6">{Icon}</div>
+    <div className="max-w-lg w-full p-8 bg-black/35 border border-yellow-300/15 rounded-3xl
+                    backdrop-blur-xl shadow-[0_0_30px_rgba(255,215,0,0.15)]">
 
-      {/* PHASE NAME */}
-      <h3 className="text-3xl font-semibold text-white mb-2">{phase}</h3>
+      <div className="flex justify-center mb-6 drop-shadow-[0_0_25px_rgba(255,215,0,0.5)]">{Icon}</div>
 
-      {/* ILLUMINATION */}
-      <p className="text-yellow-300 text-sm mb-4">
-        Illumination: {illumination}%
-      </p>
+      <h3 className="text-3xl text-yellow-300 font-medium">{phase}</h3>
+      <p className="text-yellow-200/80 mt-1 mb-4 text-sm">Illumination: {illumination}%</p>
 
-      {/* ENERGY TEXT */}
-      <p className="text-white/80 text-sm leading-relaxed max-w-md mx-auto">
-        {energy}
-      </p>
+      <p className="text-white/80 leading-relaxed">{summary}</p>
+
+      <ul className="flex gap-3 mt-6 justify-center flex-wrap">
+        {keywords.map((k,i) => (
+          <li key={i} className="text-xs text-yellow-300/80 border border-yellow-300/30 px-3 py-1 rounded-full">
+            {k}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

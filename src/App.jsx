@@ -15,6 +15,8 @@ import BlogPost from './pages/Blog/BlogPost.jsx'
 import Blog from './pages/Blog/Blog.jsx'
 import Premium from './pages/Premium.jsx'
 import Compatibility from './pages/Compatibility.jsx'
+import BirthChart from './pages/BirthChart.jsx'
+import BirthChartFull from './pages/BirthChartFull.jsx'
 
 
 export default function App() {
@@ -36,7 +38,7 @@ export default function App() {
           {/* DAILY PAGE — ТЕПЕР ПРАЦЮЄ */}
           <Route path="/zodiac/:sign/today" element={<TodayHoroscopePage />} />
 
-          {/* FULL ASTRO PROFILE PAGE (щe не використовується, але готове для майбутнього) */}
+          {/* FULL ASTRO PROFILE PAGE (не використовується, але готове для майбутнього) */}
           <Route path="/zodiac/:sign" element={<ZodiacDetail />} />
 
           <Route path="/contact" element={<Contact />} />
@@ -45,6 +47,8 @@ export default function App() {
           <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/premium" element={<Premium />} />
           <Route path="/compatibility" element={<Compatibility />} />
+          <Route path="/birth-chart" element={<BirthChart />} />
+          <Route path="/birth-chart/full" element={<BirthChartFull />} />
 
         </Routes>
       </main>

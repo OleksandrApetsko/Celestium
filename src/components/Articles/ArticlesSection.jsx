@@ -1,7 +1,10 @@
-import { articlesData } from "./articlesData.js";
+import { blogData } from "../../data/blogData.js";
 import ArticleCard from "./ArticleCard.jsx";
+import { Link } from "react-router-dom";
 
 export default function ArticlesSection() {
+  const preview = blogData.slice(0, 3); // тільки перші три статті
+
   return (
     <section className="relative z-10 py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-6">
@@ -23,14 +26,28 @@ export default function ArticlesSection() {
 
         {/* GRID */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {articlesData.map((article, i) => (
+          {preview.map((article) => (
             <ArticleCard
-              key={i}
+              key={article.id}
+              id={article.id}
               title={article.title}
-              excerpt={article.excerpt}
-              img={article.img}
+              preview={article.preview}
+              img={article.image}
             />
           ))}
+        </div>
+
+        {/* CTA to blog */}
+        <div className="text-center mt-14">
+          <Link
+            to="/blog"
+            className="
+              inline-block px-10 py-3 rounded-full border border-yellow-300 text-yellow-300
+              font-semibold tracking-wide hover:bg-yellow-300 hover:text-black transition
+            "
+          >
+            View All Articles
+          </Link>
         </div>
 
       </div>
