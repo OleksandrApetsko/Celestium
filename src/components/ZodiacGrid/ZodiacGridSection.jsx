@@ -1,4 +1,4 @@
-import { zodiacData } from "../DailyHoroscope/zodiacData.js"
+import { zodiacData } from "../../data/zodiacData.js"
 import ZodiacCard from "./ZodiacCard.jsx";
 import { Link } from "react-router-dom";
 

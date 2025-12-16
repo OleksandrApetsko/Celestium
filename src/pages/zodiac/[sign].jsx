@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 
 // DATA
-import { zodiacData } from "../../components/DailyHoroscope/zodiacData.js";
+import { zodiacData } from "../../data/zodiacData.js";
 import { zodiacIcons } from "../../components/DailyHoroscope/zodiacIcons.jsx";
 
 // ZODIAC PAGE COMPONENTS
