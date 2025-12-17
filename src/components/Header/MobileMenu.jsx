@@ -1,54 +1,115 @@
-import { menuItems } from "../../data/menuItems.js";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 export default function MobileMenu({ open, onClose }) {
+  const [horoscopeOpen, setHoroscopeOpen] = useState(false);
+
   if (!open) return null;
 
   return (
-    <div className="md:hidden bg-black backdrop-blur-xl border-t border-white pb-6 animate-[slideDown_0.35s_ease-out]">
+    <div
+      className="
+        fixed top-[140px] left-0 w-full
+        md:hidden
+        bg-black/95 backdrop-blur-xl
+        border-t border-white/10
+        z-[60]
+      "
+    >
+      <ul className="flex flex-col text-center text-lg space-y-4 py-6">
 
-      <ul className="flex flex-col text-center text-lg space-y-4 py-4">
-        {menuItems.map(item => {
-          const path = item === "Home" ? "/" : `/${item.toLowerCase()}`;
+        <NavLink
+          to="/"
+          onClick={onClose}
+          className="text-white hover:text-yellow-400 transition"
+        >
+          Home
+        </NavLink>
 
-          return (
+        {/* HOROSCOPE */}
+        <button
+          onClick={() => setHoroscopeOpen(!horoscopeOpen)}
+          className="text-white hover:text-yellow-400 transition"
+        >
+          Horoscope
+        </button>
+
+        {horoscopeOpen && (
+          <div className="space-y-3 text-sm">
             <NavLink
-              key={item}
-              to={path}
+              to="/#zodiac"
               onClick={onClose}
-              className={({ isActive }) =>
-                `transition cursor-pointer ${
-                  isActive
-                    ? "text-yellow-400 font-medium"
-                    : "text-white hover:text-yellow-400"
-                }`
-              }
+              className="block text-white/80 hover:text-yellow-400"
             >
-              {item}
+              Daily
             </NavLink>
-          );
-        })}
+
+            <NavLink
+              to="/horoscopes/weekly"
+              onClick={onClose}
+              className="block text-white/80 hover:text-yellow-400"
+            >
+              Weekly
+            </NavLink>
+
+            <NavLink
+              to="/horoscopes/monthly"
+              onClick={onClose}
+              className="block text-white/80 hover:text-yellow-400"
+            >
+              Monthly
+            </NavLink>
+
+            <NavLink
+              to="/horoscopes/yearly"
+              onClick={onClose}
+              className="block text-white/80 hover:text-yellow-400"
+            >
+              Yearly
+            </NavLink>
+          </div>
+        )}
+
+        <NavLink
+          to="/compatibility"
+          onClick={onClose}
+          className="text-white hover:text-yellow-400"
+        >
+          Compatibility
+        </NavLink>
+
+        <NavLink
+          to="/birth-chart"
+          onClick={onClose}
+          className="text-white hover:text-yellow-400"
+        >
+          Birth Chart
+        </NavLink>
+
+        <NavLink
+          to="/blog"
+          onClick={onClose}
+          className="text-white hover:text-yellow-400"
+        >
+          Blog
+        </NavLink>
+
+        <NavLink
+          to="/about"
+          onClick={onClose}
+          className="text-white hover:text-yellow-400"
+        >
+          About
+        </NavLink>
+
+        <NavLink
+          to="/contact"
+          onClick={onClose}
+          className="text-white hover:text-yellow-400"
+        >
+          Contact
+        </NavLink>
       </ul>
-
-      {/* нижній блок без змін */}
-      <div className="flex flex-col items-center space-y-4 border-t border-white/20 pt-4">
-
-        <button className="text-yellow-400 hover:text-white transition">
-          Log In
-        </button>
-
-        <button className="text-yellow-400 hover:text-white transition">
-          Sign Up
-        </button>
-
-        <button className="hover:text-yellow-400 transition">
-          <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5">
-            <circle cx="11" cy="11" r="7"></circle>
-            <line x1="16.65" y1="16.65" x2="22" y2="22"></line>
-          </svg>
-        </button>
-
-      </div>
     </div>
   );
 }
