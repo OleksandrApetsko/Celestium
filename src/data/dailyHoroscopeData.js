@@ -2,7 +2,7 @@ export const dailyHoroscopeData = {
   aries: {
     headline: "Restrain the impulse to push forward",
     coreEnergy:
-      "Your natural drive is strong today, but external resistance may slow progress. Acting with patience will bring better outcomes than force.",
+      "Your natural drive is strong today, but resistance slows progress. Patience brings better outcomes than force.",
     focus: {
       do: [
         "Prioritize one important task",
@@ -15,28 +15,28 @@ export const dailyHoroscopeData = {
         "Overcommitting"
       ]
     },
-    mood: "Intense but unstable",
+    mood: "Intense",
     focusLevel: "Medium",
     riskLevel: "Moderate"
   },
 
   taurus: {
-    headline: "Stability comes from small consistent actions",
+    headline: "Stability comes from consistency",
     coreEnergy:
-      "Today favors routine, structure, and grounded decisions. Emotional calm helps you see long-term value.",
+      "Routine and grounded choices create emotional calm and long-term value.",
     focus: {
       do: [
         "Stick to familiar processes",
         "Care for physical comfort",
-        "Strengthen existing bonds"
+        "Strengthen trusted relationships"
       ],
       avoid: [
         "Sudden changes",
         "Financial risks",
-        "Emotional stubbornness"
+        "Stubborn reactions"
       ]
     },
-    mood: "Calm and steady",
+    mood: "Calm",
     focusLevel: "High",
     riskLevel: "Low"
   },
@@ -44,12 +44,12 @@ export const dailyHoroscopeData = {
   gemini: {
     headline: "Mental clarity appears in short bursts",
     coreEnergy:
-      "Your thoughts move quickly today, but focus may scatter. Capture ideas before they fade.",
+      "Ideas flow quickly, but focus may scatter. Capture insights before they fade.",
     focus: {
       do: [
         "Write things down",
         "Communicate clearly",
-        "Filter distractions"
+        "Reduce distractions"
       ],
       avoid: [
         "Multitasking",
@@ -63,9 +63,9 @@ export const dailyHoroscopeData = {
   },
 
   cancer: {
-    headline: "Emotions guide more than logic today",
+    headline: "Emotions guide decisions today",
     coreEnergy:
-      "Sensitivity is heightened, making emotional awareness your greatest strength.",
+      "Heightened sensitivity makes emotional awareness your strongest asset.",
     focus: {
       do: [
         "Protect personal boundaries",
@@ -75,7 +75,7 @@ export const dailyHoroscopeData = {
       avoid: [
         "Suppressing emotions",
         "Taking things personally",
-        "Emotional withdrawal"
+        "Withdrawing completely"
       ]
     },
     mood: "Sensitive",
@@ -84,9 +84,9 @@ export const dailyHoroscopeData = {
   },
 
   leo: {
-    headline: "Attention flows naturally toward you",
+    headline: "Your presence is noticed",
     coreEnergy:
-      "Your presence is noticed today. Leadership works best when paired with humility.",
+      "Leadership comes naturally today when confidence is balanced with humility.",
     focus: {
       do: [
         "Lead by example",
@@ -94,7 +94,7 @@ export const dailyHoroscopeData = {
         "Express creativity"
       ],
       avoid: [
-        "Ego-driven reactions",
+        "Ego reactions",
         "Seeking validation",
         "Dominating conversations"
       ]
@@ -105,9 +105,9 @@ export const dailyHoroscopeData = {
   },
 
   virgo: {
-    headline: "Details reveal hidden clarity",
+    headline: "Details reveal clarity",
     coreEnergy:
-      "Precision and organization bring a sense of control and calm.",
+      "Organization and precision bring control and inner calm.",
     focus: {
       do: [
         "Organize priorities",
@@ -128,17 +128,17 @@ export const dailyHoroscopeData = {
   libra: {
     headline: "Balance requires conscious choice",
     coreEnergy:
-      "External harmony depends on internal clarity. Decide what truly matters.",
+      "Inner clarity creates external harmony.",
     focus: {
       do: [
         "Set boundaries",
-        "Seek fairness",
-        "Clarify intentions"
+        "Clarify intentions",
+        "Seek fairness"
       ],
       avoid: [
         "Indecision",
         "People-pleasing",
-        "Avoiding conflict"
+        "Avoiding necessary conflict"
       ]
     },
     mood: "Reflective",
@@ -149,16 +149,16 @@ export const dailyHoroscopeData = {
   scorpio: {
     headline: "Intensity sharpens perception",
     coreEnergy:
-      "Depth and focus allow you to uncover hidden motivations — yours and others’.",
+      "Depth allows you to uncover hidden motivations — yours and others’.",
     focus: {
       do: [
         "Trust intuition",
-        "Focus deeply",
-        "Address unresolved issues"
+        "Address unresolved issues",
+        "Focus deeply"
       ],
       avoid: [
         "Power struggles",
-        "Obsession",
+        "Obsessive thinking",
         "Emotional extremes"
       ]
     },
@@ -170,7 +170,7 @@ export const dailyHoroscopeData = {
   sagittarius: {
     headline: "Perspective matters more than speed",
     coreEnergy:
-      "Curiosity pushes you forward, but reflection gives direction.",
+      "Reflection gives direction to curiosity.",
     focus: {
       do: [
         "Think long-term",
@@ -191,7 +191,7 @@ export const dailyHoroscopeData = {
   capricorn: {
     headline: "Discipline creates freedom",
     coreEnergy:
-      "Structured effort leads to visible progress today.",
+      "Structured effort leads to visible progress.",
     focus: {
       do: [
         "Commit to responsibilities",
@@ -212,7 +212,7 @@ export const dailyHoroscopeData = {
   aquarius: {
     headline: "Original ideas need grounding",
     coreEnergy:
-      "Innovation flows best when supported by practical action.",
+      "Innovation flows best with practical action.",
     focus: {
       do: [
         "Test new ideas",
@@ -233,7 +233,7 @@ export const dailyHoroscopeData = {
   pisces: {
     headline: "Intuition leads where logic cannot",
     coreEnergy:
-      "Dreamlike sensitivity enhances creativity and empathy.",
+      "Sensitivity enhances creativity and empathy.",
     focus: {
       do: [
         "Create freely",

@@ -1,6 +1,6 @@
-import { zodiacIcons } from '../../data/zodiacIcons.jsx'
+import { zodiacIcons } from "../../data/zodiacIcons.jsx";
 
-export default function DayHeader({ sign }) {
+export default function PeriodHeader({ sign, label, subtitle }) {
   return (
     <div className="text-center mb-14">
       <div className="flex justify-center mb-6">
@@ -10,11 +10,11 @@ export default function DayHeader({ sign }) {
       </div>
 
       <span className="text-xs uppercase tracking-[0.25em] text-yellow-300">
-        Daily Horoscope
+        {label}
       </span>
 
       <h1 className="mt-3 text-4xl sm:text-5xl font-semibold text-white capitalize">
-        {sign} — Today
+        {sign} — {subtitle}
       </h1>
     </div>
   );

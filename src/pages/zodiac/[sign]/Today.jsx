@@ -1,11 +1,14 @@
 import { useParams } from "react-router-dom";
 import { dailyHoroscopeData } from "../../../data/dailyHoroscopeData.js";
-import DayHeader from '../../../components/DailyHoroscope/DayHeader.jsx'
-import DailyInsightCard from '../../../components/DailyHoroscope/DailyInsightCard.jsx'
-import ActionCards from '../../../components/DailyHoroscope/ActionCards.jsx'
-import ContextGrid from '../../../components/DailyHoroscope/ContextGrid.jsx'
 
-export default function TodayHoroscopePage() {
+import HoroscopeContent from "../../../components/Horoscope/HoroscopeContent.jsx";
+import DayHeader from "../../../components/DailyHoroscope/DayHeader.jsx";
+import DailyInsightCard from "../../../components/DailyHoroscope/DailyInsightCard.jsx";
+import ActionCards from "../../../components/DailyHoroscope/ActionCards.jsx";
+import ContextGrid from "../../../components/DailyHoroscope/ContextGrid.jsx";
+import NextForecasts from '../../../components/DailyHoroscope/NextForecasts.jsx'
+
+export default function Today() {
   const { sign } = useParams();
   const data = dailyHoroscopeData[sign];
 
@@ -19,7 +22,7 @@ export default function TodayHoroscopePage() {
 
   return (
     <section className="relative z-10 py-16 md:py-24">
-      <div className="max-w-7xl mx-auto px-6">
+      <HoroscopeContent>
 
         <DayHeader sign={sign} />
 
@@ -36,7 +39,9 @@ export default function TodayHoroscopePage() {
           riskLevel={data.riskLevel}
         />
 
-      </div>
+        <NextForecasts />
+
+      </HoroscopeContent>
     </section>
   );
 }

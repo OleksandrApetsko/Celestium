@@ -9,10 +9,8 @@ import Footer from "./components/Footer/Footer.jsx";
 import Home from "./pages/Home.jsx";
 
 // DAILY (existing file)
-import TodayHoroscopePage from "./pages/zodiac/[sign]/TodayHoroscopePage.jsx";
+import Today from "./pages/zodiac/[sign]/Today.jsx";
 
-// Zodiac profile
-import ZodiacDetail from "./pages/zodiac/[sign].jsx";
 
 // Other pages
 import Contact from "./pages/Contact.jsx";
@@ -23,6 +21,8 @@ import Premium from "./pages/Premium.jsx";
 import Compatibility from "./pages/Compatibility.jsx";
 import BirthChart from "./pages/BirthChart.jsx";
 import BirthChartFull from "./pages/BirthChartFull.jsx";
+import WeeklyDetail from './pages/horoscopes/WeeklyDetail.jsx'
+import Weekly from './pages/horoscopes/Weekly.jsx'
 
 export default function App() {
   return (
@@ -36,17 +36,11 @@ export default function App() {
 
           <Route path="/" element={<Home />} />
 
-          {/* DAILY HOROSCOPE */}
-          <Route
-            path="/horoscope/:sign/today"
-            element={<TodayHoroscopePage />}
-          />
-
-          {/* ZODIAC PROFILE */}
-          <Route
-            path="/zodiac/:sign"
-            element={<ZodiacDetail />}
-          />
+          <Route path="/zodiac/:sign/today" element={<Today />} />
+          <Route path="/horoscopes/weekly" element={<Weekly />} />
+          <Route path="/horoscopes/weekly/:sign" element={<WeeklyDetail />} />
+          {/*<Route path="/horoscopes/monthly" element={<MonthlyHoroscopePage />} />*/}
+          {/*<Route path="/horoscopes/yearly" element={<YearlyHoroscopePage />} />*/}
 
           {/* STATIC */}
           <Route path="/contact" element={<Contact />} />
