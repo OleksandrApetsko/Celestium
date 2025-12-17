@@ -19,5 +19,26 @@ export const testimonialsData = [
     text:
       "Moon phase guidance became part of my daily routine. Celestium feels magical yet grounded.",
     avatar: "/images/testimonials/avatar3.jpg"
+  },
+  {
+    name: "Daniel Brooks",
+    role: "Subscriber",
+    text:
+      "This is the first astrology platform that feels thoughtful, calm, and genuinely useful.",
+    avatar: "/images/testimonials/avatar4.jpg"
+  },
+  {
+    name: "Ava Thompson",
+    role: "Premium User",
+    text:
+      "Celestium brings structure and meaning without the noise. It feels refined and intentional.",
+    avatar: "/images/testimonials/avatar5.jpg"
+  },
+  {
+    name: "Noah Williams",
+    role: "Member",
+    text:
+      "I appreciate how grounded and well-designed everything feels. This is astrology done right.",
+    avatar: "/images/testimonials/avatar6.jpg"
   }
 ];

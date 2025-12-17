@@ -1,9 +1,7 @@
 import AboutHeader from "../components/About/AboutHeader";
 import AboutCards from "../components/About/AboutCards";
 import AboutStory from "../components/About/AboutStory";
-
-import TestimonialsSectionFull from "../components/Testimonials/TestimonialsSectionFull"; // FULL version
-import AboutCTA from "../components/About/AboutCTA";
+import TestimonialsCarousel from "../components/Testimonials/TestimonialsCarousel";
 
 export default function About() {
   return (
@@ -15,10 +13,7 @@ export default function About() {
 
       <AboutStory />
 
-      {/* FULL TESTIMONIAL LIST — NOW HERE */}
-      <TestimonialsSectionFull />
-
-      <AboutCTA />
+      <TestimonialsCarousel />
 
     </section>
   );
