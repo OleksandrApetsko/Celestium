@@ -23,6 +23,10 @@ import BirthChart from "./pages/BirthChart.jsx";
 import BirthChartFull from "./pages/BirthChartFull.jsx";
 import WeeklyDetail from './pages/horoscopes/WeeklyDetail.jsx'
 import Weekly from './pages/horoscopes/Weekly.jsx'
+import MonthlyDetail from './pages/horoscopes/MonthlyDetail.jsx'
+import Monthly from './pages/horoscopes/Monthly.jsx'
+import YearlyDetail from './pages/horoscopes/YearlyDetail.jsx'
+import Yearly from './pages/horoscopes/Yearly.jsx'
 
 export default function App() {
   return (
@@ -39,8 +43,10 @@ export default function App() {
           <Route path="/zodiac/:sign/today" element={<Today />} />
           <Route path="/horoscopes/weekly" element={<Weekly />} />
           <Route path="/horoscopes/weekly/:sign" element={<WeeklyDetail />} />
-          {/*<Route path="/horoscopes/monthly" element={<MonthlyHoroscopePage />} />*/}
-          {/*<Route path="/horoscopes/yearly" element={<YearlyHoroscopePage />} />*/}
+          <Route path="/horoscopes/monthly" element={<Monthly />} />
+          <Route path="/horoscopes/monthly/:sign" element={<MonthlyDetail />} />
+          <Route path="/horoscopes/yearly" element={<Yearly />} />
+          <Route path="/horoscopes/yearly/:sign" element={<YearlyDetail />} />
 
           {/* STATIC */}
           <Route path="/contact" element={<Contact />} />

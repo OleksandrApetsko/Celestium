@@ -1,4 +1,4 @@
-// src/components/BirthChart/BlurPaywall.jsx
+// src/components/BirthChart/HoroscopePaywall.jsx
 
 import { Link } from "react-router-dom";
 

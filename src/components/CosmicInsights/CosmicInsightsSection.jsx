@@ -1,7 +1,7 @@
 // src/components/CosmicInsights/CosmicInsightsSection.jsx
 
 import { insightData } from "../../data/insightData.js";
-import InsightCard from "./InsightCard.jsx";
+import CosmicInsightCard from "./CosmicInsightCard.jsx";
 
 export default function CosmicInsightsSection() {
   return (
@@ -27,7 +27,7 @@ export default function CosmicInsightsSection() {
         {/* CARDS */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {insightData.map((item) => (
-            <InsightCard
+            <CosmicInsightCard
               key={item.key}
               title={item.title}
               description={item.description}

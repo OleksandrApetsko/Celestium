@@ -1,121 +1,145 @@
 export const weeklyHoroscopeData = {
   aries: {
-    headline: "Momentum Builds Through Initiative",
+    title: "Momentum Builds",
     summary:
-      "This week rewards decisive action. Momentum grows when you trust your instincts and commit fully to chosen directions.",
-    themes: ["Leadership", "Initiative", "Bold choices"],
-    energy: "High",
-    emotions: "Assertive",
-    challenge: "Overextension"
+      "This week pushes you toward decisive movement. When you act with clarity rather than impulse, progress accelerates naturally.",
+    themes: ["Initiative", "Leadership", "Bold decisions"],
+    context: {
+      energy: "Dynamic",
+      focus: "Action",
+      challenge: "Impatience"
+    }
   },
 
   taurus: {
-    headline: "Stability Creates Progress",
+    title: "Stability Over Speed",
     summary:
-      "Slow, consistent effort brings the best results. Focus on what feels reliable and sustainable.",
-    themes: ["Consistency", "Financial awareness", "Self-care"],
-    energy: "Stable",
-    emotions: "Grounded",
-    challenge: "Resistance to change"
+      "Slow, grounded actions bring the most reliable results. Trust consistency over quick gains.",
+    themes: ["Consistency", "Security", "Self-care"],
+    context: {
+      energy: "Grounded",
+      focus: "Stability",
+      challenge: "Resistance to change"
+    }
   },
 
   gemini: {
-    headline: "Communication Shapes Outcomes",
+    title: "Conversations Shape Outcomes",
     summary:
-      "Conversations and information flow define this week. Clear messaging opens new paths.",
-    themes: ["Dialogue", "Learning", "Networking"],
-    energy: "Variable",
-    emotions: "Curious",
-    challenge: "Scattered focus"
+      "Dialogue and information flow influence your direction. Choose clarity over noise.",
+    themes: ["Communication", "Learning", "Mental focus"],
+    context: {
+      energy: "Restless",
+      focus: "Clarity",
+      challenge: "Distraction"
+    }
   },
 
   cancer: {
-    headline: "Emotional Awareness Leads",
+    title: "Emotional Awareness",
     summary:
-      "Sensitivity is heightened. Paying attention to emotional cues helps maintain balance.",
-    themes: ["Boundaries", "Family", "Inner balance"],
-    energy: "Moderate",
-    emotions: "Sensitive",
-    challenge: "Emotional overload"
+      "Sensitivity increases this week. Emotional intelligence becomes your strongest asset.",
+    themes: ["Boundaries", "Emotional safety", "Reflection"],
+    context: {
+      energy: "Sensitive",
+      focus: "Inner balance",
+      challenge: "Emotional overload"
+    }
   },
 
   leo: {
-    headline: "Visibility and Confidence",
+    title: "Visibility and Confidence",
     summary:
-      "Your presence is noticed. Express yourself authentically and lead with clarity.",
-    themes: ["Creativity", "Recognition", "Personal goals"],
-    energy: "High",
-    emotions: "Confident",
-    challenge: "Ego reactions"
+      "Your presence draws attention. Lead with authenticity rather than ego.",
+    themes: ["Expression", "Recognition", "Confidence"],
+    context: {
+      energy: "Radiant",
+      focus: "Leadership",
+      challenge: "Pride"
+    }
   },
 
   virgo: {
-    headline: "Refinement Brings Clarity",
+    title: "Refinement and Order",
     summary:
-      "Small improvements create meaningful progress. Organization sharpens focus.",
-    themes: ["Productivity", "Health routines", "Planning"],
-    energy: "Focused",
-    emotions: "Calm",
-    challenge: "Perfectionism"
+      "Small adjustments bring clarity and progress. Precision becomes a source of calm.",
+    themes: ["Organization", "Efficiency", "Health routines"],
+    context: {
+      energy: "Focused",
+      focus: "Improvement",
+      challenge: "Perfectionism"
+    }
   },
 
   libra: {
-    headline: "Balance Requires Choice",
+    title: "Restoring Balance",
     summary:
-      "Harmony comes through conscious decisions. Choose what truly matters.",
+      "Choices require inner alignment. True harmony comes from honest decisions.",
     themes: ["Relationships", "Fairness", "Decision-making"],
-    energy: "Moderate",
-    emotions: "Reflective",
-    challenge: "Indecision"
+    context: {
+      energy: "Reflective",
+      focus: "Balance",
+      challenge: "Indecision"
+    }
   },
 
   scorpio: {
-    headline: "Depth Enables Transformation",
+    title: "Depth and Transformation",
     summary:
-      "Intense insights surface. Embracing change leads to growth.",
-    themes: ["Intuition", "Transformation", "Truth"],
-    energy: "Intense",
-    emotions: "Deep",
-    challenge: "Control"
+      "Intense insights surface. Transformation comes through honesty and release.",
+    themes: ["Truth", "Emotional depth", "Letting go"],
+    context: {
+      energy: "Intense",
+      focus: "Transformation",
+      challenge: "Control"
+    }
   },
 
   sagittarius: {
-    headline: "Perspective Expands",
+    title: "Expanding Horizons",
     summary:
-      "Exploration and learning renew your sense of purpose.",
-    themes: ["Growth", "Exploration", "Vision"],
-    energy: "Expansive",
-    emotions: "Optimistic",
-    challenge: "Overcommitment"
+      "Perspective widens through exploration. Seek meaning beyond routine.",
+    themes: ["Growth", "Learning", "Vision"],
+    context: {
+      energy: "Expansive",
+      focus: "Exploration",
+      challenge: "Overcommitment"
+    }
   },
 
   capricorn: {
-    headline: "Discipline Delivers Results",
+    title: "Strategic Progress",
     summary:
-      "Structured effort supports long-term goals.",
-    themes: ["Responsibility", "Career", "Long-term vision"],
-    energy: "Steady",
-    emotions: "Determined",
-    challenge: "Rigidity"
+      "Discipline and patience create lasting momentum. Long-term thinking pays off.",
+    themes: ["Responsibility", "Structure", "Long-term goals"],
+    context: {
+      energy: "Stable",
+      focus: "Discipline",
+      challenge: "Rigidity"
+    }
   },
 
   aquarius: {
-    headline: "Innovation Finds Ground",
+    title: "Fresh Perspectives",
     summary:
-      "Original ideas succeed when paired with practical action.",
-    themes: ["Originality", "Collaboration", "Ideas"],
-    energy: "Electric",
-    emotions: "Detached",
-    challenge: "Inconsistency"
+      "Unconventional ideas open new paths. Innovation works best when grounded.",
+    themes: ["Innovation", "Community", "Originality"],
+    context: {
+      energy: "Electric",
+      focus: "Innovation",
+      challenge: "Detachment"
+    }
   },
 
   pisces: {
-    headline: "Intuition Guides Decisions",
+    title: "Intuitive Flow",
     summary:
-      "Reflection and creativity bring clarity.",
+      "Sensitivity and imagination guide your decisions. Creativity becomes healing.",
     themes: ["Creativity", "Empathy", "Spiritual awareness"],
-    energy: "Soft",
-    emotions: "Dreamy",
-    challenge: "Escapism"
+    context: {
+      energy: "Fluid",
+      focus: "Intuition",
+      challenge: "Escapism"
+    }
   }
 };

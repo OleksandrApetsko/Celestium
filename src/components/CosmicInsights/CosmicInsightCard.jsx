@@ -1,9 +1,9 @@
-// src/components/CosmicInsights/InsightCard.jsx
+// src/components/CosmicInsights/CosmicInsightCard.jsx
 
 import { Link } from "react-router-dom";
 import { insightIcons } from "./insightIcons.jsx";
 
-export default function InsightCard({ title, description, iconKey, link }) {
+export default function CosmicInsightCard({ title, description, iconKey, link }) {
   const Icon = insightIcons[iconKey];
 
   return (
