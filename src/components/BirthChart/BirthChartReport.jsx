@@ -1,4 +1,4 @@
-// src/components/BirthChart/BirthChartReport.jsx
+import { Link } from "react-router-dom";
 
 import { sunSignMeta } from "../../data/sunSigns.js";
 import { getSunSignFromDateString } from "../../utils/getSunSignFromDateString.js";
@@ -6,7 +6,6 @@ import { getSunSignFromDateString } from "../../utils/getSunSignFromDateString.j
 import SunSummary from "./SunSummary.jsx";
 import NatalWheel from "./NatalWheel.jsx";
 import CorePatternTease from "./CorePatternTease.jsx";
-import BlurPaywall from "./BlurPaywall.jsx";
 
 export default function BirthChartReport({ data }) {
   const { date, time, location } = data;
@@ -15,7 +14,7 @@ export default function BirthChartReport({ data }) {
   const meta = sunSignMeta[sunSign];
 
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="max-w-6xl mx-auto">
       {/* TOP LINE */}
       <div className="text-center">
         <p className="text-white/60 text-sm">
@@ -27,62 +26,65 @@ export default function BirthChartReport({ data }) {
         </h2>
 
         <p className="mt-4 text-white/70 text-sm md:text-base max-w-2xl mx-auto">
-          A focused identity snapshot and chart structure preview. Full interpretation is available in the extended report.
+          A focused identity snapshot and chart structure preview.
         </p>
       </div>
 
-      {/* SUN + WHEEL — PERFECTLY EQUAL */}
+      {/* SUN + WHEEL */}
       <div className="mt-14 grid md:grid-cols-2 gap-10 items-stretch">
-
-        {/* CARD 1 */}
-        <div
-          className="
-      p-8 rounded-2xl
-      bg-black/40 border border-white/10
-      backdrop-blur-xl
-      h-full flex
-    "
-        >
+        <div className="p-8 rounded-2xl bg-black/40 border border-white/10 backdrop-blur-xl h-full flex">
           <SunSummary sunSign={sunSign} meta={meta} />
         </div>
 
-        {/* CARD 2 */}
-        <div
-          className="
-      p-8 rounded-2xl
-      bg-black/40 border border-white/10
-      backdrop-blur-xl
-      h-full flex flex-col justify-between
-    "
-        >
+        <div className="p-8 rounded-2xl bg-black/40 border border-white/10 backdrop-blur-xl h-full flex flex-col justify-between">
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-yellow-300 mb-4 text-center">
               Chart Structure Preview
             </p>
-
             <NatalWheel />
           </div>
 
           <p className="mt-6 text-white/60 text-xs text-center max-w-sm mx-auto">
-            The extended report unlocks planetary placements, houses, aspects,
-            relationship polarity and timing cycles.
+            Full report unlocks planets, houses, aspects, relationship polarity and timing cycles.
           </p>
         </div>
-
       </div>
-
 
       <CorePatternTease />
 
-      {/* CTA CARD → /birth-chart/full */}
-      <BlurPaywall
-        title="Deeper Natal Layers — Premium"
-        description="Unlock planets, houses, aspects, emotional blueprint, karmic themes and long-range cycles — mapped to your birth moment."
-        height="340px"
-        to="/birth-chart/full"
-        linkState={{ chart: data }}
-        ctaLabel="See Full Natal Report"
-      />
+      {/* SINGLE CTA → FULL PAGE */}
+      <div className="mt-14 rounded-3xl bg-black/40 border border-white/10 backdrop-blur-xl p-10 md:p-12 text-center shadow-[0_0_45px_rgba(250,204,21,0.10)]">
+        <p className="text-xs uppercase tracking-[0.25em] text-yellow-300 mb-4">
+          Next Step
+        </p>
+
+        <h3 className="text-3xl sm:text-4xl font-light tracking-[0.10em] text-white">
+          View Full Natal Report
+        </h3>
+
+        <p className="mt-5 text-white/70 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+          Open the full report page to view the extended structure and premium access gate.
+        </p>
+
+        <div className="mt-10 flex justify-center">
+          <Link
+            to="/birth-chart/full"
+            state={{ chart: data }}
+            className="
+              inline-flex items-center justify-center
+              rounded-xl
+              bg-yellow-300 text-black
+              px-10 py-4
+              font-semibold
+              transition-all duration-300
+              hover:brightness-110
+              hover:shadow-[0_0_40px_rgba(250,204,21,0.35)]
+            "
+          >
+            Open Full Report
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

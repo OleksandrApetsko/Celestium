@@ -1,5 +1,3 @@
-// src/components/BirthChart/NatalWheel.jsx
-
 export default function NatalWheel() {
   const labels = [
     "Identity",
@@ -18,15 +16,7 @@ export default function NatalWheel() {
 
   return (
     <div className="relative w-80 h-80 mx-auto">
-      <div
-        className="
-          absolute inset-0 rounded-full
-          border border-yellow-300/50
-          bg-black/60
-          shadow-[0_0_45px_rgba(255,215,0,0.25)]
-        "
-      />
-
+      <div className="absolute inset-0 rounded-full border border-yellow-300/50 bg-black/60 shadow-[0_0_45px_rgba(255,215,0,0.25)]" />
       <div className="absolute inset-8 rounded-full border border-yellow-300/30" />
 
       {Array.from({ length: 12 }).map((_, i) => (

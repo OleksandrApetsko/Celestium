@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { zodiacOptions } from "./zodiacOptions.js";
+import { zodiacOptions } from "../../data/zodiacOptions.js";
 import { zodiacIconsLite } from "./zodiacIconsLite.jsx";
 
 export default function CustomSelect({ label, value, onChange }) {

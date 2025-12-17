@@ -1,5 +1,3 @@
-// src/components/BirthChart/CorePatternTease.jsx
-
 export default function CorePatternTease() {
   return (
     <div className="mt-14 p-6 rounded-2xl bg-black/30 border border-white/10 text-center backdrop-blur-xl">
@@ -8,8 +6,7 @@ export default function CorePatternTease() {
       </h4>
 
       <p className="text-white/70 text-sm leading-relaxed max-w-xl mx-auto">
-        The full natal report connects planets, houses and aspects into a single system —
-        revealing emotional wiring, relationship polarity and timing cycles with precision.
+        The full natal report connects planets, houses and aspects into a single system — revealing emotional wiring, relationship polarity and timing cycles with precision.
       </p>
     </div>
   );
