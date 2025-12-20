@@ -24,18 +24,12 @@ export default function MonthlyDetail() {
     <section className="relative z-10 py-16 md:py-24">
       <HoroscopeContent>
 
-        {/* 1. ЗНАК + ОПИС */}
         <ZodiacDescription sign={sign} />
 
-        {/* 2. MONTHLY HEADER */}
-        <HoroscopeHeader
-          sign={sign}
-          label="Monthly Horoscope"
-          title={`${sign} — This Month`}
-        />
+        <HoroscopeHeader label="Monthly Horoscope" sign={sign} />
 
-        {/* 3. MONTHLY CONTENT */}
         <HoroscopeInsight
+          kicker="Monthly Insight"
           headline={data.title}
           description={data.summary}
         />

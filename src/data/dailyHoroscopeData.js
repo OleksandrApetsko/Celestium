@@ -1,253 +1,145 @@
 export const dailyHoroscopeData = {
   aries: {
-    headline: "Restrain the impulse to push forward",
-    coreEnergy:
+    title: "Restrain the Impulse to Push Forward",
+    summary:
       "Your natural drive is strong today, but resistance slows progress. Patience brings better outcomes than force.",
-    focus: {
-      do: [
-        "Prioritize one important task",
-        "Act with intention, not urgency",
-        "Listen before responding"
-      ],
-      avoid: [
-        "Impulsive decisions",
-        "Confrontations",
-        "Overcommitting"
-      ]
-    },
-    mood: "Intense",
-    focusLevel: "Medium",
-    riskLevel: "Moderate"
+    themes: ["Patience", "Intentional action", "Self-control"],
+    context: {
+      energy: "Intense",
+      focus: "Prioritization",
+      challenge: "Impulsiveness"
+    }
   },
 
   taurus: {
-    headline: "Stability comes from consistency",
-    coreEnergy:
+    title: "Stability Comes from Consistency",
+    summary:
       "Routine and grounded choices create emotional calm and long-term value.",
-    focus: {
-      do: [
-        "Stick to familiar processes",
-        "Care for physical comfort",
-        "Strengthen trusted relationships"
-      ],
-      avoid: [
-        "Sudden changes",
-        "Financial risks",
-        "Stubborn reactions"
-      ]
-    },
-    mood: "Calm",
-    focusLevel: "High",
-    riskLevel: "Low"
+    themes: ["Consistency", "Comfort", "Trust"],
+    context: {
+      energy: "Calm",
+      focus: "Stability",
+      challenge: "Stubbornness"
+    }
   },
 
   gemini: {
-    headline: "Mental clarity appears in short bursts",
-    coreEnergy:
+    title: "Mental Clarity Appears in Bursts",
+    summary:
       "Ideas flow quickly, but focus may scatter. Capture insights before they fade.",
-    focus: {
-      do: [
-        "Write things down",
-        "Communicate clearly",
-        "Reduce distractions"
-      ],
-      avoid: [
-        "Multitasking",
-        "Overexplaining",
-        "Mental overload"
-      ]
-    },
-    mood: "Restless",
-    focusLevel: "Low",
-    riskLevel: "Moderate"
+    themes: ["Clarity", "Communication", "Mental focus"],
+    context: {
+      energy: "Restless",
+      focus: "Concentration",
+      challenge: "Distraction"
+    }
   },
 
   cancer: {
-    headline: "Emotions guide decisions today",
-    coreEnergy:
+    title: "Emotions Guide Decisions Today",
+    summary:
       "Heightened sensitivity makes emotional awareness your strongest asset.",
-    focus: {
-      do: [
-        "Protect personal boundaries",
-        "Spend time with trusted people",
-        "Acknowledge feelings"
-      ],
-      avoid: [
-        "Suppressing emotions",
-        "Taking things personally",
-        "Withdrawing completely"
-      ]
-    },
-    mood: "Sensitive",
-    focusLevel: "Medium",
-    riskLevel: "Moderate"
+    themes: ["Boundaries", "Emotional awareness", "Connection"],
+    context: {
+      energy: "Sensitive",
+      focus: "Emotional balance",
+      challenge: "Overidentification"
+    }
   },
 
   leo: {
-    headline: "Your presence is noticed",
-    coreEnergy:
+    title: "Your Presence Is Noticed",
+    summary:
       "Leadership comes naturally today when confidence is balanced with humility.",
-    focus: {
-      do: [
-        "Lead by example",
-        "Encourage others",
-        "Express creativity"
-      ],
-      avoid: [
-        "Ego reactions",
-        "Seeking validation",
-        "Dominating conversations"
-      ]
-    },
-    mood: "Confident",
-    focusLevel: "High",
-    riskLevel: "Low"
+    themes: ["Leadership", "Expression", "Creativity"],
+    context: {
+      energy: "Confident",
+      focus: "Influence",
+      challenge: "Ego"
+    }
   },
 
   virgo: {
-    headline: "Details reveal clarity",
-    coreEnergy:
+    title: "Details Reveal Clarity",
+    summary:
       "Organization and precision bring control and inner calm.",
-    focus: {
-      do: [
-        "Organize priorities",
-        "Refine ongoing tasks",
-        "Trust logic"
-      ],
-      avoid: [
-        "Perfectionism",
-        "Overanalysis",
-        "Self-criticism"
-      ]
-    },
-    mood: "Focused",
-    focusLevel: "High",
-    riskLevel: "Low"
+    themes: ["Organization", "Precision", "Efficiency"],
+    context: {
+      energy: "Focused",
+      focus: "Improvement",
+      challenge: "Perfectionism"
+    }
   },
 
   libra: {
-    headline: "Balance requires conscious choice",
-    coreEnergy:
+    title: "Balance Requires Conscious Choice",
+    summary:
       "Inner clarity creates external harmony.",
-    focus: {
-      do: [
-        "Set boundaries",
-        "Clarify intentions",
-        "Seek fairness"
-      ],
-      avoid: [
-        "Indecision",
-        "People-pleasing",
-        "Avoiding necessary conflict"
-      ]
-    },
-    mood: "Reflective",
-    focusLevel: "Medium",
-    riskLevel: "Moderate"
+    themes: ["Balance", "Decision-making", "Fairness"],
+    context: {
+      energy: "Reflective",
+      focus: "Alignment",
+      challenge: "Indecision"
+    }
   },
 
   scorpio: {
-    headline: "Intensity sharpens perception",
-    coreEnergy:
+    title: "Intensity Sharpens Perception",
+    summary:
       "Depth allows you to uncover hidden motivations — yours and others’.",
-    focus: {
-      do: [
-        "Trust intuition",
-        "Address unresolved issues",
-        "Focus deeply"
-      ],
-      avoid: [
-        "Power struggles",
-        "Obsessive thinking",
-        "Emotional extremes"
-      ]
-    },
-    mood: "Intense",
-    focusLevel: "High",
-    riskLevel: "High"
+    themes: ["Depth", "Truth", "Transformation"],
+    context: {
+      energy: "Intense",
+      focus: "Insight",
+      challenge: "Control"
+    }
   },
 
   sagittarius: {
-    headline: "Perspective matters more than speed",
-    coreEnergy:
+    title: "Perspective Matters More Than Speed",
+    summary:
       "Reflection gives direction to curiosity.",
-    focus: {
-      do: [
-        "Think long-term",
-        "Explore ideas",
-        "Share insights"
-      ],
-      avoid: [
-        "Rushing conclusions",
-        "Ignoring details",
-        "Overpromising"
-      ]
-    },
-    mood: "Optimistic",
-    focusLevel: "Medium",
-    riskLevel: "Moderate"
+    themes: ["Perspective", "Exploration", "Meaning"],
+    context: {
+      energy: "Optimistic",
+      focus: "Vision",
+      challenge: "Overpromising"
+    }
   },
 
   capricorn: {
-    headline: "Discipline creates freedom",
-    coreEnergy:
+    title: "Discipline Creates Freedom",
+    summary:
       "Structured effort leads to visible progress.",
-    focus: {
-      do: [
-        "Commit to responsibilities",
-        "Build step by step",
-        "Respect limits"
-      ],
-      avoid: [
-        "Overworking",
-        "Rigid thinking",
-        "Ignoring personal needs"
-      ]
-    },
-    mood: "Determined",
-    focusLevel: "High",
-    riskLevel: "Low"
+    themes: ["Discipline", "Responsibility", "Progress"],
+    context: {
+      energy: "Determined",
+      focus: "Structure",
+      challenge: "Rigidity"
+    }
   },
 
   aquarius: {
-    headline: "Original ideas need grounding",
-    coreEnergy:
+    title: "Original Ideas Need Grounding",
+    summary:
       "Innovation flows best with practical action.",
-    focus: {
-      do: [
-        "Test new ideas",
-        "Collaborate",
-        "Stay open-minded"
-      ],
-      avoid: [
-        "Detachment",
-        "Rebellion without purpose",
-        "Ignoring feedback"
-      ]
-    },
-    mood: "Unconventional",
-    focusLevel: "Medium",
-    riskLevel: "Moderate"
+    themes: ["Innovation", "Collaboration", "Openness"],
+    context: {
+      energy: "Unconventional",
+      focus: "Experimentation",
+      challenge: "Detachment"
+    }
   },
 
   pisces: {
-    headline: "Intuition leads where logic cannot",
-    coreEnergy:
+    title: "Intuition Leads Where Logic Cannot",
+    summary:
       "Sensitivity enhances creativity and empathy.",
-    focus: {
-      do: [
-        "Create freely",
-        "Rest and reflect",
-        "Trust inner signals"
-      ],
-      avoid: [
-        "Escapism",
-        "Emotional overload",
-        "Avoiding reality"
-      ]
-    },
-    mood: "Dreamy",
-    focusLevel: "Low",
-    riskLevel: "Moderate"
+    themes: ["Intuition", "Creativity", "Empathy"],
+    context: {
+      energy: "Dreamy",
+      focus: "Inner awareness",
+      challenge: "Escapism"
+    }
   }
 };

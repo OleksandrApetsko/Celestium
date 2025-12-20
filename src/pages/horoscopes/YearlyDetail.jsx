@@ -24,18 +24,12 @@ export default function YearlyDetail() {
     <section className="relative z-10 py-16 md:py-24">
       <HoroscopeContent>
 
-        {/* 1. ЗНАК + ОПИС */}
         <ZodiacDescription sign={sign} />
 
-        {/* 2. YEARLY HEADER */}
-        <HoroscopeHeader
-          sign={sign}
-          label="Yearly Horoscope"
-          title={`${sign} — This Year`}
-        />
+        <HoroscopeHeader label="Yearly Horoscope" sign={sign} />
 
-        {/* 3. YEARLY CONTENT */}
         <HoroscopeInsight
+          kicker="Yearly Insight"
           headline={data.title}
           description={data.summary}
         />

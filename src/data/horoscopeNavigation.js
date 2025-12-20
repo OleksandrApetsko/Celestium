@@ -1,41 +1,41 @@
 export const horoscopeNavigation = {
-  today: {
+  daily: {
     kicker: "Looking Ahead",
-    title: "Explore other perspectives",
+    title: "Explore Extended Horoscopes",
     links: (sign) => [
-      { id: "weekly", label: "Weekly Overview", to: `/horoscopes/weekly/${sign}` },
-      { id: "monthly", label: "Monthly Perspective", to: `/horoscopes/monthly/${sign}` },
-      { id: "yearly", label: "Yearly Outlook", to: `/horoscopes/yearly/${sign}` }
+      { id: "weekly", label: "Weekly Horoscope", to: `/horoscopes/weekly/${sign}` },
+      { id: "monthly", label: "Monthly Horoscope", to: `/horoscopes/monthly/${sign}` },
+      { id: "yearly", label: "Yearly Horoscope", to: `/horoscopes/yearly/${sign}` }
     ]
   },
 
   weekly: {
-    kicker: "Zoom In & Out",
-    title: "See this energy across time",
+    kicker: "Continue",
+    title: "Explore Other Timeframes",
     links: (sign) => [
-      { id: "daily", label: "Today’s Focus", to: `/zodiac/${sign}/today` },
-      { id: "monthly", label: "Monthly Perspective", to: `/horoscopes/monthly/${sign}` },
-      { id: "yearly", label: "Yearly Outlook", to: `/horoscopes/yearly/${sign}` }
+      { id: "daily", label: "Daily Horoscope", to: `/horoscopes/${sign}` },
+      { id: "monthly", label: "Monthly Horoscope", to: `/horoscopes/monthly/${sign}` },
+      { id: "yearly", label: "Yearly Horoscope", to: `/horoscopes/yearly/${sign}` }
     ]
   },
 
   monthly: {
-    kicker: "Different Angles",
-    title: "Explore this energy deeper",
+    kicker: "Continue",
+    title: "Explore Other Timeframes",
     links: (sign) => [
-      { id: "daily", label: "Today’s Focus", to: `/zodiac/${sign}/today` },
-      { id: "weekly", label: "Weekly Overview", to: `/horoscopes/weekly/${sign}` },
-      { id: "yearly", label: "Yearly Outlook", to: `/horoscopes/yearly/${sign}` }
+      { id: "daily", label: "Daily Horoscope", to: `/horoscopes/${sign}` },
+      { id: "weekly", label: "Weekly Horoscope", to: `/horoscopes/weekly/${sign}` },
+      { id: "yearly", label: "Yearly Horoscope", to: `/horoscopes/yearly/${sign}` }
     ]
   },
 
   yearly: {
-    kicker: "Full Cycle",
-    title: "Navigate shorter timeframes",
+    kicker: "Continue",
+    title: "Explore Other Timeframes",
     links: (sign) => [
-      { id: "daily", label: "Today’s Focus", to: `/zodiac/${sign}/today` },
-      { id: "weekly", label: "Weekly Overview", to: `/horoscopes/weekly/${sign}` },
-      { id: "monthly", label: "Monthly Perspective", to: `/horoscopes/monthly/${sign}` }
+      { id: "daily", label: "Daily Horoscope", to: `/horoscopes/${sign}` },
+      { id: "weekly", label: "Weekly Horoscope", to: `/horoscopes/weekly/${sign}` },
+      { id: "monthly", label: "Monthly Horoscope", to: `/horoscopes/monthly/${sign}` }
     ]
   }
 };

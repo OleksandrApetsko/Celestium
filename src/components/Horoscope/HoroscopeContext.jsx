@@ -1,10 +1,4 @@
-export default function HoroscopeContext({ energy, focus, challenge }) {
-  const items = [
-    ["Energy", energy],
-    ["Focus", focus],
-    ["Challenge", challenge]
-  ];
-
+export default function HoroscopeContext({ items }) {
   return (
     <div className="w-full mb-20 grid md:grid-cols-3 gap-8">
       {items.map(([label, value]) => (

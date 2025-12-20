@@ -21,31 +21,28 @@ export default function WeeklyDetail() {
     );
   }
 
-  const { title, summary, themes, context } = data;
-
   return (
     <section className="relative z-10 py-16 md:py-24">
       <HoroscopeContent>
 
-        {/* 1. ЗНАК + ОПИС */}
         <ZodiacDescription sign={sign} />
 
-        {/* 2. WEEKLY HEADER */}
-        <HoroscopeHeader
-          sign={sign}
-          label="Weekly Horoscope"
-          title={`${sign} — This Week`}
+        <HoroscopeHeader label="Weekly Horoscope" sign={sign} />
+
+        <HoroscopeInsight
+          kicker="Weekly Insight"
+          headline={data.title}
+          description={data.summary}
         />
 
-        {/* 3. WEEKLY CONTENT */}
-        <HoroscopeInsight headline={title} description={summary} />
-
-        <HoroscopeThemes themes={themes} />
+        <HoroscopeThemes themes={data.themes} />
 
         <HoroscopeContext
-          energy={context.energy}
-          focus={context.focus}
-          challenge={context.challenge}
+          items={[
+            ["Energy", data.context.energy],
+            ["Focus", data.context.focus],
+            ["Challenge", data.context.challenge]
+          ]}
         />
 
         <HoroscopeNext sign={sign} period="weekly" />
