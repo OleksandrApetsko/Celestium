@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { yearlyHoroscopeData } from "../../data/yearlyHoroscopeData.js";
 
 import HoroscopeContent from "../../components/Horoscope/HoroscopeContent.jsx";
+import ZodiacDescription from "../../components/ZodiacDescription/ZodiacDescription.jsx";
 import HoroscopeHeader from "../../components/Horoscope/HoroscopeHeader.jsx";
 import HoroscopeInsight from "../../components/Horoscope/HoroscopeInsight.jsx";
 import HoroscopeNext from "../../components/Horoscope/HoroscopeNext.jsx";
@@ -23,12 +24,17 @@ export default function YearlyDetail() {
     <section className="relative z-10 py-16 md:py-24">
       <HoroscopeContent>
 
+        {/* 1. ЗНАК + ОПИС */}
+        <ZodiacDescription sign={sign} />
+
+        {/* 2. YEARLY HEADER */}
         <HoroscopeHeader
           sign={sign}
           label="Yearly Horoscope"
           title={`${sign} — This Year`}
         />
 
+        {/* 3. YEARLY CONTENT */}
         <HoroscopeInsight
           headline={data.title}
           description={data.summary}
