@@ -27,6 +27,8 @@ import MonthlyDetail from './pages/horoscopes/MonthlyDetail.jsx'
 import Monthly from './pages/horoscopes/Monthly.jsx'
 import YearlyDetail from './pages/horoscopes/YearlyDetail.jsx'
 import Yearly from './pages/horoscopes/Yearly.jsx'
+import Search from "./pages/Search.jsx";
+
 
 export default function App() {
   return (
@@ -37,6 +39,7 @@ export default function App() {
 
       <main className="pt-[140px] relative z-10 text-white">
         <Routes>
+          <Route path="/search" element={<Search />} />
 
           <Route path="/" element={<Home />} />
 

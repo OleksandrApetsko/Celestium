@@ -1,115 +1,85 @@
-import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { menuItems } from "../../data/menuItems.js";
+import { useState, useEffect } from "react";
+import SearchInput from "../Search/SearchInput.jsx";
+
+const horoscopeLinks = [
+  { label: "Daily", path: "/#zodiac" },
+  { label: "Weekly", path: "/horoscopes/weekly" },
+  { label: "Monthly", path: "/horoscopes/monthly" },
+  { label: "Yearly", path: "/horoscopes/yearly" }
+];
 
 export default function MobileMenu({ open, onClose }) {
-  const [horoscopeOpen, setHoroscopeOpen] = useState(false);
+  const [openHoroscope, setOpenHoroscope] = useState(false);
+
+  useEffect(() => {
+    if (!open) setOpenHoroscope(false);
+  }, [open]);
 
   if (!open) return null;
 
   return (
-    <div
-      className="
-        fixed top-[140px] left-0 w-full
-        md:hidden
-        bg-black/95 backdrop-blur-xl
-        border-t border-white/10
-        z-[60]
-      "
-    >
-      <ul className="flex flex-col text-center text-lg space-y-4 py-6">
-
-        <NavLink
-          to="/"
-          onClick={onClose}
-          className="text-white hover:text-yellow-400 transition"
-        >
-          Home
-        </NavLink>
-
-        {/* HOROSCOPE */}
+    <div className="md:hidden fixed top-0 left-0 w-full z-50 bg-black/95 backdrop-blur-xl">
+      {/* TOP BAR — CLEAN */}
+      <div className="relative h-14 border-b border-white/10">
         <button
-          onClick={() => setHoroscopeOpen(!horoscopeOpen)}
-          className="text-white hover:text-yellow-400 transition"
+          onClick={onClose}
+          className="absolute right-6 top-1/2 -translate-y-1/2 text-yellow-300 text-2xl hover:text-white transition"
+          aria-label="Close menu"
         >
-          Horoscope
+          ✕
         </button>
+      </div>
 
-        {horoscopeOpen && (
-          <div className="space-y-3 text-sm">
+      {/* SEARCH — real */}
+      <div className="px-6 pt-6">
+        <SearchInput onNavigate={onClose} />
+      </div>
+
+      {/* NAVIGATION */}
+      <nav className="py-8 px-6 space-y-6 text-center">
+        {menuItems.map((item) => {
+          if (item === "Horoscope") {
+            return (
+              <div key="Horoscope" className="space-y-4">
+                <button
+                  onClick={() => setOpenHoroscope((v) => !v)}
+                  className="w-full text-lg text-white hover:text-yellow-400 transition"
+                >
+                  Horoscope
+                </button>
+
+                {openHoroscope && (
+                  <div className="space-y-3">
+                    {horoscopeLinks.map((link) => (
+                      <NavLink
+                        key={link.path}
+                        to={link.path}
+                        onClick={onClose}
+                        className="block text-white/70 hover:text-yellow-400 transition"
+                      >
+                        {link.label}
+                      </NavLink>
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+          }
+
+          return (
             <NavLink
-              to="/#zodiac"
+              key={item}
+              to={item === "Home" ? "/" : `/${item.toLowerCase()}`}
               onClick={onClose}
-              className="block text-white/80 hover:text-yellow-400"
+              className="block text-lg text-white hover:text-yellow-400 transition"
             >
-              Daily
+              {item}
             </NavLink>
-
-            <NavLink
-              to="/horoscopes/weekly"
-              onClick={onClose}
-              className="block text-white/80 hover:text-yellow-400"
-            >
-              Weekly
-            </NavLink>
-
-            <NavLink
-              to="/horoscopes/monthly"
-              onClick={onClose}
-              className="block text-white/80 hover:text-yellow-400"
-            >
-              Monthly
-            </NavLink>
-
-            <NavLink
-              to="/horoscopes/yearly"
-              onClick={onClose}
-              className="block text-white/80 hover:text-yellow-400"
-            >
-              Yearly
-            </NavLink>
-          </div>
-        )}
-
-        <NavLink
-          to="/compatibility"
-          onClick={onClose}
-          className="text-white hover:text-yellow-400"
-        >
-          Compatibility
-        </NavLink>
-
-        <NavLink
-          to="/birth-chart"
-          onClick={onClose}
-          className="text-white hover:text-yellow-400"
-        >
-          Birth Chart
-        </NavLink>
-
-        <NavLink
-          to="/blog"
-          onClick={onClose}
-          className="text-white hover:text-yellow-400"
-        >
-          Blog
-        </NavLink>
-
-        <NavLink
-          to="/about"
-          onClick={onClose}
-          className="text-white hover:text-yellow-400"
-        >
-          About
-        </NavLink>
-
-        <NavLink
-          to="/contact"
-          onClick={onClose}
-          className="text-white hover:text-yellow-400"
-        >
-          Contact
-        </NavLink>
-      </ul>
+          );
+        })}
+      </nav>
     </div>
   );
 }
