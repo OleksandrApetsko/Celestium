@@ -1,8 +1,6 @@
-// src/pages/horoscopes/MonthlyDetail.jsx
-
 import { useParams } from "react-router-dom";
 import { monthlyHoroscopeData } from "../../data/monthlyHoroscopeData.js";
-import useAccessGuard from "../../hooks/useAccessGuard.js";
+import { useAccess } from "../../hooks/useAccess.js";
 
 import HoroscopeContent from "../../components/Horoscope/HoroscopeContent.jsx";
 import ZodiacDescription from "../../components/ZodiacDescription/ZodiacDescription.jsx";
@@ -15,13 +13,9 @@ import HoroscopePaywall from "../../components/Horoscope/HoroscopePaywall.jsx";
 
 export default function MonthlyDetail() {
   const { sign } = useParams();
+  const { hasAccess } = useAccess();
+
   const data = monthlyHoroscopeData[sign];
-
-  const access = useAccessGuard({
-    productKey: "monthlyHoroscope",
-    sign
-  });
-
   if (!data) {
     return (
       <section className="py-20 text-center text-white">
@@ -30,6 +24,8 @@ export default function MonthlyDetail() {
     );
   }
 
+  const hasFullAccess = hasAccess("monthlyHoroscope", sign);
+
   const timelineText = `${data.timeline.early} ${data.timeline.mid} ${data.timeline.late}`;
   const areasText = `${data.areas.work} ${data.areas.relationships} ${data.areas.emotions}`;
 
@@ -37,39 +33,39 @@ export default function MonthlyDetail() {
     <section className="relative z-10 py-16 md:py-24">
       <HoroscopeContent>
 
-        {/* 1) SIGN + DESCRIPTION */}
         <ZodiacDescription sign={sign} />
 
-        {/* 2) HEADER */}
         <HoroscopeHeader label="Monthly Horoscope" sign={sign} />
 
-        {/* 3) CORE INSIGHT (preview, always) */}
+        {/* PREVIEW — ALWAYS */}
         <HoroscopeInsight
           kicker="Monthly Insight"
           headline={data.title}
           description={data.summary}
         />
 
-        {access.hasAccess ? (
+        {/* PAYWALL */}
+        {!hasFullAccess && (
+          <HoroscopePaywall period="monthly" sign={sign} />
+        )}
+
+        {/* FULL */}
+        {hasFullAccess && (
           <>
-            {/* FULL: Timeline */}
             <HoroscopeInsight
               kicker="Timeline"
               headline="Month Breakdown"
               description={timelineText}
             />
 
-            {/* FULL: Life Areas */}
             <HoroscopeInsight
               kicker="Life Areas"
               headline="Key Focus Areas"
               description={areasText}
             />
 
-            {/* FULL: Themes */}
             <HoroscopeThemes themes={data.themes} />
 
-            {/* FULL: Context */}
             <HoroscopeContext
               items={[
                 ["Energy", data.context.energy],
@@ -78,7 +74,6 @@ export default function MonthlyDetail() {
               ]}
             />
 
-            {/* FULL: Challenges & Opportunities */}
             <HoroscopeInsight
               kicker="What to Watch"
               headline="Challenges"
@@ -91,18 +86,14 @@ export default function MonthlyDetail() {
               description={data.opportunities.join(" • ")}
             />
 
-            {/* FULL: Strategic Advice */}
             <HoroscopeInsight
-              kicker={access.via === "subscription" ? "Premium Guidance" : "Unlocked Guidance"}
-              headline="Strategic Advice"
+              kicker="Strategic Advice"
+              headline="Guidance"
               description={data.advice.join(" • ")}
             />
           </>
-        ) : (
-          <HoroscopePaywall period="monthly" sign={sign} />
         )}
 
-        {/* 4) NEXT */}
         <HoroscopeNext sign={sign} period="monthly" />
 
       </HoroscopeContent>

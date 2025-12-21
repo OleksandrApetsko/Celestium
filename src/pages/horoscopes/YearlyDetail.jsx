@@ -1,8 +1,6 @@
-// src/pages/horoscopes/YearlyDetail.jsx
-
 import { useParams } from "react-router-dom";
 import { yearlyHoroscopeData } from "../../data/yearlyHoroscopeData.js";
-import useAccessGuard from "../../hooks/useAccessGuard.js";
+import { useAccess } from "../../hooks/useAccess.js";
 
 import HoroscopeContent from "../../components/Horoscope/HoroscopeContent.jsx";
 import ZodiacDescription from "../../components/ZodiacDescription/ZodiacDescription.jsx";
@@ -15,13 +13,9 @@ import HoroscopePaywall from "../../components/Horoscope/HoroscopePaywall.jsx";
 
 export default function YearlyDetail() {
   const { sign } = useParams();
+  const { hasAccess } = useAccess();
+
   const data = yearlyHoroscopeData[sign];
-
-  const access = useAccessGuard({
-    productKey: "yearlyHoroscope",
-    sign
-  });
-
   if (!data) {
     return (
       <section className="py-20 text-center text-white">
@@ -30,6 +24,8 @@ export default function YearlyDetail() {
     );
   }
 
+  const hasFullAccess = hasAccess("yearlyHoroscope", sign);
+
   const timelineText = `${data.timeline.firstHalf} ${data.timeline.secondHalf}`;
   const areasText = `${data.areas.work} ${data.areas.relationships} ${data.areas.emotions}`;
 
@@ -37,39 +33,39 @@ export default function YearlyDetail() {
     <section className="relative z-10 py-16 md:py-24">
       <HoroscopeContent>
 
-        {/* 1) SIGN + DESCRIPTION */}
         <ZodiacDescription sign={sign} />
 
-        {/* 2) HEADER */}
         <HoroscopeHeader label="Yearly Horoscope" sign={sign} />
 
-        {/* 3) CORE INSIGHT (preview, always) */}
+        {/* PREVIEW — ALWAYS */}
         <HoroscopeInsight
           kicker="Yearly Overview"
           headline={data.title}
           description={data.summary}
         />
 
-        {access.hasAccess ? (
+        {/* PAYWALL */}
+        {!hasFullAccess && (
+          <HoroscopePaywall period="yearly" sign={sign} />
+        )}
+
+        {/* FULL */}
+        {hasFullAccess && (
           <>
-            {/* FULL: Timeline */}
             <HoroscopeInsight
               kicker="Timeline"
               headline="Year Progression"
               description={timelineText}
             />
 
-            {/* FULL: Life Areas */}
             <HoroscopeInsight
               kicker="Life Areas"
               headline="Key Areas of Growth"
               description={areasText}
             />
 
-            {/* FULL: Themes */}
             <HoroscopeThemes themes={data.themes} />
 
-            {/* FULL: Context */}
             <HoroscopeContext
               items={[
                 ["Energy", data.context.energy],
@@ -78,7 +74,6 @@ export default function YearlyDetail() {
               ]}
             />
 
-            {/* FULL: Challenges & Opportunities */}
             <HoroscopeInsight
               kicker="What to Watch"
               headline="Challenges"
@@ -91,24 +86,22 @@ export default function YearlyDetail() {
               description={data.opportunities.join(" • ")}
             />
 
-            {/* FULL: Strategic Advice + Premium message */}
             <HoroscopeInsight
-              kicker={access.via === "subscription" ? "Premium Direction" : "Unlocked Direction"}
-              headline="Strategic Direction"
+              kicker="Strategic Direction"
+              headline="Your Long-Term Direction"
               description={data.advice.join(" • ")}
             />
 
-            <HoroscopeInsight
-              kicker="Deep Year Insight"
-              headline="Your Long-Term Direction"
-              description={data.premium?.message}
-            />
+            {data.premium?.message && (
+              <HoroscopeInsight
+                kicker="Deep Year Insight"
+                headline="Premium Perspective"
+                description={data.premium.message}
+              />
+            )}
           </>
-        ) : (
-          <HoroscopePaywall period="yearly" sign={sign} />
         )}
 
-        {/* 4) NEXT */}
         <HoroscopeNext sign={sign} period="yearly" />
 
       </HoroscopeContent>
