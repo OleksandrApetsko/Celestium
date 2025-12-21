@@ -1,5 +1,8 @@
+// src/pages/horoscopes/YearlyDetail.jsx
+
 import { useParams } from "react-router-dom";
 import { yearlyHoroscopeData } from "../../data/yearlyHoroscopeData.js";
+import useAccessGuard from "../../hooks/useAccessGuard.js";
 
 import HoroscopeContent from "../../components/Horoscope/HoroscopeContent.jsx";
 import ZodiacDescription from "../../components/ZodiacDescription/ZodiacDescription.jsx";
@@ -10,72 +13,102 @@ import HoroscopeContext from "../../components/Horoscope/HoroscopeContext.jsx";
 import HoroscopeNext from "../../components/Horoscope/HoroscopeNext.jsx";
 import HoroscopePaywall from "../../components/Horoscope/HoroscopePaywall.jsx";
 
-import useAccessGuard from "../../hooks/useAccessGuard.js";
-
 export default function YearlyDetail() {
   const { sign } = useParams();
   const data = yearlyHoroscopeData[sign];
 
   const access = useAccessGuard({
     productKey: "yearlyHoroscope",
-    sign,
+    sign
   });
 
   if (!data) {
     return (
       <section className="py-20 text-center text-white">
-        <h1 className="text-3xl font-semibold">
-          Yearly Horoscope Not Found
-        </h1>
+        <h1 className="text-3xl font-semibold">Yearly Horoscope Not Found</h1>
       </section>
     );
   }
+
+  const timelineText = `${data.timeline.firstHalf} ${data.timeline.secondHalf}`;
+  const areasText = `${data.areas.work} ${data.areas.relationships} ${data.areas.emotions}`;
 
   return (
     <section className="relative z-10 py-16 md:py-24">
       <HoroscopeContent>
 
-        {/* 1. SIGN */}
+        {/* 1) SIGN + DESCRIPTION */}
         <ZodiacDescription sign={sign} />
 
-        {/* 2. HEADER */}
+        {/* 2) HEADER */}
         <HoroscopeHeader label="Yearly Horoscope" sign={sign} />
 
-        {/* 3. PREVIEW INSIGHT */}
+        {/* 3) CORE INSIGHT (preview, always) */}
         <HoroscopeInsight
-          kicker="Yearly Insight"
+          kicker="Yearly Overview"
           headline={data.title}
           description={data.summary}
         />
 
-        {/* 4. THEMES */}
-        {data.themes && <HoroscopeThemes themes={data.themes} />}
-
-        {/* 5. CONTEXT */}
-        <HoroscopeContext
-          items={[
-            ["Energy", data.context.energy],
-            ["Focus", data.context.focus],
-            ["Challenge", data.context.challenge],
-          ]}
-        />
-
-        {/* 6. PAYWALL або FULL */}
         {access.hasAccess ? (
-          <HoroscopeInsight
-            kicker={
-              access.via === "subscription"
-                ? "Premium Yearly Overview"
-                : "Yearly Horoscope Unlocked"
-            }
-            headline="Your Long-Term Direction"
-            description={data.premium.message}
-          />
+          <>
+            {/* FULL: Timeline */}
+            <HoroscopeInsight
+              kicker="Timeline"
+              headline="Year Progression"
+              description={timelineText}
+            />
+
+            {/* FULL: Life Areas */}
+            <HoroscopeInsight
+              kicker="Life Areas"
+              headline="Key Areas of Growth"
+              description={areasText}
+            />
+
+            {/* FULL: Themes */}
+            <HoroscopeThemes themes={data.themes} />
+
+            {/* FULL: Context */}
+            <HoroscopeContext
+              items={[
+                ["Energy", data.context.energy],
+                ["Focus", data.context.focus],
+                ["Challenge", data.context.challenge]
+              ]}
+            />
+
+            {/* FULL: Challenges & Opportunities */}
+            <HoroscopeInsight
+              kicker="What to Watch"
+              headline="Challenges"
+              description={data.challenges.join(" • ")}
+            />
+
+            <HoroscopeInsight
+              kicker="Where Growth Happens"
+              headline="Opportunities"
+              description={data.opportunities.join(" • ")}
+            />
+
+            {/* FULL: Strategic Advice + Premium message */}
+            <HoroscopeInsight
+              kicker={access.via === "subscription" ? "Premium Direction" : "Unlocked Direction"}
+              headline="Strategic Direction"
+              description={data.advice.join(" • ")}
+            />
+
+            <HoroscopeInsight
+              kicker="Deep Year Insight"
+              headline="Your Long-Term Direction"
+              description={data.premium?.message}
+            />
+          </>
         ) : (
           <HoroscopePaywall period="yearly" sign={sign} />
         )}
 
-        {/* 7. NEXT */}
+        {/* 4) NEXT */}
         <HoroscopeNext sign={sign} period="yearly" />
 
       </HoroscopeContent>

@@ -1,5 +1,8 @@
+// src/pages/horoscopes/MonthlyDetail.jsx
+
 import { useParams } from "react-router-dom";
 import { monthlyHoroscopeData } from "../../data/monthlyHoroscopeData.js";
+import useAccessGuard from "../../hooks/useAccessGuard.js";
 
 import HoroscopeContent from "../../components/Horoscope/HoroscopeContent.jsx";
 import ZodiacDescription from "../../components/ZodiacDescription/ZodiacDescription.jsx";
@@ -8,11 +11,7 @@ import HoroscopeInsight from "../../components/Horoscope/HoroscopeInsight.jsx";
 import HoroscopeThemes from "../../components/Horoscope/HoroscopeThemes.jsx";
 import HoroscopeContext from "../../components/Horoscope/HoroscopeContext.jsx";
 import HoroscopeNext from "../../components/Horoscope/HoroscopeNext.jsx";
-
 import HoroscopePaywall from "../../components/Horoscope/HoroscopePaywall.jsx";
-import HoroscopeFocusCards from "../../components/Horoscope/HoroscopeFocusCards.jsx";
-
-import useAccessGuard from "../../hooks/useAccessGuard.js";
 
 export default function MonthlyDetail() {
   const { sign } = useParams();
@@ -20,7 +19,7 @@ export default function MonthlyDetail() {
 
   const access = useAccessGuard({
     productKey: "monthlyHoroscope",
-    sign,
+    sign
   });
 
   if (!data) {
@@ -31,55 +30,79 @@ export default function MonthlyDetail() {
     );
   }
 
+  const timelineText = `${data.timeline.early} ${data.timeline.mid} ${data.timeline.late}`;
+  const areasText = `${data.areas.work} ${data.areas.relationships} ${data.areas.emotions}`;
+
   return (
     <section className="relative z-10 py-16 md:py-24">
       <HoroscopeContent>
 
-        {/* 1. SIGN */}
+        {/* 1) SIGN + DESCRIPTION */}
         <ZodiacDescription sign={sign} />
 
-        {/* 2. HEADER */}
+        {/* 2) HEADER */}
         <HoroscopeHeader label="Monthly Horoscope" sign={sign} />
 
-        {/* 3. PREVIEW INSIGHT (ЗАВЖДИ Є) */}
+        {/* 3) CORE INSIGHT (preview, always) */}
         <HoroscopeInsight
           kicker="Monthly Insight"
           headline={data.title}
           description={data.summary}
         />
 
-        {/* 4. THEMES (ЗАВЖДИ Є) */}
-        {data.themes && <HoroscopeThemes themes={data.themes} />}
-
-        {/* 5. CONTEXT (ЗАВЖДИ Є) */}
-        <HoroscopeContext
-          items={[
-            ["Mood", data.context.mood],
-            ["Focus", data.context.focusLevel],
-            ["Risk", data.context.riskLevel],
-          ]}
-        />
-
-        {/* 6. АБО PAYWALL, АБО FULL CONTENT */}
         {access.hasAccess ? (
           <>
+            {/* FULL: Timeline */}
             <HoroscopeInsight
-              kicker={
-                access.via === "subscription"
-                  ? "Premium Monthly Guidance"
-                  : "Monthly Horoscope Unlocked"
-              }
-              headline="How to Work With This Month"
-              description="Below is your detailed monthly guidance — what to prioritize and what to avoid."
+              kicker="Timeline"
+              headline="Month Breakdown"
+              description={timelineText}
             />
 
-            <HoroscopeFocusCards focus={data.focus} />
+            {/* FULL: Life Areas */}
+            <HoroscopeInsight
+              kicker="Life Areas"
+              headline="Key Focus Areas"
+              description={areasText}
+            />
+
+            {/* FULL: Themes */}
+            <HoroscopeThemes themes={data.themes} />
+
+            {/* FULL: Context */}
+            <HoroscopeContext
+              items={[
+                ["Energy", data.context.energy],
+                ["Focus", data.context.focus],
+                ["Challenge", data.context.challenge]
+              ]}
+            />
+
+            {/* FULL: Challenges & Opportunities */}
+            <HoroscopeInsight
+              kicker="What to Watch"
+              headline="Challenges"
+              description={data.challenges.join(" • ")}
+            />
+
+            <HoroscopeInsight
+              kicker="Where Growth Happens"
+              headline="Opportunities"
+              description={data.opportunities.join(" • ")}
+            />
+
+            {/* FULL: Strategic Advice */}
+            <HoroscopeInsight
+              kicker={access.via === "subscription" ? "Premium Guidance" : "Unlocked Guidance"}
+              headline="Strategic Advice"
+              description={data.advice.join(" • ")}
+            />
           </>
         ) : (
           <HoroscopePaywall period="monthly" sign={sign} />
         )}
 
-        {/* 7. NEXT */}
+        {/* 4) NEXT */}
         <HoroscopeNext sign={sign} period="monthly" />
 
       </HoroscopeContent>

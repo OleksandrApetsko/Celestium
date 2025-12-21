@@ -1,4 +1,6 @@
-export default function HoroscopeInsight({ kicker, headline, description }) {
+// src/components/Horoscope/HoroscopeInsight.jsx
+
+export default function HoroscopeInsight({ kicker = "Core Insight", headline, description }) {
   return (
     <div className="w-full mb-20 rounded-2xl bg-black/40 backdrop-blur-xl border border-white/10 p-10 text-center">
       <p className="text-yellow-300 uppercase tracking-[0.25em] text-xs mb-4">

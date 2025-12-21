@@ -1,3 +1,5 @@
+// src/data/horoscopeNavigation.js
+
 export const horoscopeNavigation = {
   daily: {
     kicker: "Looking Ahead",
@@ -8,32 +10,29 @@ export const horoscopeNavigation = {
       { id: "yearly", label: "Yearly Horoscope", to: `/horoscopes/yearly/${sign}` }
     ]
   },
-
   weekly: {
-    kicker: "Continue",
-    title: "Explore Other Timeframes",
+    kicker: "Keep Exploring",
+    title: "Continue Your Forecast",
     links: (sign) => [
-      { id: "daily", label: "Daily Horoscope", to: `/horoscopes/${sign}` },
+      { id: "daily", label: "Daily Horoscope", to: `/zodiac/${sign}/today` },
       { id: "monthly", label: "Monthly Horoscope", to: `/horoscopes/monthly/${sign}` },
       { id: "yearly", label: "Yearly Horoscope", to: `/horoscopes/yearly/${sign}` }
     ]
   },
-
   monthly: {
-    kicker: "Continue",
-    title: "Explore Other Timeframes",
+    kicker: "Next Step",
+    title: "Go Deeper",
     links: (sign) => [
-      { id: "daily", label: "Daily Horoscope", to: `/horoscopes/${sign}` },
+      { id: "daily", label: "Daily Horoscope", to: `/zodiac/${sign}/today` },
       { id: "weekly", label: "Weekly Horoscope", to: `/horoscopes/weekly/${sign}` },
       { id: "yearly", label: "Yearly Horoscope", to: `/horoscopes/yearly/${sign}` }
     ]
   },
-
   yearly: {
-    kicker: "Continue",
-    title: "Explore Other Timeframes",
+    kicker: "Keep Exploring",
+    title: "Explore More Guidance",
     links: (sign) => [
-      { id: "daily", label: "Daily Horoscope", to: `/horoscopes/${sign}` },
+      { id: "daily", label: "Daily Horoscope", to: `/zodiac/${sign}/today` },
       { id: "weekly", label: "Weekly Horoscope", to: `/horoscopes/weekly/${sign}` },
       { id: "monthly", label: "Monthly Horoscope", to: `/horoscopes/monthly/${sign}` }
     ]

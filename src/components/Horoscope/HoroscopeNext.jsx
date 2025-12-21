@@ -1,3 +1,5 @@
+// src/components/Horoscope/HoroscopeNext.jsx
+
 import { Link } from "react-router-dom";
 import { horoscopeNavigation } from "../../data/horoscopeNavigation.js";
 
@@ -26,13 +28,11 @@ function CTAButton({ to, label }) {
 
 export default function HoroscopeNext({ sign, period }) {
   const config = horoscopeNavigation[period];
-
   if (!config) return null;
 
   return (
     <div className="w-full mt-24">
       <div className="rounded-2xl bg-black/30 backdrop-blur-xl border border-white/10 p-10 text-center">
-
         <p className="text-xs uppercase tracking-[0.25em] text-white/40 mb-3">
           {config.kicker}
         </p>
@@ -42,15 +42,10 @@ export default function HoroscopeNext({ sign, period }) {
         </h3>
 
         <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4">
-          {config.links(sign).map(link => (
-            <CTAButton
-              key={link.id}
-              to={link.to}
-              label={link.label}
-            />
+          {config.links(sign).map((link) => (
+            <CTAButton key={link.id} to={link.to} label={link.label} />
           ))}
         </div>
-
       </div>
     </div>
   );

@@ -21,25 +21,15 @@ export const subscriptionPricing = {
   },
 };
 
+// src/data/pricing.js
+
 export const oneTimeProducts = {
-  monthlyHoroscope: {
-    id: "ot_monthly_horoscope",
-    name: "Premium Monthly Horoscope",
-    price: "$9.99",
-  },
-  yearlyHoroscope: {
-    id: "ot_yearly_horoscope",
-    name: "Premium Yearly Horoscope",
-    price: "$19.99",
-  },
-  premiumBirthChart: {
-    id: "ot_birth_chart",
-    name: "Premium Birth Chart",
-    price: "$14.99",
-  },
-  premiumCompatibility: {
-    id: "ot_compatibility",
-    name: "Premium Compatibility",
-    price: "$9.99",
-  },
+  // horoscopes
+  monthlyHoroscope: { id: "monthlyHoroscope", price: "$9.99" }, // <-- ЗМІНИ ТУТ, якщо у вас інша ціна
+  yearlyHoroscope: { id: "yearlyHoroscope", price: "$19.99" },
+
+  // SSOT one-time
+  premiumBirthChart: { id: "premiumBirthChart", price: "$14.99" },
+  premiumCompatibility: { id: "premiumCompatibility", price: "$9.99" }
 };
+

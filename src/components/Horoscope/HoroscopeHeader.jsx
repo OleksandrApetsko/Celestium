@@ -1,3 +1,5 @@
+// src/components/Horoscope/HoroscopeHeader.jsx
+
 export default function HoroscopeHeader({ label, sign }) {
   return (
     <div className="text-center mb-16">
