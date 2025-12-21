@@ -30,6 +30,7 @@ import YearlyDetail from "./pages/horoscopes/YearlyDetail.jsx";
 import Yearly from "./pages/horoscopes/Yearly.jsx";
 
 import Search from "./pages/Search.jsx";
+import DevAccessPanel from './components/Dev/DevAccessPanel.jsx'
 
 export default function App() {
   return (
@@ -87,6 +88,8 @@ export default function App() {
       </main>
 
       <Footer />
+      <DevAccessPanel />
+
     </BrowserRouter>
   );
 }

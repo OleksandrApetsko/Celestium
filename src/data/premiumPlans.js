@@ -1,13 +1,15 @@
+// src/data/premiumPlans.js
+
 export const premiumPlans = [
   {
     id: "monthly",
     name: "Monthly Access",
-    price: "$11.99",
+    price: "$9.99",
     period: "per month",
     features: [
       "Full daily & weekly guidance",
-      "Monthly forecasts included",
-      "Love & compatibility insights",
+      "Full monthly horoscopes included",
+      "Premium birth chart & compatibility",
       "Planetary timing & emotional cycles"
     ],
     highlight: false,
@@ -18,16 +20,16 @@ export const premiumPlans = [
   {
     id: "yearly",
     name: "Yearly Access",
-    price: "$89",
+    price: "$59.99",
     period: "billed yearly",
-    save: "Save 38%",
+    save: null,
     features: [
       "Everything in Monthly",
-      "Full Year planetary vision",
-      "Emotional season breakdown",
+      "Full yearly horoscopes included",
+      "Premium birth chart & compatibility",
       "Advanced interpretation & timing"
     ],
-    highlight: true, // виділений центральний тариф
+    highlight: true,
     badge: "MOST POPULAR",
     buttonText: "Get Yearly Premium →",
     style: "best"
@@ -35,11 +37,11 @@ export const premiumPlans = [
   {
     id: "lifetime",
     name: "Lifetime Premium",
-    price: "$199",
+    price: "$149",
     period: "pay once — access forever",
     features: [
       "Permanent full access",
-      "All yearly features forever",
+      "All premium features forever",
       "Future updates included",
       "One payment — lifetime use"
     ],

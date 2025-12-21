@@ -1,7 +1,6 @@
 import AboutHeader from "../components/About/AboutHeader";
 import AboutCards from "../components/About/AboutCards";
 import AboutStory from "../components/About/AboutStory";
-import TestimonialsCarousel from "../components/Testimonials/TestimonialsCarousel";
 
 export default function About() {
   return (
@@ -12,8 +11,6 @@ export default function About() {
       <AboutCards />
 
       <AboutStory />
-
-      <TestimonialsCarousel />
 
     </section>
   );

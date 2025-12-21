@@ -8,8 +8,6 @@ import CompatibilitySection from "../components/Compatibility/CompatibilitySecti
 import MoonPhaseSection from "../components/MoonPhase/MoonPhaseSection.jsx";
 import ArticlesSection from "../components/Articles/ArticlesSection.jsx";
 import PremiumCTASection from "../components/Premium/PremiumCTASection.jsx";
-import TestimonialsSection from "../components/Testimonials/TestimonialsSection.jsx";
-import FinalCTASection from "../components/FinalCTA/FinalCTASection.jsx";
 import AppDownloadSection from "../components/AppDownload/AppDownloadSection.jsx";
 import ExtendedForecastSection from "../components/ExtendedForecast/ExtendedForecastSection.jsx";
 
@@ -51,9 +49,7 @@ export default function Home() {
       <MoonPhaseSection />
       <ArticlesSection />
       <PremiumCTASection />
-      <TestimonialsSection />
-      <AppDownloadSection />
-      <FinalCTASection />
+      {/*<AppDownloadSection />*/}
     </>
   );
 }

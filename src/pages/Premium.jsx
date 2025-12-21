@@ -2,7 +2,6 @@ import PremiumHero from "../components/Premium/PremiumHero.jsx";
 import PremiumBenefits from "../components/Premium/PremiumBenefits.jsx";
 import PremiumPricing from "../components/Premium/PremiumPricing.jsx";
 import PremiumFAQ from "../components/Premium/PremiumFAQ.jsx";
-import PremiumCTA from "../components/Premium/PremiumCTA.jsx";
 
 export default function Premium() {
   return (
@@ -11,7 +10,6 @@ export default function Premium() {
       <PremiumBenefits />
       <PremiumPricing />
       <PremiumFAQ />
-      <PremiumCTA />
     </section>
   );
 }
