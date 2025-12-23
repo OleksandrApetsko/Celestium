@@ -1,5 +1,3 @@
-// src/data/monthlyHoroscopeData.js
-
 export const monthlyHoroscopeData = {
   aries: {
     title: "Measured Progress",
@@ -21,7 +19,23 @@ export const monthlyHoroscopeData = {
       emotions:
         "You calm down when your actions match your priorities. Less pressure, more control."
     },
-    themes: ["Patience", "Structure", "Self-control"],
+    themes: [
+      {
+        title: "Patience",
+        description:
+          "Allowing situations to unfold naturally improves timing and results."
+      },
+      {
+        title: "Structure",
+        description:
+          "Clear systems help you conserve energy and maintain direction."
+      },
+      {
+        title: "Self-control",
+        description:
+          "Managing impulses prevents wasted effort and frustration."
+      }
+    ],
     context: {
       energy: "Controlled",
       focus: "Strategy",
@@ -56,7 +70,23 @@ export const monthlyHoroscopeData = {
       emotions:
         "Grounding practices reduce stress. Comfort is productive this month."
     },
-    themes: ["Consistency", "Security", "Self-care"],
+    themes: [
+      {
+        title: "Consistency",
+        description:
+          "Repeating supportive habits builds trust and long-term results."
+      },
+      {
+        title: "Security",
+        description:
+          "Stability reduces anxiety and supports confident decisions."
+      },
+      {
+        title: "Self-care",
+        description:
+          "Physical and emotional comfort restore strength and resilience."
+      }
+    ],
     context: {
       energy: "Grounded",
       focus: "Stability",
@@ -91,7 +121,23 @@ export const monthlyHoroscopeData = {
       emotions:
         "Your nervous system calms when you stop multitasking. Give your mind one job at a time."
     },
-    themes: ["Communication", "Focus", "Mental hygiene"],
+    themes: [
+      {
+        title: "Communication",
+        description:
+          "Direct dialogue prevents confusion and unnecessary delays."
+      },
+      {
+        title: "Focus",
+        description:
+          "Limiting distractions sharpens priorities."
+      },
+      {
+        title: "Mental hygiene",
+        description:
+          "Reducing information overload restores clarity."
+      }
+    ],
     context: {
       energy: "Restless",
       focus: "Clarity",
@@ -126,7 +172,23 @@ export const monthlyHoroscopeData = {
       emotions:
         "When you honor feelings without being ruled by them, you become calm and decisive."
     },
-    themes: ["Boundaries", "Emotional safety", "Reflection"],
+    themes: [
+      {
+        title: "Boundaries",
+        description:
+          "Clear emotional limits protect energy and trust."
+      },
+      {
+        title: "Emotional safety",
+        description:
+          "Stability grows when feelings are acknowledged without overwhelm."
+      },
+      {
+        title: "Reflection",
+        description:
+          "Quiet introspection restores emotional balance."
+      }
+    ],
     context: {
       energy: "Sensitive",
       focus: "Inner balance",
@@ -161,7 +223,23 @@ export const monthlyHoroscopeData = {
       emotions:
         "True confidence appears when you stop chasing validation and start building value."
     },
-    themes: ["Expression", "Recognition", "Confidence"],
+    themes: [
+      {
+        title: "Expression",
+        description:
+          "Authentic self-expression strengthens influence."
+      },
+      {
+        title: "Recognition",
+        description:
+          "Respect follows meaningful contribution."
+      },
+      {
+        title: "Confidence",
+        description:
+          "Grounded confidence inspires trust."
+      }
+    ],
     context: {
       energy: "Radiant",
       focus: "Leadership",
@@ -196,7 +274,23 @@ export const monthlyHoroscopeData = {
       emotions:
         "Order reduces anxiety. Structure gives you emotional breathing room."
     },
-    themes: ["Organization", "Efficiency", "Health routines"],
+    themes: [
+      {
+        title: "Organization",
+        description:
+          "Order creates clarity and efficiency."
+      },
+      {
+        title: "Efficiency",
+        description:
+          "Streamlining tasks saves energy."
+      },
+      {
+        title: "Health routines",
+        description:
+          "Consistent habits support resilience."
+      }
+    ],
     context: {
       energy: "Focused",
       focus: "Improvement",
@@ -231,7 +325,23 @@ export const monthlyHoroscopeData = {
       emotions:
         "You feel better when you stop delaying decisions. Clarity is relief."
     },
-    themes: ["Relationships", "Fairness", "Decision-making"],
+    themes: [
+      {
+        title: "Relationships",
+        description:
+          "Clear expectations strengthen connection."
+      },
+      {
+        title: "Fairness",
+        description:
+          "Objectivity restores balance."
+      },
+      {
+        title: "Decision-making",
+        description:
+          "Timely choices reduce emotional strain."
+      }
+    ],
     context: {
       energy: "Reflective",
       focus: "Balance",
@@ -266,7 +376,23 @@ export const monthlyHoroscopeData = {
       emotions:
         "Your emotions are data. Use them to guide decisions, not to punish yourself."
     },
-    themes: ["Truth", "Emotional depth", "Letting go"],
+    themes: [
+      {
+        title: "Truth",
+        description:
+          "Honesty creates real change."
+      },
+      {
+        title: "Emotional depth",
+        description:
+          "Exploring feelings reveals motivation."
+      },
+      {
+        title: "Letting go",
+        description:
+          "Releasing control restores power."
+      }
+    ],
     context: {
       energy: "Intense",
       focus: "Transformation",
@@ -301,14 +427,30 @@ export const monthlyHoroscopeData = {
       emotions:
         "Optimism stabilizes when you match it with action and realistic pacing."
     },
-    themes: ["Growth", "Learning", "Vision"],
+    themes: [
+      {
+        title: "Growth",
+        description:
+          "Intentional learning creates momentum."
+      },
+      {
+        title: "Learning",
+        description:
+          "New insight emerges through commitment."
+      },
+      {
+        title: "Vision",
+        description:
+          "Long-term perspective guides choices."
+      }
+    ],
     context: {
       energy: "Expansive",
       focus: "Exploration",
       challenge: "Overcommitment"
     },
     challenges: ["Restlessness", "Ignoring details", "Overpromising"],
-    opportunities: ["Learning wins", "Travel/expansion energy", "New perspective"],
+    opportunities: ["Learning wins", "New perspective", "Purposeful direction"],
     advice: [
       "Commit to one meaningful goal",
       "Measure progress weekly",
@@ -336,7 +478,23 @@ export const monthlyHoroscopeData = {
       emotions:
         "You feel safer when your plan is clear. Structure reduces anxiety."
     },
-    themes: ["Responsibility", "Structure", "Long-term goals"],
+    themes: [
+      {
+        title: "Responsibility",
+        description:
+          "Ownership strengthens long-term results."
+      },
+      {
+        title: "Structure",
+        description:
+          "Clear frameworks support progress."
+      },
+      {
+        title: "Long-term goals",
+        description:
+          "Consistency builds sustainable success."
+      }
+    ],
     context: {
       energy: "Stable",
       focus: "Discipline",
@@ -371,7 +529,23 @@ export const monthlyHoroscopeData = {
       emotions:
         "Detachment is not the same as peace. Ground yourself in simple routines."
     },
-    themes: ["Innovation", "Community", "Originality"],
+    themes: [
+      {
+        title: "Innovation",
+        description:
+          "Original ideas gain strength through action."
+      },
+      {
+        title: "Community",
+        description:
+          "Collaboration refines vision."
+      },
+      {
+        title: "Originality",
+        description:
+          "Authenticity attracts support."
+      }
+    ],
     context: {
       energy: "Electric",
       focus: "Innovation",
@@ -406,7 +580,23 @@ export const monthlyHoroscopeData = {
       emotions:
         "Rest is not avoidance — it’s calibration. Protect recovery time."
     },
-    themes: ["Creativity", "Empathy", "Spiritual awareness"],
+    themes: [
+      {
+        title: "Creativity",
+        description:
+          "Imaginative expression restores balance."
+      },
+      {
+        title: "Empathy",
+        description:
+          "Understanding others deepens connection."
+      },
+      {
+        title: "Spiritual awareness",
+        description:
+          "Inner reflection reveals guidance."
+      }
+    ],
     context: {
       energy: "Fluid",
       focus: "Intuition",

@@ -10,7 +10,7 @@ import {
   birthHours,
   birthMinutes,
   ampmOptions,
-} from "../../data/birthChartOptions.js";
+} from "../../data/birthChart/birthChartOptions.js";
 
 export default function BirthChartForm({ onGenerate }) {
   const [month, setMonth] = useState("");

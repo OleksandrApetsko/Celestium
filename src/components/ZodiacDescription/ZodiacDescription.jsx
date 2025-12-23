@@ -1,5 +1,5 @@
-import { zodiacIcons } from "../../data/zodiacIcons.jsx";
-import { zodiacDescriptions } from "../../data/zodiacDescriptions.js";
+import { zodiacIcons } from "../../data/zodiac/zodiacIcons.jsx";
+import { zodiacDescriptions } from "../../data/zodiac/zodiacDescriptions.js";
 
 export default function ZodiacDescription({ sign }) {
   const zodiac = zodiacDescriptions[sign];

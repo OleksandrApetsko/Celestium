@@ -3,7 +3,7 @@ import { useLocation, Link } from "react-router-dom";
 
 import NatalWheel from "../components/BirthChart/NatalWheel.jsx";
 import PremiumGate from "../components/Premium/PremiumGate.jsx";
-import { birthChartFullData } from "../data/birthChartFullData.js";
+import { birthChartFullData } from "../data/birthChart/birthChartFullData.js";
 
 export default function BirthChartFull() {
   const location = useLocation();

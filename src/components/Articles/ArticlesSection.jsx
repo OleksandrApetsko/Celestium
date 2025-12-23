@@ -1,4 +1,4 @@
-import { blogData } from "../../data/blogData.js";
+import { blogData } from "../../data/blog/blogData.js";
 import ArticleCard from "./ArticleCard.jsx";
 import { Link } from "react-router-dom";
 

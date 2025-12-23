@@ -1,7 +1,7 @@
 // src/components/PremiumCTA/PremiumCTASection.jsx
 
 import { Link } from "react-router-dom";
-import { premiumBenefits } from "../../data/premiumBenefits.js";
+import { premiumBenefits } from "../../data/premium/premiumBenefits.js";
 import PremiumIcon from "./PremiumIcon.jsx";
 
 export default function PremiumCTASection() {

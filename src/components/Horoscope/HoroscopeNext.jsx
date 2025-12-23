@@ -1,7 +1,7 @@
 // src/components/Horoscope/HoroscopeNext.jsx
 
 import { Link } from "react-router-dom";
-import { horoscopeNavigation } from "../../data/horoscopeNavigation.js";
+import { horoscopeNavigation } from "../../data/horoscope/horoscopeNavigation.js";
 
 function CTAButton({ to, label }) {
   return (

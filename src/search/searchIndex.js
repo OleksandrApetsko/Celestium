@@ -1,5 +1,5 @@
 // src/search/searchIndex.js
-import { zodiacData } from "../data/zodiacData.js";
+import { zodiacData } from "../data/zodiac/zodiacData.js";
 
 export function buildSearchIndex() {
   const index = [];

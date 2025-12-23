@@ -1,4 +1,4 @@
-import { premiumBenefits } from "../../data/premiumBenefits.js";
+import { premiumBenefits } from "../../data/premium/premiumBenefits.js";
 import PremiumIcon from "./PremiumIcon.jsx";
 
 export default function PremiumBenefits() {

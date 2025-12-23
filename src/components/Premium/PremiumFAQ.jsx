@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { premiumFAQ } from "../../data/premiumFAQ.js";
+import { premiumFAQ } from "../../data/premium/premiumFAQ.js";
 
 export default function PremiumFAQ() {
   const [openIndex, setOpenIndex] = useState(null);

@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { monthlyHoroscopeData } from "../../data/monthlyHoroscopeData.js";
+import { monthlyHoroscopeData } from "../../data/horoscope/monthlyHoroscopeData.js";
 import { useAccess } from "../../hooks/useAccess.js";
 
 import HoroscopeContent from "../../components/Horoscope/HoroscopeContent.jsx";
@@ -44,6 +44,16 @@ export default function MonthlyDetail() {
           description={data.summary}
         />
 
+        <HoroscopeThemes themes={data.themes} />
+
+        <HoroscopeContext
+          items={[
+            ["Energy", data.context.energy],
+            ["Focus", data.context.focus],
+            ["Challenge", data.context.challenge]
+          ]}
+        />
+
         {/* PAYWALL */}
         {!hasFullAccess && (
           <HoroscopePaywall period="monthly" sign={sign} />
@@ -62,16 +72,6 @@ export default function MonthlyDetail() {
               kicker="Life Areas"
               headline="Key Focus Areas"
               description={areasText}
-            />
-
-            <HoroscopeThemes themes={data.themes} />
-
-            <HoroscopeContext
-              items={[
-                ["Energy", data.context.energy],
-                ["Focus", data.context.focus],
-                ["Challenge", data.context.challenge]
-              ]}
             />
 
             <HoroscopeInsight

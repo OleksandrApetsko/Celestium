@@ -1,4 +1,4 @@
-import { zodiacIcons } from "../../data/zodiacIcons.jsx";
+import { zodiacIcons } from "../../data/zodiac/zodiacIcons.jsx";
 
 const VARIANT_CONFIG = {
   daily: {

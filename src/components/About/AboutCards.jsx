@@ -1,4 +1,4 @@
-import { aboutCardsData } from "../../data/aboutCardsData";
+import { aboutCardsData } from "../../data/blog/aboutCardsData.js";
 
 export default function AboutCards() {
   return (

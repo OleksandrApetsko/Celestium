@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 import Header from './components/Header/Header.jsx'
-import SolarBackground from './components/SolarBackground.jsx'
-import CosmicEffects from './components/CosmicEffects.jsx'
+import SolarBackground from './components/Background/SolarBackground.jsx'
+import CosmicEffects from './components/Background/CosmicEffects.jsx'
 import Footer from './components/Footer/Footer.jsx'
 
 // Pages

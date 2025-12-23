@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { zodiacIconsLite } from "../../data/zodiacIconsLite.jsx";
+import { zodiacIconsLite } from "../../data/zodiac/zodiacIconsLite.jsx";
 
 const OPTIONS = [
   { slug: "aries", label: "Aries" },

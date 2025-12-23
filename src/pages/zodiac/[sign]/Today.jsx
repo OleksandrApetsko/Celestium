@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { dailyHoroscopeData } from "../../../data/dailyHoroscopeData.js";
+import { dailyHoroscopeData } from "../../../data/horoscope/dailyHoroscopeData.js";
 
 import HoroscopeContent from "../../../components/Horoscope/HoroscopeContent.jsx";
 import ZodiacDescription from "../../../components/ZodiacDescription/ZodiacDescription.jsx";

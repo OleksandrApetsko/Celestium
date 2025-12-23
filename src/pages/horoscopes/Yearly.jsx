@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { zodiacData } from "../../data/zodiacData.js";
+import { zodiacData } from "../../data/zodiac/zodiacData.js";
 import HoroscopeCard from "../../components/Horoscope/HoroscopeCard.jsx";
 
 export default function Yearly() {

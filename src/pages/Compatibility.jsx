@@ -8,8 +8,8 @@ import CompatibilityPreview from "../components/Compatibility/CompatibilityPrevi
 import CompatibilityFull from "../components/Compatibility/CompatibilityFull.jsx";
 import HoroscopePaywall from "../components/Horoscope/HoroscopePaywall.jsx";
 
-import compatibilityPreview from "../data/compatibilityPreview.js";
-import compatibilityFull from "../data/compatibilityFull.js";
+import compatibilityPreview from "../data/compatibility/compatibilityPreview.js";
+import compatibilityFull from "../data/compatibility/compatibilityFull.js";
 
 import { useAccess } from "../hooks/useAccess.js";
 

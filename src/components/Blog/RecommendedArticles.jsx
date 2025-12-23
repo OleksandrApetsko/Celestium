@@ -1,6 +1,6 @@
 // src/components/Blog/RecommendedArticles.jsx
 
-import { blogData } from "../../data/blogData.js";
+import { blogData } from "../../data/blog/blogData.js";
 import BlogCard from "./BlogCard.jsx";
 
 export default function RecommendedArticles({ currentId }) {

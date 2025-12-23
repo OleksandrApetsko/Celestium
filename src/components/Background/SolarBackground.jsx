@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import mobileBg from "../assets/solar-mobile.png";
-import desktopBg from "../assets/solar-desktop.png";
+import mobileBg from "../../assets/solar-mobile.png";
+import desktopBg from "../../assets/solar-desktop.png";
 
 export default function SolarBackground() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 900);

@@ -1,22 +1,11 @@
 import ScoreRing from "./ScoreRing.jsx";
-
-const LABELS = {
-  aries: "Aries",
-  taurus: "Taurus",
-  gemini: "Gemini",
-  cancer: "Cancer",
-  leo: "Leo",
-  virgo: "Virgo",
-  libra: "Libra",
-  scorpio: "Scorpio",
-  sagittarius: "Sagittarius",
-  capricorn: "Capricorn",
-  aquarius: "Aquarius",
-  pisces: "Pisces"
-};
+import zodiacLabels from "../../data/zodiac/zodiacLabels.js";
 
 export default function CompatibilityPreview({ signA, signB, data }) {
   if (!data) return null;
+
+  const labelA = zodiacLabels[String(signA).toLowerCase()];
+  const labelB = zodiacLabels[String(signB).toLowerCase()];
 
   return (
     <div className="max-w-5xl mx-auto mt-24 px-6">
@@ -27,7 +16,7 @@ export default function CompatibilityPreview({ signA, signB, data }) {
           </p>
 
           <h2 className="mt-4 text-3xl sm:text-4xl font-light tracking-[0.10em] text-yellow-300">
-            {LABELS[signA]} ✦ {LABELS[signB]}
+            {labelA} ✦ {labelB}
           </h2>
         </div>
 

@@ -1,5 +1,3 @@
-// src/data/yearlyHoroscopeData.js
-
 export const yearlyHoroscopeData = {
   aries: {
     title: "Redefining Direction",
@@ -19,7 +17,23 @@ export const yearlyHoroscopeData = {
       emotions:
         "Inner confidence stabilizes as you stop proving yourself and start building."
     },
-    themes: ["Leadership", "Personal identity", "Long-term ambition"],
+    themes: [
+      {
+        title: "Leadership",
+        description:
+          "True authority develops through calm direction and consistent action."
+      },
+      {
+        title: "Personal identity",
+        description:
+          "You redefine who you are by aligning actions with long-term values."
+      },
+      {
+        title: "Long-term ambition",
+        description:
+          "Sustainable goals replace impulsive pursuits, creating lasting momentum."
+      }
+    ],
     context: {
       energy: "Assertive",
       focus: "Purpose",
@@ -56,7 +70,23 @@ export const yearlyHoroscopeData = {
       emotions:
         "Peace grows when your environment and habits match your values."
     },
-    themes: ["Security", "Material growth", "Self-worth"],
+    themes: [
+      {
+        title: "Security",
+        description:
+          "Material and emotional stability become primary sources of confidence."
+      },
+      {
+        title: "Material growth",
+        description:
+          "Financial discipline and patience create tangible progress."
+      },
+      {
+        title: "Self-worth",
+        description:
+          "Confidence strengthens as you honor your values consistently."
+      }
+    ],
     context: {
       energy: "Grounded",
       focus: "Stability",
@@ -93,7 +123,23 @@ export const yearlyHoroscopeData = {
       emotions:
         "Mental calm comes from fewer inputs and stronger boundaries around attention."
     },
-    themes: ["Communication", "Learning", "Mental discipline"],
+    themes: [
+      {
+        title: "Communication",
+        description:
+          "Clear expression becomes a strategic advantage this year."
+      },
+      {
+        title: "Learning",
+        description:
+          "Focused education leads to mastery rather than scattered knowledge."
+      },
+      {
+        title: "Mental discipline",
+        description:
+          "Managing attention strengthens clarity and decision-making."
+      }
+    ],
     context: {
       energy: "Active",
       focus: "Clarity",
@@ -130,7 +176,23 @@ export const yearlyHoroscopeData = {
       emotions:
         "You become more grounded when you stop suppressing feelings and start managing them."
     },
-    themes: ["Emotional growth", "Boundaries", "Family"],
+    themes: [
+      {
+        title: "Emotional growth",
+        description:
+          "Greater awareness leads to calmer and more stable responses."
+      },
+      {
+        title: "Boundaries",
+        description:
+          "Healthy limits protect energy and emotional well-being."
+      },
+      {
+        title: "Family",
+        description:
+          "Connections deepen through reliability and care."
+      }
+    ],
     context: {
       energy: "Sensitive",
       focus: "Inner balance",
@@ -167,7 +229,23 @@ export const yearlyHoroscopeData = {
       emotions:
         "Real confidence comes when you create value, not just attention."
     },
-    themes: ["Creativity", "Recognition", "Purpose"],
+    themes: [
+      {
+        title: "Creativity",
+        description:
+          "Creative output strengthens confidence and visibility."
+      },
+      {
+        title: "Recognition",
+        description:
+          "Respect grows through substance rather than performance."
+      },
+      {
+        title: "Purpose",
+        description:
+          "Clear intention directs your leadership energy."
+      }
+    ],
     context: {
       energy: "Radiant",
       focus: "Expression",
@@ -204,7 +282,23 @@ export const yearlyHoroscopeData = {
       emotions:
         "Anxiety decreases as you build structure. Control comes from preparation."
     },
-    themes: ["Efficiency", "Health", "Order"],
+    themes: [
+      {
+        title: "Efficiency",
+        description:
+          "Streamlined systems increase productivity and calm."
+      },
+      {
+        title: "Health",
+        description:
+          "Consistent habits support long-term well-being."
+      },
+      {
+        title: "Order",
+        description:
+          "Structure reduces stress and improves focus."
+      }
+    ],
     context: {
       energy: "Focused",
       focus: "Improvement",
@@ -241,7 +335,23 @@ export const yearlyHoroscopeData = {
       emotions:
         "Calm returns when your choices match your values."
     },
-    themes: ["Relationships", "Fairness", "Commitment"],
+    themes: [
+      {
+        title: "Relationships",
+        description:
+          "Mutual understanding strengthens long-term bonds."
+      },
+      {
+        title: "Fairness",
+        description:
+          "Balanced choices restore harmony."
+      },
+      {
+        title: "Commitment",
+        description:
+          "Clear decisions support stability and trust."
+      }
+    ],
     context: {
       energy: "Balanced",
       focus: "Harmony",
@@ -278,7 +388,23 @@ export const yearlyHoroscopeData = {
       emotions:
         "Your intensity becomes power when you channel it into growth and healing."
     },
-    themes: ["Transformation", "Truth", "Power"],
+    themes: [
+      {
+        title: "Transformation",
+        description:
+          "Letting go creates space for renewal."
+      },
+      {
+        title: "Truth",
+        description:
+          "Honesty drives lasting change."
+      },
+      {
+        title: "Power",
+        description:
+          "Focused intensity strengthens personal authority."
+      }
+    ],
     context: {
       energy: "Intense",
       focus: "Rebirth",
@@ -315,7 +441,23 @@ export const yearlyHoroscopeData = {
       emotions:
         "Optimism stabilizes when it’s backed by action and discipline."
     },
-    themes: ["Exploration", "Learning", "Perspective"],
+    themes: [
+      {
+        title: "Exploration",
+        description:
+          "New experiences broaden understanding."
+      },
+      {
+        title: "Learning",
+        description:
+          "Knowledge gains value through application."
+      },
+      {
+        title: "Perspective",
+        description:
+          "Long-term vision clarifies direction."
+      }
+    ],
     context: {
       energy: "Expansive",
       focus: "Vision",
@@ -352,7 +494,23 @@ export const yearlyHoroscopeData = {
       emotions:
         "Confidence grows as your plan proves itself. Structure becomes peace."
     },
-    themes: ["Career", "Structure", "Legacy"],
+    themes: [
+      {
+        title: "Career",
+        description:
+          "Professional growth comes through steady execution."
+      },
+      {
+        title: "Structure",
+        description:
+          "Clear frameworks support authority and success."
+      },
+      {
+        title: "Legacy",
+        description:
+          "Long-term impact matters more than short-term wins."
+      }
+    ],
     context: {
       energy: "Stable",
       focus: "Discipline",
@@ -389,7 +547,23 @@ export const yearlyHoroscopeData = {
       emotions:
         "Grounding calms your nervous system. Detachment is not the same as peace."
     },
-    themes: ["Innovation", "Community", "Change"],
+    themes: [
+      {
+        title: "Innovation",
+        description:
+          "Original thinking leads to meaningful change."
+      },
+      {
+        title: "Community",
+        description:
+          "Collaboration amplifies impact."
+      },
+      {
+        title: "Change",
+        description:
+          "Adaptability supports long-term growth."
+      }
+    ],
     context: {
       energy: "Electric",
       focus: "Innovation",
@@ -426,7 +600,23 @@ export const yearlyHoroscopeData = {
       emotions:
         "Rest becomes transformative. Emotional clarity grows with routine and grounding."
     },
-    themes: ["Spiritual growth", "Creativity", "Compassion"],
+    themes: [
+      {
+        title: "Spiritual growth",
+        description:
+          "Inner awareness guides long-term decisions."
+      },
+      {
+        title: "Creativity",
+        description:
+          "Imagination becomes productive when supported by routine."
+      },
+      {
+        title: "Compassion",
+        description:
+          "Empathy deepens connection when balanced with boundaries."
+      }
+    ],
     context: {
       energy: "Fluid",
       focus: "Intuition",

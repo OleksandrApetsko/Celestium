@@ -1,4 +1,4 @@
-import { premiumPlans } from "../../data/premiumPlans.js";
+import { premiumPlans } from "../../data/premium/premiumPlans.js";
 import PricingCard from "./PricingCard.jsx";
 
 export default function PremiumPricing() {

@@ -1,7 +1,7 @@
 // src/pages/Blog/BlogPost.jsx
 
 import { useParams, Link } from "react-router-dom";
-import { blogData } from "../../data/blogData.js";
+import { blogData } from "../../data/blog/blogData.js";
 import BlogBackButton from "../../components/Blog/BlogBackButton.jsx";
 import RecommendedArticles from "../../components/Blog/RecommendedArticles.jsx";
 

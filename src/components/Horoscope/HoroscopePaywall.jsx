@@ -1,8 +1,8 @@
 // src/components/Horoscope/HoroscopePaywall.jsx
 
 import { Link, useLocation } from "react-router-dom";
-import { horoscopePaywallConfig } from "../../data/horoscopePaywallConfig.js";
-import { oneTimeProducts } from "../../data/pricing.js";
+import { horoscopePaywallConfig } from "../../data/horoscope/horoscopePaywallConfig.js";
+import { oneTimeProducts } from "../../data/premium/pricing.js";
 
 export default function HoroscopePaywall({ period, sign }) {
   const location = useLocation();

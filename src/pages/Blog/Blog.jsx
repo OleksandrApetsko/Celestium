@@ -1,6 +1,6 @@
 // src/pages/Blog/Blog.jsx
 
-import { blogData } from "../../data/blogData.js";
+import { blogData } from "../../data/blog/blogData.js";
 import BlogCard from "../../components/Blog/BlogCard.jsx";
 
 export default function Blog() {

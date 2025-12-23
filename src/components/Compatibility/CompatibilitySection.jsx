@@ -1,7 +1,7 @@
 // src/components/Home/CompatibilitySection.jsx
 
 import { Link } from "react-router-dom";
-import { compatibilityHighlights } from "../../data/compatibilityHighlights.js";
+import { compatibilityHighlights } from "../../data/compatibility/compatibilityHighlights.js";
 import CompatibilityHighlightCard from "./CompatibilityHighlightCard.jsx";
 
 export default function CompatibilitySection() {
