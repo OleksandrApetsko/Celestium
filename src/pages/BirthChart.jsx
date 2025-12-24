@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import BirthChartForm from "../components/BirthChart/BirthChartForm.jsx";
 import BirthChartReport from "../components/BirthChart/BirthChartReport.jsx";
+import HoroscopeNext from '../components/Horoscope/HoroscopeNext.jsx'
 
 export default function BirthChart() {
   const [chart, setChart] = useState(null);
@@ -47,6 +48,9 @@ export default function BirthChart() {
           <BirthChartReport data={chart} />
         </div>
       )}
+
+      <HoroscopeNext period="birthChart" />
+
     </section>
   );
 }

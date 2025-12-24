@@ -1,8 +1,8 @@
 import Container from "../Ui/Container.jsx";
 import { useState } from "react";
-import { premiumFAQ } from "../../data/premium/premiumFAQ.js";
+import { faq } from "../../data/about/faq.js";
 
-export default function PremiumFAQ() {
+export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
@@ -18,7 +18,7 @@ export default function PremiumFAQ() {
           </p>
 
           <div className="space-y-4">
-            {premiumFAQ.map((item, i) => {
+            {faq.map((item, i) => {
               const open = openIndex === i;
 
               return (

@@ -1,24 +1,31 @@
+import Container from "../Ui/Container.jsx";
+import { aboutStoryData } from "../../data/about/aboutStoryData.js";
+
 export default function AboutStory() {
   return (
-    <div className="max-w-5xl mx-auto mt-32 text-center">
+    <section className="py-20">
+      <Container>
+        <div
+          className="
+            bg-white/5 backdrop-blur-xl
+            border border-yellow-400/10
+            rounded-2xl p-12
+            transition
+            hover:border-yellow-300/50
+            hover:shadow-[0_0_35px_rgba(250,204,21,0.35)]
+          "
+        >
+          <h2 className="text-2xl md:text-3xl font-medium text-yellow-300 mb-8 text-center">
+            {aboutStoryData.title}
+          </h2>
 
-      <h2 className="text-4xl md:text-5xl text-white font-semibold mb-8">
-        Our Story
-      </h2>
-
-      <p className="text-white/70 text-lg leading-relaxed max-w-3xl mx-auto">
-        Celestium began with a question — how would astrology look if rebuilt today,
-        from data, clarity and design rather than myth and mysticism? We envisioned
-        something intuitive, cinematic, emotionally intelligent.
-      </p>
-
-      <p className="text-white/70 text-lg leading-relaxed max-w-3xl mx-auto mt-6">
-        Every insight here is crafted with care — planetary motion interpreted as
-        human experience, compatibility explored with nuance, and user experience
-        shaped like a constellation: structured, elegant, alive.
-        Celestium grows with every release, just as people do.
-      </p>
-
-    </div>
+          <div className="space-y-6 text-white/70 leading-relaxed text-base md:text-lg max-w-4xl mx-auto">
+            {aboutStoryData.paragraphs.map((text, i) => (
+              <p key={i}>{text}</p>
+            ))}
+          </div>
+        </div>
+      </Container>
+    </section>
   );
 }

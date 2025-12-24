@@ -2,6 +2,7 @@
 
 import { blogData } from "../../data/blog/blogData.js";
 import BlogCard from "../../components/Blog/BlogCard.jsx";
+import HoroscopeNext from '../../components/Horoscope/HoroscopeNext.jsx'
 
 export default function Blog() {
   return (
@@ -25,6 +26,8 @@ export default function Blog() {
           <BlogCard key={article.id} article={article} />
         ))}
       </div>
+
+      <HoroscopeNext period="premium" />
 
     </section>
   );

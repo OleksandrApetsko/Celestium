@@ -1,4 +1,5 @@
 import ContactForm from "../components/Contact/ContactForm.jsx";
+import HoroscopeNext from '../components/Horoscope/HoroscopeNext.jsx'
 
 export default function Contact() {
   return (
@@ -6,6 +7,8 @@ export default function Contact() {
       <div className="max-w-4xl mx-auto">
         <ContactForm />
       </div>
+
+      <HoroscopeNext period="premium" />
     </section>
   );
 }

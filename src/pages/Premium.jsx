@@ -9,7 +9,7 @@ export default function Premium() {
       <PremiumHero />
       <PremiumBenefits />
       <PremiumPricing />
-      <HoroscopeNext period="compatibility" />
+      <HoroscopeNext period="premium" />
     </section>
   );
 }

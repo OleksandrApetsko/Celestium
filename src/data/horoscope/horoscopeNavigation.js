@@ -1,3 +1,5 @@
+import BirthChart from '../../pages/BirthChart.jsx'
+
 export const horoscopeNavigation = {
   daily: {
     variant: "cta",
@@ -51,5 +53,24 @@ export const horoscopeNavigation = {
       { id: "birth-chart", label: "Birth Chart", to: "/birth-chart" },
       { id: "blog", label: "Blog", to: "/blog" }
     ]
+  },
+  /* 🔹 QUIET NAVIGATION — PREMIUM PAGE */
+  premium: {
+    variant: "quiet",
+    links: () => [
+      { id: "horoscope", label: "Horoscope", to: "/#zodiac" },
+      { id: "birth-chart", label: "Birth Chart", to: "/birth-chart" },
+      { id: "compatibility", label: "Compatibility", to: "/compatibility" }
+    ]
+  },
+
+  birthChart: {
+    variant: "quiet",
+    links: () => [
+      { id: "horoscope", label: "Horoscope", to: "/#zodiac" },
+      { id: "compatibility", label: "Compatibility", to: "/compatibility" },
+      { id: "blog", label: "Blog", to: "/blog" }
+    ]
   }
+
 };

@@ -1,11 +1,12 @@
-import AboutHeader from "../components/About/AboutHeader";
-import AboutCards from "../components/About/AboutCards";
-import AboutStory from "../components/About/AboutStory";
-import PremiumFAQ from '../components/Premium/PremiumFAQ.jsx'
+import HoroscopeNext from '../components/Horoscope/HoroscopeNext.jsx'
+import AboutHeader from '../components/About/AboutHeader.jsx'
+import AboutCards from '../components/About/AboutCards.jsx'
+import AboutStory from '../components/About/AboutStory.jsx'
+import FAQ from '../components/About/FAQ.jsx'
 
 export default function About() {
   return (
-    <section className="relative z-10 pt-32 pb-28 px-6">
+    <section className="relative z-10 pt-32 pb-16 px-6">
 
       <AboutHeader />
 
@@ -13,7 +14,9 @@ export default function About() {
 
       <AboutStory />
 
-      <PremiumFAQ />
+      <FAQ />
+
+      <HoroscopeNext period="premium" />
 
     </section>
   );
