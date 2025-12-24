@@ -1,24 +1,26 @@
+import Container from "../Ui/Container.jsx";
 import { premiumPlans } from "../../data/premium/premiumPlans.js";
 import PricingCard from "./PricingCard.jsx";
+import PremiumIncludes from "./PremiumIncludes.jsx";
 
 export default function PremiumPricing() {
   return (
-    <div className="max-w-6xl mx-auto mt-28 text-center px-4">
+    <section className="py-20">
+      <Container>
 
-      <h2 className="text-3xl md:text-5xl font-bold text-white drop-shadow mb-5">
-        Choose Your Way to Premium Astrology
-      </h2>
+        <PremiumIncludes />
 
-      <p className="text-white/70 max-w-xl mx-auto mb-16 text-lg">
-        Unlock long-range predictions, emotional timing guidance,
-        compatibility insights and refined star interpretation by real experts.
-      </p>
+        <div className="grid md:grid-cols-3 gap-10">
+          {premiumPlans.map((plan) => (
+            <PricingCard key={plan.id} plan={plan} />
+          ))}
+        </div>
 
-      <div className="grid md:grid-cols-3 gap-10">
-        {premiumPlans.map(plan => (
-          <PricingCard key={plan.id} plan={plan} />
-        ))}
-      </div>
-    </div>
+        <p className="text-center text-xs text-white/50 mt-12">
+          All plans include the same premium content.
+          Choose the access period that suits you best.
+        </p>
+      </Container>
+    </section>
   );
 }

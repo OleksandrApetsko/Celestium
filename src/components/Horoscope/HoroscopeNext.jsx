@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { horoscopeNavigation } from "../../data/horoscope/horoscopeNavigation.js";
 
 function CTAButton({ to, label, variant }) {
-  /* QUIET VARIANT — Compatibility */
   if (variant === "quiet") {
     return (
       <Link
@@ -24,10 +23,7 @@ function CTAButton({ to, label, variant }) {
       >
         <span>{label}</span>
         <span
-          className="
-            transition-transform duration-300
-            group-hover:translate-x-1
-          "
+          className="transition-transform duration-300 group-hover:translate-x-1"
         >
           →
         </span>
@@ -35,7 +31,6 @@ function CTAButton({ to, label, variant }) {
     );
   }
 
-  /* DEFAULT CTA VARIANT — Horoscopes */
   return (
     <Link
       to={to}
@@ -68,7 +63,7 @@ export default function HoroscopeNext({ sign, period }) {
   const links = config.links(sign);
 
   return (
-    <div className="w-full mt-24">
+    <div className="w-full pt-20 pb-8">
       <div
         className={
           variant === "quiet"

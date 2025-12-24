@@ -1,38 +1,20 @@
 export const premiumBenefits = [
   {
-    id: "forecast",
-    title: "Personalized Forecast",
-    text: "Daily, weekly, monthly, and yearly astrology interpreted individually — not general horoscopes.",
+    id: "interpretation",
+    title: "Deeper Interpretation",
+    text: "Astrological insights presented with additional context and structure, moving beyond surface-level readings.",
     icon: "forecast"
   },
   {
-    id: "moon-tracking",
-    title: "Lunar Emotional Tracking",
-    text: "Interpretation of emotional waves, clarity cycles and manifestation timing based on moon phases.",
+    id: "cycles",
+    title: "Cycles & Rhythms",
+    text: "A broader view of recurring cycles and patterns that influence emotional tone and personal focus over time.",
     icon: "moon"
   },
   {
-    id: "compatibility",
-    title: "Relationship Compatibility",
-    text: "Astrologer-guided love mapping + AI analytical layer for psychology & emotional polarity.",
-    icon: "compatibility"
-  },
-  {
-    id: "ai-assisted",
-    title: "Astrologer + AI Synergy",
-    text: "Human intuition remains the core. AI amplifies patterns — but soul leads the reading.",
-    icon: "ai"
-  },
-  {
-    id: "future-planning",
-    title: "Long-Term Forecast Planning",
-    text: "Energy cycle mapping, decision timing windows, resistance zones — plan life with clarity.",
+    id: "perspective",
+    title: "Long-Term Perspective",
+    text: "An extended outlook that emphasizes continuity, themes, and gradual development rather than short-term change.",
     icon: "planning"
-  },
-  {
-    id: "rituals",
-    title: "Ritual & Guidance Library",
-    text: "Manifestation phases, emotional grounding, self-awareness rituals — premium-only access.",
-    icon: "rituals"
   }
 ];

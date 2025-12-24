@@ -1,6 +1,7 @@
 import AboutHeader from "../components/About/AboutHeader";
 import AboutCards from "../components/About/AboutCards";
 import AboutStory from "../components/About/AboutStory";
+import PremiumFAQ from '../components/Premium/PremiumFAQ.jsx'
 
 export default function About() {
   return (
@@ -11,6 +12,8 @@ export default function About() {
       <AboutCards />
 
       <AboutStory />
+
+      <PremiumFAQ />
 
     </section>
   );

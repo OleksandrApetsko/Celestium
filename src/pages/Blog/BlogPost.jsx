@@ -25,8 +25,6 @@ export default function BlogPost() {
   return (
     <section className="relative z-10 py-20 px-6 max-w-5xl mx-auto">
 
-      <BlogBackButton />
-
       <h1 className="text-4xl md:text-5xl font-bold text-white text-center leading-tight mt-8">
         {article.title}
       </h1>

@@ -1,15 +1,15 @@
 import PremiumHero from "../components/Premium/PremiumHero.jsx";
 import PremiumBenefits from "../components/Premium/PremiumBenefits.jsx";
 import PremiumPricing from "../components/Premium/PremiumPricing.jsx";
-import PremiumFAQ from "../components/Premium/PremiumFAQ.jsx";
+import HoroscopeNext from "../components/Horoscope/HoroscopeNext.jsx";
 
 export default function Premium() {
   return (
-    <section className="relative z-10 pt-16 pb-32 px-6">
+    <section className="relative z-10 pt-16">
       <PremiumHero />
       <PremiumBenefits />
       <PremiumPricing />
-      <PremiumFAQ />
+      <HoroscopeNext period="compatibility" />
     </section>
   );
 }
