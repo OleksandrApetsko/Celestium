@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { weeklyHoroscopeData } from "../../data/horoscope/weeklyHoroscopeData.js";
 
 import HoroscopeContent from "../../components/Horoscope/HoroscopeContent.jsx";
-import ZodiacDescription from "../../components/ZodiacDescription/ZodiacDescription.jsx";
+import ZodiacDescription from "../../components/Horoscope/ZodiacDescription.jsx";
 import HoroscopeHeader from "../../components/Horoscope/HoroscopeHeader.jsx";
 import HoroscopeInsight from "../../components/Horoscope/HoroscopeInsight.jsx";
 import HoroscopeThemes from "../../components/Horoscope/HoroscopeThemes.jsx";

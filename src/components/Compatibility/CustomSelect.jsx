@@ -1,26 +1,12 @@
 import { useMemo, useState } from "react";
 import { zodiacIconsLite } from "../../data/zodiac/zodiacIconsLite.jsx";
-
-const OPTIONS = [
-  { slug: "aries", label: "Aries" },
-  { slug: "taurus", label: "Taurus" },
-  { slug: "gemini", label: "Gemini" },
-  { slug: "cancer", label: "Cancer" },
-  { slug: "leo", label: "Leo" },
-  { slug: "virgo", label: "Virgo" },
-  { slug: "libra", label: "Libra" },
-  { slug: "scorpio", label: "Scorpio" },
-  { slug: "sagittarius", label: "Sagittarius" },
-  { slug: "capricorn", label: "Capricorn" },
-  { slug: "aquarius", label: "Aquarius" },
-  { slug: "pisces", label: "Pisces" }
-];
+import { zodiacOptions } from "../../data/zodiac/zodiacOptions.js";
 
 export default function CustomSelect({ label, value, onChange }) {
   const [open, setOpen] = useState(false);
 
   const current = useMemo(
-    () => OPTIONS.find((o) => o.slug === value) || null,
+    () => zodiacOptions.find((o) => o.slug === value) || null,
     [value]
   );
 
@@ -62,12 +48,12 @@ export default function CustomSelect({ label, value, onChange }) {
             max-h-72 overflow-auto
           "
         >
-          {OPTIONS.map((opt) => (
+          {zodiacOptions.map((opt) => (
             <button
               key={opt.slug}
               type="button"
               onClick={() => {
-                onChange(opt.slug); // IMPORTANT: slug!
+                onChange(opt.slug);
                 setOpen(false);
               }}
               className="

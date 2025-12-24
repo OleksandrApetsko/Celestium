@@ -1,6 +1,6 @@
 import FeatureCardsSection from "../Shared/FeatureCardsSection.jsx";
 import { featureSectionsData } from "../../data/featureSectionsData.js";
 
-export default function CompatibilitySection() {
-  return <FeatureCardsSection {...featureSectionsData.compatibility} />;
+export default function PremiumSection() {
+  return <FeatureCardsSection {...featureSectionsData.premium} />;
 }

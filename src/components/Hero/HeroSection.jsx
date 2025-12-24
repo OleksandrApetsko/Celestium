@@ -1,3 +1,5 @@
+import Container from "../Ui/Container.jsx";
+
 import HeroBadge from "./HeroBadge.jsx";
 import HeroTitle from "./HeroTitle.jsx";
 import HeroTagline from "./HeroTagline.jsx";
@@ -8,35 +10,27 @@ import HeroPreview from "./HeroPreview.jsx";
 
 export default function HeroSection() {
   return (
-    <section className="relative z-10 overflow-hidden">
+    <section className="relative z-10 overflow-hidden py-20 md:py-28 lg:py-32">
+      <div
+        className="absolute inset-0 pointer-events-none
+        bg-gradient-to-b from-yellow-400/5 via-transparent to-transparent
+        blur-3xl"
+      />
 
-      {/* background glow */}
-      <div className="absolute inset-0 pointer-events-none
-                      bg-gradient-to-b from-yellow-400/4 via-transparent to-transparent
-                      blur-3xl" />
-
-      <div className="max-w-7xl mx-auto px-6 py-20 md:py-28">
+      <Container>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 lg:gap-24 items-center">
-
-          {/* LEFT */}
-          <div className="space-y-7 animate-[fadeUp_1s_ease-out_forwards] opacity-0">
-
+          <div className="space-y-7">
             <HeroBadge />
             <HeroTitle />
             <HeroTagline />
             <HeroSubtitle />
             <HeroButtons />
             <HeroMeta />
-
           </div>
 
-          {/* RIGHT */}
-          <div className="opacity-0 animate-[fadeUp_1.2s_ease-out_forwards]">
-            <HeroPreview />
-          </div>
-
+          <HeroPreview />
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

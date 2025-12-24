@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function ArticleCard({ id, title, preview, img }) {
+export default function BlogArticleCard({ id, title, preview, img }) {
   return (
     <div
       className="

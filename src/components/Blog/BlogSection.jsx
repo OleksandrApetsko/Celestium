@@ -1,33 +1,31 @@
+import Container from "../Ui/Container.jsx";
 import { blogData } from "../../data/blog/blogData.js";
-import ArticleCard from "./ArticleCard.jsx";
+import BlogArticleCard from "./BlogArticleCard.jsx";
 import { Link } from "react-router-dom";
 
-export default function ArticlesSection() {
-  const preview = blogData.slice(0, 3); // тільки перші три статті
+export default function BlogSection() {
+  const preview = blogData.slice(0, 3);
 
   return (
-    <section className="relative z-10 py-16 md:py-24">
-      <div className="max-w-7xl mx-auto px-6">
-
-        {/* HEADER */}
+    <section className="relative z-10 py-16 md:py-24 lg:py-28">
+      <Container>
         <div className="text-center mb-12">
           <span className="text-xs uppercase tracking-[0.25em] text-yellow-300">
             Featured Articles
           </span>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl text-white font-semibold mt-2">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mt-2 text-white">
             Explore the Celestial Wisdom
           </h2>
 
-          <p className="text-white/70 max-w-2xl mx-auto mt-4 text-sm sm:text-base">
+          <p className="text-white/70 max-w-2xl mx-auto mt-4">
             A curated collection of insights and guides to help you understand the stars more deeply.
           </p>
         </div>
 
-        {/* GRID */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {preview.map((article) => (
-            <ArticleCard
+            <BlogArticleCard
               key={article.id}
               id={article.id}
               title={article.title}
@@ -37,20 +35,20 @@ export default function ArticlesSection() {
           ))}
         </div>
 
-        {/* CTA to blog */}
         <div className="text-center mt-14">
           <Link
             to="/blog"
             className="
-              inline-block px-10 py-3 rounded-full border border-yellow-300 text-yellow-300
-              font-semibold tracking-wide hover:bg-yellow-300 hover:text-black transition
+              inline-block px-10 py-3 rounded-full
+              border border-yellow-300 text-yellow-300
+              font-semibold tracking-wide
+              hover:bg-yellow-300 hover:text-black transition
             "
           >
             View All Articles
           </Link>
         </div>
-
-      </div>
+      </Container>
     </section>
   );
 }
