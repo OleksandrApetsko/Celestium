@@ -1,5 +1,8 @@
-import { elementIcons } from "../../data/compatibility/elementIcons.jsx";
-import { getElementText } from "../../data/compatibility/elementInterpretations.js";
+// src/components/Compatibility/CompatibilityElements.jsx
+
+import { elementIcons } from "../../data/compatibility/elements/elementIcons.jsx";
+import { getElementText } from "../../data/compatibility/elements/elementInterpretations.js";
+import ElementGauge from "./ElementGauge.jsx";
 
 function getLevelMeta(value) {
   if (value <= 3) {
@@ -38,8 +41,8 @@ export default function CompatibilityElements({ elements, signA, signB }) {
         </h2>
 
         <p className="mt-4 max-w-3xl mx-auto text-white/65">
-          Elemental balance reveals how passion, stability, communication
-          and emotional depth interact within this specific relationship.
+          Elemental balance reveals how passion, stability, communication and
+          emotional depth interact within this specific relationship.
         </p>
       </div>
 
@@ -61,35 +64,25 @@ export default function CompatibilityElements({ elements, signA, signB }) {
               key={element}
               className="rounded-2xl bg-black/40 backdrop-blur-xl border border-white/10 p-10"
             >
-              {/* Header */}
-              <div className="flex items-center gap-4 mb-6">
-                {elementIcons[element]}
-                <h3 className="text-2xl text-white">{element}</h3>
+              {/* Header (CENTERED ICON + TITLE) */}
+              <div className="flex flex-col items-center gap-4 mb-8 text-center">
+                <div className="flex items-center justify-center">
+                  {elementIcons[element]}
+                </div>
+                <h3 className="text-2xl text-white tracking-wide">
+                  {element}
+                </h3>
               </div>
 
-              {/* Level indicator */}
-              <div className="flex items-center justify-between mb-4">
-                <span
-                  className={`uppercase text-sm tracking-wider ${level.color}`}
-                >
-                  {level.label} intensity
-                </span>
-                <span className="text-white/40 text-sm">
-                  {value}/10
-                </span>
-              </div>
-
-              {/* Progress bar */}
-              <div className="w-full h-2 rounded-full bg-white/10 mb-6 overflow-hidden">
-                <div
-                  className={`h-full rounded-full transition-all duration-500 ${level.bar}`}
-                  style={{ width: `${value * 10}%` }}
-                />
+              {/* Gauge (replaces bar/number UI) */}
+              <div className="flex justify-center mb-8">
+                <ElementGauge value={value} label={`${level.label} intensity`} />
               </div>
 
               {/* Text */}
-              <p className="text-white/75 leading-relaxed">
-                {text || "This elemental influence is subtle but still plays a role in your dynamic."}
+              <p className="text-white/75 leading-relaxed text-center">
+                {text ||
+                  "This elemental influence is subtle but still plays a role in your dynamic."}
               </p>
             </div>
           );

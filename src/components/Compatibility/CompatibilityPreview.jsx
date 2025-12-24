@@ -1,4 +1,4 @@
-import ScoreRing from "./ScoreRing.jsx";
+import CompatibilityScoreRing from "./CompatibilityScoreRing.jsx";
 import zodiacLabels from "../../data/zodiac/zodiacLabels.js";
 
 export default function CompatibilityPreview({ signA, signB, data }) {
@@ -22,7 +22,7 @@ export default function CompatibilityPreview({ signA, signB, data }) {
 
         <div className="mt-10 grid md:grid-cols-[220px_1fr] gap-10 items-start">
           <div className="flex justify-center">
-            <ScoreRing value={data.score} />
+            <CompatibilityScoreRing value={data.score} />
           </div>
 
           <div>

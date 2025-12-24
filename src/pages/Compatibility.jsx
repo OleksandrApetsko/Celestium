@@ -9,7 +9,6 @@ import CompatibilityFull from "../components/Compatibility/CompatibilityFull.jsx
 import HoroscopePaywall from "../components/Horoscope/HoroscopePaywall.jsx";
 
 import compatibilityPreview from "../data/compatibility/compatibilityPreview.js";
-import compatibilityFull from "../data/compatibility/compatibilityFull.js";
 
 import { useAccess } from "../hooks/useAccess.js";
 
@@ -26,47 +25,31 @@ export default function Compatibility() {
     [location.search]
   );
 
-  // canonical: slugs only (aries, taurus...)
   const initialA = normalizeSlug(query.get("signA") || "");
   const initialB = normalizeSlug(query.get("signB") || "");
 
   const [signA, setSignA] = useState(initialA);
   const [signB, setSignB] = useState(initialB);
 
-  // keep state in sync with query (direct link, back/forward)
   useEffect(() => {
     setSignA(initialA);
     setSignB(initialB);
   }, [initialA, initialB]);
 
-  // scoped key for one-time purchases (SSOT): premiumCompatibility:<signA-signB>
   const scope = useMemo(() => {
     if (!signA || !signB) return null;
-    return `${normalizeSlug(signA)}-${normalizeSlug(signB)}`;
+    return `${signA}-${signB}`;
   }, [signA, signB]);
 
-  // data
   const preview = useMemo(() => {
     if (!signA || !signB) return null;
     return (
-      compatibilityPreview?.[normalizeSlug(signA)]?.[normalizeSlug(signB)] ??
-      compatibilityPreview?.[normalizeSlug(signB)]?.[normalizeSlug(signA)] ??
+      compatibilityPreview?.[signA]?.[signB] ??
+      compatibilityPreview?.[signB]?.[signA] ??
       null
     );
   }, [signA, signB]);
 
-  const full = useMemo(() => {
-    if (!signA || !signB) return null;
-    return (
-      compatibilityFull?.[normalizeSlug(signA)]?.[normalizeSlug(signB)] ??
-      compatibilityFull?.[normalizeSlug(signB)]?.[normalizeSlug(signA)] ??
-      null
-    );
-  }, [signA, signB]);
-
-  // access:
-  // - subscription: hasAccess() returns true for any productKey in your current useAccess
-  // - one-time: MUST be scoped by pairKey
   const hasFullAccess = useMemo(() => {
     if (!scope) return false;
     return hasAccess("premiumCompatibility", scope);
@@ -77,10 +60,6 @@ export default function Compatibility() {
       <div className="max-w-5xl mx-auto px-6">
         {/* HERO */}
         <div className="text-center mb-16">
-          <span className="text-xs uppercase tracking-[0.25em] text-yellow-300/90">
-            Compatibility
-          </span>
-
           <h1 className="mt-4 text-4xl sm:text-5xl md:text-6xl font-light tracking-[0.22em] text-yellow-300">
             COMPATIBILITY
           </h1>
@@ -96,30 +75,30 @@ export default function Compatibility() {
         <CompatibilityForm
           initialSignA={signA}
           initialSignB={signB}
-          onCalculate={(aSlug, bSlug) => {
-            setSignA(normalizeSlug(aSlug));
-            setSignB(normalizeSlug(bSlug));
+          onCalculate={(a, b) => {
+            setSignA(normalizeSlug(a));
+            setSignB(normalizeSlug(b));
           }}
         />
 
-        {/* PREVIEW (FREE) */}
+        {/* PREVIEW */}
         {preview && (
           <div className="mt-16">
             <CompatibilityPreview signA={signA} signB={signB} data={preview} />
           </div>
         )}
 
-        {/* PAYWALL (only if preview exists and no access) */}
+        {/* PAYWALL */}
         {preview && !hasFullAccess && scope && (
           <div className="mt-20">
             <HoroscopePaywall period="compatibility" sign={scope} />
           </div>
         )}
 
-        {/* FULL (PAID) */}
-        {hasFullAccess && full && (
+        {/* FULL */}
+        {hasFullAccess && signA && signB && (
           <div className="mt-20">
-            <CompatibilityFull signA={signA} signB={signB} data={full} />
+            <CompatibilityFull signA={signA} signB={signB} />
           </div>
         )}
       </div>

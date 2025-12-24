@@ -1,7 +1,6 @@
-// src/components/Compatibility/ScoreRing.jsx
+// src/components/Compatibility/CompatibilityScoreRing.jsx
 
-export default function ScoreRing({ value }) {
-  // 🔒 SAFE NORMALIZATION
+export default function CompatibilityScoreRing({ value }) {
   const safeValue =
     typeof value === "number" && !Number.isNaN(value)
       ? Math.min(100, Math.max(0, value))
