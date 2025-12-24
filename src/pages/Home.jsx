@@ -3,7 +3,6 @@ import { useLocation } from "react-router-dom";
 
 import HeroSection from "../components/Hero/HeroSection.jsx";
 import DailyHoroscopeSection from "../components/DailyHoroscope/DailyHoroscopeSection.jsx";
-import CosmicInsightsSection from "../components/CosmicInsights/CosmicInsightsSection.jsx";
 import CompatibilitySection from "../components/Compatibility/CompatibilitySection.jsx";
 import MoonPhaseSection from "../components/MoonPhase/MoonPhaseSection.jsx";
 import ArticlesSection from "../components/Articles/ArticlesSection.jsx";
@@ -44,7 +43,6 @@ export default function Home() {
       </section>
 
       <ExtendedForecastSection />
-      <CosmicInsightsSection />
       <CompatibilitySection />
       <MoonPhaseSection />
       <ArticlesSection />

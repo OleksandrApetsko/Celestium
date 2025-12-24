@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { sunSignMeta } from "../../data/sunSigns.js";
+import { sunSignMeta } from "../../data/birthChart/sunSigns.js";
 import { getSunSignFromDateString } from "../../utils/getSunSignFromDateString.js";
 
 import SunSummary from "./SunSummary.jsx";

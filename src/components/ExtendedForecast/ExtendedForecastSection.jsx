@@ -1,4 +1,4 @@
-import { extendedForecasts } from "../../data/extendedForecasts.js";
+import { extendedForecasts } from "../../data/horoscope/extendedForecasts.js";
 import ExtendedForecastHeader from './ExtendedForecastHeader.jsx'
 import ExtendedForecastCard from './ExtendedForecastCard.jsx'
 

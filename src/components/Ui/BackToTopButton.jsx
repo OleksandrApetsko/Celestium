@@ -22,19 +22,21 @@ export default function BackToTopButton() {
       aria-label="Back to top"
       className="
         fixed bottom-8 right-8 z-50
-        w-12 h-12
+        w-14 h-14
         rounded-full
-        bg-black/60 backdrop-blur-xl
-        border border-white/20
+        bg-black/70 backdrop-blur-xl
+        border border-yellow-300/70
         flex items-center justify-center
-        text-white/80
+        text-yellow-300
+        text-xl
         transition-all duration-300
-        hover:text-yellow-300
-        hover:border-yellow-300/60
-        hover:shadow-[0_0_30px_rgba(250,204,21,0.25)]
+        hover:bg-black/80
+        hover:border-yellow-300
+        hover:text-yellow-200
+        hover:shadow-[0_0_40px_rgba(250,204,21,0.45)]
         focus:outline-none
         focus-visible:ring-2
-        focus-visible:ring-yellow-300/60
+        focus-visible:ring-yellow-300/70
       "
     >
       ↑
