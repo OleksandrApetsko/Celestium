@@ -1,32 +1,33 @@
-// src/components/Compatibility/CompatibilityLongTerm.jsx
+// src/components/Compatibility/CompatibilityPower.jsx
 
-import compatibilityLongTerm from "../../data/compatibility/compatibilityLongTerm.js";
+import compatibilityPower from "../../data/compatibility/compatibilityPower.js";
 
-export default function CompatibilityLongTerm({ signA, signB }) {
+export default function CompatibilityPower({ signA, signB }) {
   if (!signA || !signB) return null;
 
   const key = `${String(signA).toLowerCase()}-${String(signB).toLowerCase()}`;
-  const items = compatibilityLongTerm[key];
+  const data = compatibilityPower[key];
 
-  if (!items?.length) return null;
+  if (!data?.dynamics?.length) return null;
+
+  const { dynamics } = data;
 
   return (
     <section>
       {/* Header */}
       <div className="text-center mb-16">
         <p className="text-xs uppercase tracking-[0.25em] text-white/40 mb-4">
-          Time Perspective
+          Balance of Influence
         </p>
         <h3 className="text-3xl sm:text-4xl text-yellow-300">
-          Long-Term Potential
+          Power & Influence
         </h3>
       </div>
 
-      {/* Full-width aligned block */}
       <div className="w-full">
-        <div className="relative rounded-3xl bg-black/40 backdrop-blur-xl border border-white/10 p-10 sm:p-14">
+        <div className="rounded-3xl bg-black/40 backdrop-blur-xl border border-white/10 p-10 sm:p-14">
           <ul className="space-y-5 text-white/80 text-sm sm:text-base leading-relaxed max-w-5xl mx-auto">
-            {items.map((item, i) => (
+            {dynamics.map((item, i) => (
               <li key={i} className="flex gap-3">
                 <span className="mt-2 w-2 h-2 rounded-full bg-yellow-300/80 shrink-0" />
                 <span>{item}</span>

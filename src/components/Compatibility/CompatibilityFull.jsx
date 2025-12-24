@@ -1,11 +1,11 @@
-// src/components/Compatibility/CompatibilityFull.jsx
-
 import CompatibilityElements from "./CompatibilityElements.jsx";
 import CompatibilityDynamics from "./CompatibilityDynamics.jsx";
 import CompatibilityStyles from "./CompatibilityStyles.jsx";
 import CompatibilityLongTerm from "./CompatibilityLongTerm.jsx";
 import CompatibilityAdvice from "./CompatibilityAdvice.jsx";
-
+import CompatibilityChemistry from "./CompatibilityChemistry.jsx";
+import CompatibilityConflicts from "./CompatibilityConflicts.jsx";
+import CompatibilityPower from "./CompatibilityPower.jsx";
 // 🔒 локальна, проста логіка елементів (SSOT для цієї сторінки)
 const ELEMENT = {
   aries: "Fire", leo: "Fire", sagittarius: "Fire",
@@ -45,7 +45,7 @@ export default function CompatibilityFull({ signA, signB }) {
   return (
     <section className="relative z-10 mt-32 pb-32">
       <div className="max-w-6xl mx-auto px-6 space-y-32">
-        {/* ✅ ТЕПЕР ЕЛЕМЕНТИ ПЕРЕДАЮТЬСЯ */}
+
         <CompatibilityElements
           elements={elements}
           signA={signA}
@@ -56,9 +56,16 @@ export default function CompatibilityFull({ signA, signB }) {
 
         <CompatibilityStyles signA={signA} signB={signB} />
 
+        <CompatibilityChemistry signA={signA} signB={signB} />
+
+        <CompatibilityConflicts signA={signA} signB={signB} />
+
+        <CompatibilityPower signA={signA} signB={signB} />
+
         <CompatibilityLongTerm signA={signA} signB={signB} />
 
         <CompatibilityAdvice signA={signA} signB={signB} />
+
       </div>
     </section>
   );

@@ -1,3 +1,5 @@
+// src/components/Compatibility/CompatibilityAdvice.jsx
+
 import compatibilityAdvice from "../../data/compatibility/compatibilityAdvice.js";
 
 export default function CompatibilityAdvice({ signA, signB }) {
@@ -20,7 +22,7 @@ export default function CompatibilityAdvice({ signA, signB }) {
         </h3>
       </div>
 
-      {/* Full-width block aligned with other sections */}
+      {/* Advice Block */}
       <div className="w-full">
         <div className="relative rounded-3xl bg-black/40 backdrop-blur-xl border border-yellow-300/20 p-10 sm:p-14 shadow-[0_0_60px_rgba(250,204,21,0.12)]">
 

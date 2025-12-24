@@ -1,5 +1,3 @@
-// src/pages/Compatibility.jsx
-
 import { useMemo, useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -7,10 +5,10 @@ import CompatibilityForm from "../components/Compatibility/CompatibilityForm.jsx
 import CompatibilityPreview from "../components/Compatibility/CompatibilityPreview.jsx";
 import CompatibilityFull from "../components/Compatibility/CompatibilityFull.jsx";
 import HoroscopePaywall from "../components/Horoscope/HoroscopePaywall.jsx";
-
 import compatibilityPreview from "../data/compatibility/compatibilityPreview.js";
 
 import { useAccess } from "../hooks/useAccess.js";
+import HoroscopeNext from '../components/Horoscope/HoroscopeNext.jsx'
 
 function normalizeSlug(v) {
   return String(v || "").toLowerCase().trim();
@@ -25,16 +23,13 @@ export default function Compatibility() {
     [location.search]
   );
 
-  const initialA = normalizeSlug(query.get("signA") || "");
-  const initialB = normalizeSlug(query.get("signB") || "");
-
-  const [signA, setSignA] = useState(initialA);
-  const [signB, setSignB] = useState(initialB);
+  const [signA, setSignA] = useState(() => normalizeSlug(query.get("signA")));
+  const [signB, setSignB] = useState(() => normalizeSlug(query.get("signB")));
 
   useEffect(() => {
-    setSignA(initialA);
-    setSignB(initialB);
-  }, [initialA, initialB]);
+    setSignA(normalizeSlug(query.get("signA")));
+    setSignB(normalizeSlug(query.get("signB")));
+  }, [query]);
 
   const scope = useMemo(() => {
     if (!signA || !signB) return null;
@@ -101,6 +96,9 @@ export default function Compatibility() {
             <CompatibilityFull signA={signA} signB={signB} />
           </div>
         )}
+
+        <HoroscopeNext period="compatibility" />
+
       </div>
     </section>
   );
