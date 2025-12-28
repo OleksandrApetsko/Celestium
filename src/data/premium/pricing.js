@@ -24,7 +24,7 @@ export const subscriptionPricing = {
 // src/data/pricing.js
 
 export const oneTimeProducts = {
-  // horoscopes
+  // Horoscopes
   monthlyHoroscope: { id: "monthlyHoroscope", price: "$9.99" }, // <-- ЗМІНИ ТУТ, якщо у вас інша ціна
   yearlyHoroscope: { id: "yearlyHoroscope", price: "$19.99" },
 

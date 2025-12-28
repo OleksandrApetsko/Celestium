@@ -1,37 +1,53 @@
 import { NavLink } from "react-router-dom";
+import { footerNavSections } from "../../data/footer/footerNav.js";
+import { footerPolicyLinks } from "../../data/footer/footerPolicy.js";
 
-const footerLinks = [
-  { label: "Home", path: "/" },
-  { label: "Daily Horoscope", path: "/#zodiac" },
-  { label: "Weekly Horoscope", path: "/horoscopes/weekly" },
-  { label: "Monthly Horoscope", path: "/horoscopes/monthly" },
-  { label: "Yearly Horoscope", path: "/horoscopes/yearly" },
-  { label: "Compatibility", path: "/compatibility" },
-  { label: "Birth Chart", path: "/birth-chart" },
-  { label: "Blog", path: "/blog" },
-  { label: "About", path: "/about" },
-  { label: "Contact", path: "/contact" }
-];
+function linkClass({ isActive }) {
+  return [
+    "text-sm transition",
+    "text-white/75 hover:text-yellow-300",
+    isActive ? "text-yellow-300" : ""
+  ].join(" ");
+}
 
 export default function FooterNav() {
   return (
-    <nav>
-      <h3 className="text-lg font-semibold text-yellow-400 mb-4">
-        Navigation
-      </h3>
+    <nav aria-label="Footer navigation" className="text-center md:text-left">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+        {footerNavSections.map((section) => (
+          <div key={section.title}>
+            <h3 className="text-sm font-semibold tracking-wide text-white/90">
+              {section.title}
+            </h3>
 
-      <ul className="space-y-2 text-white/80">
-        {footerLinks.map(link => (
-          <li key={link.path}>
-            <NavLink
-              to={link.path}
-              className="hover:text-yellow-400 transition"
-            >
-              {link.label}
-            </NavLink>
-          </li>
+            <ul className="mt-4 space-y-2">
+              {section.links.map((link) => (
+                <li key={link.path}>
+                  <NavLink to={link.path} className={linkClass}>
+                    {link.label}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+          </div>
         ))}
-      </ul>
+
+        <div>
+          <h3 className="text-sm font-semibold tracking-wide text-white/90">
+            Legal
+          </h3>
+
+          <ul className="mt-4 space-y-2">
+            {footerPolicyLinks.map((link) => (
+              <li key={link.path}>
+                <NavLink to={link.path} className={linkClass}>
+                  {link.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </nav>
   );
 }

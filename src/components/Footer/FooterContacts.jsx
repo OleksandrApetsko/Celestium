@@ -1,14 +1,22 @@
+import { footerContact } from "../../data/footer/footerContact.js";
+
 export default function FooterContacts() {
   return (
-    <div>
-      <h3 className="text-lg font-semibold text-yellow-400 mb-4">
-        Contact
+    <div className="text-center md:text-left">
+      <h3 className="text-sm font-semibold tracking-wide text-white/90">
+        {footerContact.title}
       </h3>
 
-      <ul className="space-y-2 text-white/80 text-sm">
-        <li>support@celestium.app</li>
-        <li>+1 (800) 326-3264</li>
-        <li>Worldwide Astrology Service</li>
+      <ul className="mt-4 space-y-2 text-sm text-white/75">
+        <li>
+          <a
+            href={`mailto:${footerContact.email}`}
+            className="hover:text-yellow-300 transition"
+          >
+            {footerContact.email}
+          </a>
+        </li>
+        <li className="text-white/55">{footerContact.subtitle}</li>
       </ul>
     </div>
   );

@@ -1,11 +1,11 @@
 export const faq = [
   {
     q: "What does Premium access include?",
-    a: "Premium access unlocks full monthly and yearly horoscopes, the complete compatibility section, and the full birth chart. Daily and weekly horoscopes remain free for all users."
+    a: "Premium access unlocks full monthly and yearly Horoscopes, the complete compatibility section, and the full birth chart. Daily and weekly Horoscopes remain free for all users."
   },
   {
     q: "What’s the difference between free and Premium content?",
-    a: "Free content includes daily and weekly horoscopes. Premium focuses on extended time frames and additional sections that provide broader context and long-term perspective."
+    a: "Free content includes daily and weekly Horoscopes. Premium focuses on extended time frames and additional sections that provide broader context and long-term perspective."
   },
   {
     q: "Is Premium content personalized?",

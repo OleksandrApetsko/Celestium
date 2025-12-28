@@ -3,9 +3,9 @@ import { menuItems } from "../../data/menuItems.js";
 
 const horoscopeLinks = [
   { label: "Daily", path: "/#zodiac" },
-  { label: "Weekly", path: "/horoscopes/weekly" },
-  { label: "Monthly", path: "/horoscopes/monthly" },
-  { label: "Yearly", path: "/horoscopes/yearly" }
+  { label: "Weekly", path: "/Horoscopes/weekly" },
+  { label: "Monthly", path: "/Horoscopes/monthly" },
+  { label: "Yearly", path: "/Horoscopes/yearly" }
 ];
 
 export default function DesktopMenu() {
@@ -13,7 +13,7 @@ export default function DesktopMenu() {
 
   // Horoscope active if we are on any horoscope-related page
   const isHoroscopeActive =
-    location.pathname.startsWith("/horoscopes") ||
+    location.pathname.startsWith("/Horoscopes") ||
     location.hash === "#zodiac";
 
   return (

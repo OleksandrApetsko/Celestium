@@ -62,7 +62,7 @@ export const featureSectionsData = {
       {
         title: "Extended Timeframes",
         description:
-          "Access full monthly and yearly horoscopes designed to reveal longer cycles and evolving themes."
+          "Access full monthly and yearly Horoscopes designed to reveal longer cycles and evolving themes."
       },
       {
         title: "Complete Sections",

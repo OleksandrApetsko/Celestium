@@ -5,9 +5,9 @@ import SearchInput from "../Search/SearchInput.jsx";
 
 const horoscopeLinks = [
   { label: "Daily", path: "/#zodiac" },
-  { label: "Weekly", path: "/horoscopes/weekly" },
-  { label: "Monthly", path: "/horoscopes/monthly" },
-  { label: "Yearly", path: "/horoscopes/yearly" }
+  { label: "Weekly", path: "/Horoscopes/weekly" },
+  { label: "Monthly", path: "/Horoscopes/monthly" },
+  { label: "Yearly", path: "/Horoscopes/yearly" }
 ];
 
 export default function MobileMenu({ open, onClose }) {

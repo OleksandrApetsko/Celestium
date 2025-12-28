@@ -9,22 +9,36 @@ export default function Footer() {
     <footer
       className="
         relative z-10
-        mt-24 pt-16 pb-10
-        bg-black/40 backdrop-blur-xl
+        mt-20
+        bg-black/45 backdrop-blur-xl
         border-t border-white/10
         text-white
       "
+      aria-label="Footer"
     >
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 text-center">
+      <div className="max-w-7xl mx-auto px-6 pt-14 pb-10">
+        <div
+          className="
+            grid grid-cols-1 gap-12
+            md:grid-cols-12 md:gap-10
+          "
+        >
+          <div className="md:col-span-4">
+            <FooterLogo />
+          </div>
 
-        <FooterLogo />
-        <FooterNav />
-        <FooterContacts />
-        <FooterSocials />
+          <div className="md:col-span-5">
+            <FooterNav />
+          </div>
 
+          <div className="md:col-span-3 space-y-10">
+            <FooterContacts />
+            <FooterSocials />
+          </div>
+        </div>
+
+        <FooterCopyright />
       </div>
-
-      <FooterCopyright />
     </footer>
   );
 }

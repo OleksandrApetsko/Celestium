@@ -79,7 +79,7 @@ export function buildSearchIndex() {
       type: "horoscope",
       title: "Weekly Horoscope",
       subtitle: "This week",
-      path: "/horoscopes/weekly",
+      path: "/Horoscopes/weekly",
       keywords: ["weekly", "week", "horoscope"]
     },
     {
@@ -87,7 +87,7 @@ export function buildSearchIndex() {
       type: "horoscope",
       title: "Monthly Horoscope",
       subtitle: "This month",
-      path: "/horoscopes/monthly",
+      path: "/Horoscopes/monthly",
       keywords: ["monthly", "month", "horoscope"]
     },
     {
@@ -95,7 +95,7 @@ export function buildSearchIndex() {
       type: "horoscope",
       title: "Yearly Horoscope",
       subtitle: "This year",
-      path: "/horoscopes/yearly",
+      path: "/Horoscopes/yearly",
       keywords: ["yearly", "year", "horoscope"]
     }
   );
