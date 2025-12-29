@@ -7,7 +7,7 @@ import PremiumSection from "../components/Premium/PremiumSection.jsx";
 import BlogSection from "../components/Blog/BlogSection.jsx";
 
 import useHashScroll from "../hooks/useHashScroll.js";
-import HoroscopeNext from '../components/Horoscope/HoroscopeNext.jsx'
+import HoroscopeNext from "../components/Horoscope/HoroscopeNext.jsx";
 
 export default function Home() {
   useHashScroll({
@@ -28,6 +28,7 @@ export default function Home() {
       <BirthChartSection />
       <PremiumSection />
       <BlogSection />
+
       <HoroscopeNext period="premium" />
     </>
   );

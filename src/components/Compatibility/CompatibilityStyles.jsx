@@ -1,6 +1,7 @@
 // src/components/Compatibility/CompatibilityStyles.jsx
 
 import compatibilityStyles from "../../data/compatibility/compatibilityStyles.js";
+import Container from "../UI/Container.jsx";
 
 export default function CompatibilityStyles({ signA, signB }) {
   if (!signA || !signB) return null;
@@ -15,31 +16,33 @@ export default function CompatibilityStyles({ signA, signB }) {
   if (!emotional?.length && !communication?.length) return null;
 
   return (
-    <section>
-      {/* Header */}
-      <div className="text-center mb-16">
-        <p className="text-xs uppercase tracking-[0.25em] text-white/40 mb-4">
-          Interaction Expression
-        </p>
-        <h3 className="text-3xl sm:text-4xl text-yellow-300">
-          Emotional & Communication Styles
-        </h3>
-      </div>
+    <Container>
+      <section>
+        {/* Header */}
+        <div className="text-center mb-16">
+          <p className="text-xs uppercase tracking-[0.25em] text-white/40 mb-4">
+            Interaction Expression
+          </p>
+          <h3 className="text-3xl sm:text-4xl text-yellow-300">
+            Emotional & Communication Styles
+          </h3>
+        </div>
 
-      <div className="grid md:grid-cols-2 gap-12">
-        <StyleBlock
-          title="Emotional Style"
-          description="How emotions are expressed, processed, and perceived in this connection."
-          items={emotional}
-        />
+        <div className="grid md:grid-cols-2 gap-12">
+          <StyleBlock
+            title="Emotional Style"
+            description="How emotions are expressed, processed, and perceived in this connection."
+            items={emotional}
+          />
 
-        <StyleBlock
-          title="Communication Style"
-          description="How dialogue, conflict resolution, and understanding naturally unfold."
-          items={communication}
-        />
-      </div>
-    </section>
+          <StyleBlock
+            title="Communication Style"
+            description="How dialogue, conflict resolution, and understanding naturally unfold."
+            items={communication}
+          />
+        </div>
+      </section>
+    </Container>
   );
 }
 

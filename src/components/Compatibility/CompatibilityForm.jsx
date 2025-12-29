@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import CustomSelect from "./CustomSelect.jsx";
+import Container from "../UI/Container.jsx";
 
 export default function CompatibilityForm({
   onCalculate,
@@ -19,32 +20,35 @@ export default function CompatibilityForm({
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="max-w-2xl mx-auto px-6"
-    >
-      <div className="grid md:grid-cols-2 gap-6">
-        <CustomSelect label="Your Sign" value={signA} onChange={setSignA} />
-        <CustomSelect label="Partner's Sign" value={signB} onChange={setSignB} />
-      </div>
+    <Container>
+      <form onSubmit={handleSubmit} className="max-w-2xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6">
+          <CustomSelect label="Your Sign" value={signA} onChange={setSignA} />
+          <CustomSelect
+            label="Partner's Sign"
+            value={signB}
+            onChange={setSignB}
+          />
+        </div>
 
-      <div className="mt-8 flex justify-center">
-        <button
-          type="submit"
-          className="
-            inline-flex items-center justify-center
-            rounded-xl
-            bg-yellow-300 text-black
-            px-10 py-4
-            font-semibold
-            transition-all duration-300
-            hover:brightness-110
-            hover:shadow-[0_0_40px_rgba(250,204,21,0.35)]
-          "
-        >
-          Check Compatibility
-        </button>
-      </div>
-    </form>
+        <div className="mt-8 flex justify-center">
+          <button
+            type="submit"
+            className="
+              inline-flex items-center justify-center
+              rounded-xl
+              bg-yellow-300 text-black
+              px-10 py-4
+              font-semibold
+              transition-all duration-300
+              hover:brightness-110
+              hover:shadow-[0_0_40px_rgba(250,204,21,0.35)]
+            "
+          >
+            Check Compatibility
+          </button>
+        </div>
+      </form>
+    </Container>
   );
 }

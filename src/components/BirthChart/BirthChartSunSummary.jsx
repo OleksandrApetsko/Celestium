@@ -1,6 +1,6 @@
 import Container from "../UI/Container.jsx";
 
-import { sunSignMeta } from "../../data/birthChart/sunSigns.js";
+import { sunSignMeta } from "../../data/birthChart/birthChartSunSummary.js";
 import { getSunSignFromDateString } from "../../utils/getSunSignFromDateString.js";
 
 export default function BirthChartSunSummary({ data }) {

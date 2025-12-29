@@ -71,6 +71,15 @@ export const horoscopeNavigation = {
       { id: "compatibility", label: "Compatibility", to: "/compatibility" },
       { id: "blog", label: "Blog", to: "/blog" }
     ]
+  },
+
+  horoscopes: {
+    variant: "quiet",
+    links: () => [
+      { id: "compatibility", label: "Compatibility", to: "/compatibility" },
+      { id: "birth-chart", label: "Birth Chart", to: "/birth-chart" },
+      { id: "blog", label: "Blog", to: "/blog" }
+    ]
   }
 
 };

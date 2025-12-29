@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { zodiacData } from "../../data/zodiac/zodiacData.js";
 import HoroscopeCard from "../../components/Horoscope/HoroscopeCard.jsx";
+import HoroscopeNext from "../../components/Horoscope/HoroscopeNext.jsx";
 
 export default function Monthly() {
   return (
-    <section className="relative z-10 py-16 md:py-24">
+    <section className="relative z-10 pt-16 md:pt-24">
       <div className="max-w-7xl mx-auto px-6">
-
         <div className="text-center mb-14">
           <span className="text-xs uppercase tracking-[0.25em] text-yellow-300">
             Monthly Horoscope
@@ -22,18 +22,15 @@ export default function Monthly() {
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 lg:gap-8">
-          {zodiacData.map(z => (
+          {zodiacData.map((z) => (
             <Link key={z.sign} to={`/horoscopes/monthly/${z.sign}`}>
-              <HoroscopeCard
-                sign={z.sign}
-                dates={z.dates}
-                variant="monthly"
-              />
+              <HoroscopeCard sign={z.sign} dates={z.dates} variant="monthly" />
             </Link>
           ))}
         </div>
-
       </div>
+
+      <HoroscopeNext period="horoscopes" />
     </section>
   );
 }

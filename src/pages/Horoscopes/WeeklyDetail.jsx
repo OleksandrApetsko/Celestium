@@ -15,18 +15,17 @@ export default function WeeklyDetail() {
 
   if (!data) {
     return (
-      <section className="py-20 text-center text-white">
+      <section className="pt-20 text-center text-white">
         <h1 className="text-3xl font-semibold">Weekly Horoscope Not Found</h1>
       </section>
     );
   }
 
   return (
-    <section className="relative z-10 py-16 md:py-24">
+    <section className="relative z-10 pt-16 md:pt-24">
       <HoroscopeContent>
 
         <ZodiacDescription sign={sign} />
-
         <HoroscopeHeader label="Weekly Horoscope" sign={sign} />
 
         <HoroscopeInsight

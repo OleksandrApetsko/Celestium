@@ -15,33 +15,27 @@ export default function Today() {
 
   if (!data) {
     return (
-      <section className="py-20 text-center text-white">
+      <section className="pt-20 text-center text-white">
         <h1 className="text-3xl font-semibold">Daily Horoscope Not Found</h1>
       </section>
     );
   }
 
   return (
-    <section className="relative z-10 py-16 md:py-24">
+    <section className="relative z-10 pt-16 md:pt-24">
       <HoroscopeContent>
 
-        {/* 1. SIGN CONTEXT */}
         <ZodiacDescription sign={sign} />
-
-        {/* 2. PAGE HEADER */}
         <HoroscopeHeader label="Daily Horoscope" sign={sign} />
 
-        {/* 3. CORE INSIGHT */}
         <HoroscopeInsight
           kicker="Daily Insight"
           headline={data.title}
           description={data.summary}
         />
 
-        {/* 4. THEMES (IDENTICAL TO WEEKLY) */}
         <HoroscopeThemes themes={data.themes} />
 
-        {/* 5. CONTEXT GRID (IDENTICAL STRUCTURE) */}
         <HoroscopeContext
           items={[
             ["Energy", data.context.energy],
@@ -50,7 +44,6 @@ export default function Today() {
           ]}
         />
 
-        {/* 6. NEXT NAVIGATION */}
         <HoroscopeNext sign={sign} period="daily" />
 
       </HoroscopeContent>

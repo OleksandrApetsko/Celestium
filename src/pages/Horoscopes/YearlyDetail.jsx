@@ -18,7 +18,7 @@ export default function YearlyDetail() {
   const data = yearlyHoroscopeData[sign];
   if (!data) {
     return (
-      <section className="py-20 text-center text-white">
+      <section className="pt-20 text-center text-white">
         <h1 className="text-3xl font-semibold">Yearly Horoscope Not Found</h1>
       </section>
     );
@@ -30,14 +30,12 @@ export default function YearlyDetail() {
   const areasText = `${data.areas.work} ${data.areas.relationships} ${data.areas.emotions}`;
 
   return (
-    <section className="relative z-10 py-16 md:py-24">
+    <section className="relative z-10 pt-16 md:pt-24">
       <HoroscopeContent>
 
         <ZodiacDescription sign={sign} />
-
         <HoroscopeHeader label="Yearly Horoscope" sign={sign} />
 
-        {/* PREVIEW — ALWAYS */}
         <HoroscopeInsight
           kicker="Yearly Overview"
           headline={data.title}
@@ -54,12 +52,10 @@ export default function YearlyDetail() {
           ]}
         />
 
-        {/* PAYWALL */}
         {!hasFullAccess && (
           <HoroscopePaywall period="yearly" sign={sign} />
         )}
 
-        {/* FULL */}
         {hasFullAccess && (
           <>
             <HoroscopeInsight
@@ -67,31 +63,26 @@ export default function YearlyDetail() {
               headline="Year Progression"
               description={timelineText}
             />
-
             <HoroscopeInsight
               kicker="Life Areas"
               headline="Key Areas of Growth"
               description={areasText}
             />
-
             <HoroscopeInsight
               kicker="What to Watch"
               headline="Challenges"
               description={data.challenges.join(" • ")}
             />
-
             <HoroscopeInsight
               kicker="Where Growth Happens"
               headline="Opportunities"
               description={data.opportunities.join(" • ")}
             />
-
             <HoroscopeInsight
               kicker="Strategic Direction"
               headline="Your Long-Term Direction"
               description={data.advice.join(" • ")}
             />
-
             {data.premium?.message && (
               <HoroscopeInsight
                 kicker="Deep Year Insight"

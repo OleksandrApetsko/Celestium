@@ -1,4 +1,4 @@
-// src/data/sunSigns.js
+// src/data/birthChartSunSummary.js
 
 export const sunSignMeta = {
   Aries: {

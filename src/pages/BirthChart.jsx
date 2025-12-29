@@ -1,5 +1,3 @@
-import { useEffect, useMemo, useState } from "react";
-
 import BirthChartHeader from "../components/BirthChart/BirthChartHeader.jsx";
 import BirthChartForm from "../components/BirthChart/BirthChartForm.jsx";
 import BirthChartSunSummary from "../components/BirthChart/BirthChartSunSummary.jsx";
@@ -10,38 +8,14 @@ import BirthChartFull from "../components/BirthChart/BirthChartFull.jsx";
 import HoroscopePaywall from "../components/Horoscope/HoroscopePaywall.jsx";
 import HoroscopeNext from "../components/Horoscope/HoroscopeNext.jsx";
 
-import { useAccess } from "../hooks/useAccess.js";
+import useBirthChartPage from "../hooks/useBirthChartPage.js";
 
 export default function BirthChart() {
-  const [chart, setChart] = useState(null);
-  const { hasAccess } = useAccess();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-  const onGenerate = (payload) => {
-    setChart(payload);
-  };
-
-  /**
-   * Тимчасовий scope.
-   * Використовується ТІЛЬКИ для access check.
-   * На рендер paywall НЕ впливає.
-   */
-  const scope = useMemo(() => {
-    if (!chart) return null;
-    return "birth-chart";
-  }, [chart]);
-
-  const hasFullAccess = useMemo(() => {
-    if (!scope) return false;
-    return hasAccess("premiumBirthChart", scope);
-  }, [hasAccess, scope]);
+  const { chart, onGenerate, hasFullAccess } = useBirthChartPage();
 
   return (
-    <section className="min-h-screen pt-40 pb-32 text-white relative">
-      {/* PAGE HEADER */}
+    <section className="pt-40 text-white relative">
+      {/* HEADER */}
       <BirthChartHeader />
 
       {/* FORM */}
@@ -64,7 +38,7 @@ export default function BirthChart() {
         </>
       )}
 
-      {/* PAYWALL — ВАЖЛИВО: БЕЗ scope */}
+      {/* PAYWALL */}
       {chart && !hasFullAccess && (
         <div className="mt-20">
           <HoroscopePaywall period="birthChart" />
@@ -78,7 +52,6 @@ export default function BirthChart() {
         </div>
       )}
 
-      {/* NAVIGATION */}
       <HoroscopeNext period="birthChart" />
     </section>
   );

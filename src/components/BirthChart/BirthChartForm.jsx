@@ -66,38 +66,29 @@ export default function BirthChartForm({ onGenerate }) {
             </div>
           )}
 
-          {/* ✅ CHECKBOX — WORKING */}
-          <label className="flex items-center gap-3 mt-3 cursor-pointer select-none">
-            <input
-              type="checkbox"
-              checked={unknownTime}
-              onChange={() => setUnknownTime(v => !v)}
-              className="peer sr-only"
-            />
-
-            <div className="relative w-5 h-5 rounded bg-black/50 border border-white/40 flex items-center justify-center">
-              <svg
-                className="
-                  absolute
-                  w-3 h-3
-                  text-yellow-300
-                  opacity-0
-                  peer-checked:opacity-100
-                  transition
-                "
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="3"
-              >
-                <path d="M5 13l4 4L19 7" />
-              </svg>
+          {/* ✅ CHECKBOX — FINAL, GUARANTEED */}
+          <div
+            className="flex items-center gap-3 mt-3 cursor-pointer select-none"
+            onClick={() => setUnknownTime(v => !v)}
+          >
+            <div className="w-5 h-5 rounded bg-black/50 border border-white/40 flex items-center justify-center">
+              {unknownTime && (
+                <svg
+                  className="w-3 h-3 text-yellow-300"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                >
+                  <path d="M5 13l4 4L19 7" />
+                </svg>
+              )}
             </div>
 
             <span className="text-white/80 text-sm">
               I don’t know my time of birth
             </span>
-          </label>
+          </div>
         </div>
 
         {/* LOCATION */}

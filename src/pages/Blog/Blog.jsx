@@ -1,13 +1,10 @@
-// src/pages/Blog/Blog.jsx
-
 import { blogData } from "../../data/blog/blogData.js";
 import BlogCard from "../../components/Blog/BlogCard.jsx";
-import HoroscopeNext from '../../components/Horoscope/HoroscopeNext.jsx'
+import HoroscopeNext from "../../components/Horoscope/HoroscopeNext.jsx";
 
 export default function Blog() {
   return (
-    <section className="relative z-10 py-20 px-6 max-w-7xl mx-auto">
-
+    <section className="relative z-10 pt-20 px-6 max-w-7xl mx-auto">
       <div className="text-center mb-14">
         <span className="text-xs uppercase tracking-[0.25em] text-yellow-300">
           Celestium Blog
@@ -28,7 +25,6 @@ export default function Blog() {
       </div>
 
       <HoroscopeNext period="premium" />
-
     </section>
   );
 }
