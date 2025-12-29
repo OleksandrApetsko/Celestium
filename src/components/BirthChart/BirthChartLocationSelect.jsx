@@ -1,15 +1,6 @@
-// src/components/BirthChart/BirthChartLocationSelect.jsx
-
 import { useEffect, useMemo, useRef, useState } from "react";
 
 const CACHE_LIMIT = 50;
-
-// Nominatim може інколи блокувати браузерні запити.
-// Ми робимо компонент так, щоб:
-// - не було вічного "Searching..."
-// - був error state + manual fallback
-// - кешували результати
-// - був таймаут запиту
 
 export default function BirthChartLocationSelect({ value, onChange }) {
   const [query, setQuery] = useState(value || "");
@@ -53,34 +44,34 @@ export default function BirthChartLocationSelect({ value, onChange }) {
 
       setLoading(true);
 
-      const timeoutId = setTimeout(() => controller.abort(), 4500);
+      const timeoutId = setTimeout(() => controller.abort(), 4000);
 
       try {
-        const url = `https://nominatim.openstreetmap.org/search?format=json&limit=8&q=${encodeURIComponent(
+        const url = `https://photon.komoot.io/api/?q=${encodeURIComponent(
           normalizedQuery
-        )}`;
+        )}&limit=6&lang=en`;
 
         const res = await fetch(url, {
           signal: controller.signal,
-          headers: {
-            "Accept-Language": "en",
-          },
         });
 
         if (!res.ok) throw new Error("Provider unavailable");
 
         const data = await res.json();
 
-        const parsed = (Array.isArray(data) ? data : [])
-          .map((item) => {
-            const name = String(item?.display_name || "");
-            if (!name) return null;
+        const parsed = (data?.features || [])
+          .map((f) => {
+            const props = f.properties || {};
 
-            const parts = name.split(",").map((p) => p.trim()).filter(Boolean);
-            if (parts.length < 2) return null;
+            const city =
+              props.city ||
+              props.name ||
+              props.locality ||
+              props.county;
 
-            const city = parts[0];
-            const country = parts[parts.length - 1];
+            const country = props.country;
+
+            if (!city || !country) return null;
 
             return {
               label: `${city}, ${country}`,
@@ -94,7 +85,7 @@ export default function BirthChartLocationSelect({ value, onChange }) {
         const key = normalizedQuery.toLowerCase();
         cacheRef.current.set(key, parsed);
 
-        // cache eviction (simple)
+        // cache eviction
         if (cacheRef.current.size > CACHE_LIMIT) {
           const firstKey = cacheRef.current.keys().next().value;
           cacheRef.current.delete(firstKey);
@@ -110,7 +101,7 @@ export default function BirthChartLocationSelect({ value, onChange }) {
         clearTimeout(timeoutId);
         setLoading(false);
       }
-    }, 450);
+    }, 400);
 
     return () => clearTimeout(debounceId);
   }, [normalizedQuery]);
@@ -146,7 +137,9 @@ export default function BirthChartLocationSelect({ value, onChange }) {
       />
 
       {error && (
-        <p className="mt-2 text-white/55 text-xs leading-relaxed">{error}</p>
+        <p className="mt-2 text-white/55 text-xs leading-relaxed">
+          {error}
+        </p>
       )}
 
       {open && (loading || results.length > 0) && (
@@ -161,7 +154,9 @@ export default function BirthChartLocationSelect({ value, onChange }) {
           "
         >
           {loading && (
-            <div className="px-4 py-3 text-sm text-white/60">Searching…</div>
+            <div className="px-4 py-3 text-sm text-white/60">
+              Searching…
+            </div>
           )}
 
           {!loading &&

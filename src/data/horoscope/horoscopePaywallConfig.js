@@ -64,5 +64,23 @@ export const horoscopePaywallConfig = {
       helper:
         "Permanent access to the full compatibility report for this zodiac pair."
     }
+  },
+
+  birthChart: {
+    productKey: "premiumBirthChart",
+
+    title: "Unlock Your Full Natal Chart",
+
+    description:
+      "Access your complete birth chart interpretation — including planetary placements, houses, aspects, psychological patterns, relationship dynamics and timing cycles.",
+
+    premiumCta: "Unlock with Premium →",
+
+    oneTime: {
+      title: "One-time purchase",
+      cta: "Buy Full Natal Chart →",
+      helper:
+        "Permanent access to your complete natal chart interpretation."
+    }
   }
 };

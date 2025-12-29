@@ -1,12 +1,20 @@
-// src/pages/BirthChart.jsx
+import { useEffect, useMemo, useState } from "react";
 
-import { useEffect, useState } from "react";
+import BirthChartHeader from "../components/BirthChart/BirthChartHeader.jsx";
 import BirthChartForm from "../components/BirthChart/BirthChartForm.jsx";
-import BirthChartReport from "../components/BirthChart/BirthChartReport.jsx";
-import HoroscopeNext from '../components/Horoscope/HoroscopeNext.jsx'
+import BirthChartSunSummary from "../components/BirthChart/BirthChartSunSummary.jsx";
+import BirthChartIdentityBlock from "../components/BirthChart/BirthChartIdentityBlock.jsx";
+import BirthChartCorePlacements from "../components/BirthChart/BirthChartCorePlacements.jsx";
+import BirthChartFull from "../components/BirthChart/BirthChartFull.jsx";
+
+import HoroscopePaywall from "../components/Horoscope/HoroscopePaywall.jsx";
+import HoroscopeNext from "../components/Horoscope/HoroscopeNext.jsx";
+
+import { useAccess } from "../hooks/useAccess.js";
 
 export default function BirthChart() {
   const [chart, setChart] = useState(null);
+  const { hasAccess } = useAccess();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -16,41 +24,62 @@ export default function BirthChart() {
     setChart(payload);
   };
 
+  /**
+   * Тимчасовий scope.
+   * Використовується ТІЛЬКИ для access check.
+   * На рендер paywall НЕ впливає.
+   */
+  const scope = useMemo(() => {
+    if (!chart) return null;
+    return "birth-chart";
+  }, [chart]);
+
+  const hasFullAccess = useMemo(() => {
+    if (!scope) return false;
+    return hasAccess("premiumBirthChart", scope);
+  }, [hasAccess, scope]);
+
   return (
-    <section className="min-h-screen pt-40 pb-32 px-6 text-white relative">
-      {/* HEADER */}
-      <div className="max-w-5xl mx-auto text-center mb-14">
-        <h1
-          className="
-            text-5xl md:text-6xl font-light tracking-[0.22em]
-            text-yellow-300 drop-shadow-[0_0_28px_rgba(255,215,0,0.45)]
-          "
-        >
-          BIRTH CHART
-        </h1>
-
-        <p className="mt-6 text-white/70 text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
-          Enter your birth details to generate an identity preview and chart structure.
-          Extended interpretation is available through Premium access.
-        </p>
-
-        <p className="mt-3 text-yellow-300/90 text-xs tracking-[0.35em] uppercase">
-          Data-enhanced astrological insights • Crafted for clarity
-        </p>
-      </div>
+    <section className="min-h-screen pt-40 pb-32 text-white relative">
+      {/* PAGE HEADER */}
+      <BirthChartHeader />
 
       {/* FORM */}
       <BirthChartForm onGenerate={onGenerate} />
 
-      {/* REPORT PREVIEW */}
+      {/* FREE CONTENT */}
       {chart && (
+        <>
+          <div className="mt-20">
+            <BirthChartSunSummary data={chart} />
+          </div>
+
+          <div className="mt-20">
+            <BirthChartIdentityBlock />
+          </div>
+
+          <div className="mt-20">
+            <BirthChartCorePlacements />
+          </div>
+        </>
+      )}
+
+      {/* PAYWALL — ВАЖЛИВО: БЕЗ scope */}
+      {chart && !hasFullAccess && (
         <div className="mt-20">
-          <BirthChartReport data={chart} />
+          <HoroscopePaywall period="birthChart" />
         </div>
       )}
 
-      <HoroscopeNext period="birthChart" />
+      {/* PREMIUM */}
+      {chart && hasFullAccess && (
+        <div className="mt-20">
+          <BirthChartFull />
+        </div>
+      )}
 
+      {/* NAVIGATION */}
+      <HoroscopeNext period="birthChart" />
     </section>
   );
 }

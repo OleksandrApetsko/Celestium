@@ -15,7 +15,7 @@ import BlogPost from "./pages/Blog/BlogPost.jsx";
 import Premium from "./pages/Premium.jsx";
 import Compatibility from "./pages/Compatibility.jsx";
 import BirthChart from "./pages/BirthChart.jsx";
-import BirthChartFull from "./pages/BirthChartFull.jsx";
+import BirthChartFull from "./components/BirthChart/BirthChartFull.jsx";
 
 import WeeklyDetail from "./pages/Horoscopes/WeeklyDetail.jsx";
 import Weekly from "./pages/Horoscopes/Weekly.jsx";
