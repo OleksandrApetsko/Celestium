@@ -51,7 +51,7 @@ export const horoscopeNavigation = {
     links: () => [
       { id: "horoscope", label: "Horoscope", to: "/#zodiac" },
       { id: "birth-chart", label: "Birth Chart", to: "/birth-chart" },
-      { id: "blog", label: "Blog", to: "/blog" }
+      { id: "Blog", label: "Blog", to: "/Blog" }
     ]
   },
   /* 🔹 QUIET NAVIGATION — PREMIUM PAGE */
@@ -69,7 +69,7 @@ export const horoscopeNavigation = {
     links: () => [
       { id: "horoscope", label: "Horoscope", to: "/#zodiac" },
       { id: "compatibility", label: "Compatibility", to: "/compatibility" },
-      { id: "blog", label: "Blog", to: "/blog" }
+      { id: "Blog", label: "Blog", to: "/Blog" }
     ]
   },
 
@@ -78,7 +78,7 @@ export const horoscopeNavigation = {
     links: () => [
       { id: "compatibility", label: "Compatibility", to: "/compatibility" },
       { id: "birth-chart", label: "Birth Chart", to: "/birth-chart" },
-      { id: "blog", label: "Blog", to: "/blog" }
+      { id: "Blog", label: "Blog", to: "/Blog" }
     ]
   }
 

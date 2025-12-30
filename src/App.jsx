@@ -10,7 +10,6 @@ import Home from "./pages/Home.jsx";
 import Today from "./pages/zodiac/[sign]/Today.jsx";
 import Contact from "./pages/Contact.jsx";
 import About from "./pages/About.jsx";
-import Blog from "./pages/Blog/Blog.jsx";
 import BlogPost from "./pages/Blog/BlogPost.jsx";
 import Premium from "./pages/Premium.jsx";
 import Compatibility from "./pages/Compatibility.jsx";
@@ -35,6 +34,7 @@ import CookiePolicy from "./pages/Policy/CookiePolicy.jsx";
 
 import { DevAccessProvider } from "./context/DevAccessContext.jsx";
 import DevAccessToggle from "./components/Dev/DevAccessToggle.jsx";
+import Blog from './pages/Blog/Blog.jsx'
 
 export default function App() {
   return (

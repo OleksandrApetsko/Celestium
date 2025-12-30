@@ -1,5 +1,3 @@
-// src/pages/Blog/BlogPost.jsx
-
 import { useParams, Link } from "react-router-dom";
 import { blogData } from "../../data/blog/blogData.js";
 import BlogBackButton from "../../components/Blog/BlogBackButton.jsx";
@@ -8,12 +6,11 @@ import RecommendedArticles from "../../components/Blog/RecommendedArticles.jsx";
 export default function BlogPost() {
   const { id } = useParams();
 
-  // id в URL = рядок, id в blogData теж рядок → все збігається
   const article = blogData.find((p) => p.id === id);
 
   if (!article) {
     return (
-      <section className="text-center text-white py-32">
+      <section className="relative z-10 pt-32 pb-32 px-6 max-w-7xl mx-auto text-center text-white">
         <h1 className="text-3xl font-semibold mb-4">Article Not Found</h1>
         <Link to="/blog" className="text-yellow-300 underline">
           ← Back to all articles
@@ -23,26 +20,23 @@ export default function BlogPost() {
   }
 
   return (
-    <section className="relative z-10 py-20 px-6 max-w-5xl mx-auto">
+    /* КРИТИЧНО: ВІДСТУП ВІД FIXED HEADER */
+    <section className="relative z-10 pt-28 px-6 max-w-7xl mx-auto">
 
-      <h1 className="text-4xl md:text-5xl font-bold text-white text-center leading-tight mt-8">
+      {/* TITLE */}
+      <h1 className="text-4xl md:text-5xl font-medium text-yellow-300 text-center leading-tight mb-14">
         {article.title}
       </h1>
 
-      <p className="text-white/60 text-center mt-3">{article.date}</p>
-
-      {/* RESPONSIVE HERO IMAGE VIA background-image */}
+      {/* HERO IMAGE — ТОЙ САМИЙ РИТМ */}
       <div
         className="
           w-full
-          max-w-4xl
-          mx-auto
-          mt-10
+          mt-8
           rounded-2xl
           overflow-hidden
           border border-white/10
           shadow-[0_0_25px_rgba(255,225,130,0.35)]
-          relative
         "
         style={{
           backgroundImage: `url(${article.image})`,
@@ -52,17 +46,47 @@ export default function BlogPost() {
         }}
       />
 
-      <article
+      {/* ARTICLE CARD */}
+      <div
         className="
-          prose prose-invert max-w-3xl mx-auto mt-12
-          text-lg leading-relaxed text-white/85
-          prose-p:mb-6 prose-h2:text-yellow-300 prose-strong:text-yellow-200
+          w-full
+          mt-8
+          rounded-2xl
+          border border-white/10
+          bg-white/[0.08]
+          backdrop-blur-sm
+          shadow-[0_0_40px_rgba(0,0,0,0.4)]
         "
-        dangerouslySetInnerHTML={{ __html: article.content }}
-      />
+      >
+        <article
+          className="
+            prose prose-invert
+            max-w-none
+            px-6 sm:px-10 lg:px-14
+            py-10 sm:py-12
+            text-lg
+            leading-relaxed
+            text-white/85
 
+            [&_p]:my-0
+            [&_p]:indent-3
+
+            [&_h2]:mt-5
+            [&_h2]:mb-3
+            [&_h2]:text-yellow-300
+
+            [&_p+_h2]:mt-5
+
+            [&_strong]:text-yellow-200
+          "
+          dangerouslySetInnerHTML={{ __html: article.content }}
+        />
+      </div>
+
+      {/* RECOMMENDED */}
       <RecommendedArticles currentId={id} />
 
+      {/* BACK */}
       <div className="mt-14 text-center">
         <BlogBackButton label="← Back to blog" />
       </div>

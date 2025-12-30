@@ -31,11 +31,11 @@ export function buildSearchIndex() {
       keywords: ["email", "support", "help"]
     },
     {
-      id: "blog",
+      id: "Blog",
       type: "page",
       title: "Blog",
       subtitle: "Articles",
-      path: "/blog",
+      path: "/Blog",
       keywords: ["articles", "guides", "news"]
     },
     {
